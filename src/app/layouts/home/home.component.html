@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="green" data-background-color="aliceblue" *ngIf="isScreenSmall">
+    <app-sidebar-pmb></app-sidebar-pmb>
+    <div class="sidebar-background" style="background-color: aliceblue"></div>
+  </div>
+  <div class="main-panel-pmb w-full">
+    <app-navbar-home-cmp></app-navbar-home-cmp>
+
+    <router-outlet></router-outlet>
+
+    <div *ngIf="!isMap()">
+      <app-footer-cmp></app-footer-cmp>
+    </div>
+  </div>
+</div>

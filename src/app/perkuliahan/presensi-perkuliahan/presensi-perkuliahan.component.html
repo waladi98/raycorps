@@ -1,0 +1,175 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Menu Pilihan Presensi Perkuliahan -->
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Peserta Kuliah</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field>
+              <mat-select placeholder="Tahun Akademik" name="TA">
+                <mat-option *ngFor="let TA of TahunAkademik" [value]="TA.value">
+                  {{ TA.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Dosen" name="Dosen">
+                <mat-option *ngFor="let Dosen of Dosen" [value]="Dosen.value">
+                  {{ Dosen.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Matakuliah" name="Matakuliah">
+                <mat-option *ngFor="let Matakuliah of Matkul" [value]="Matakuliah.value">
+                  {{ Matakuliah.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+          <!--  end content  -->
+        </div>
+        <!--  end card  -->
+      </div>
+
+      <!-- Informasi yang telah di pilih -->
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table-info-dosen border-collapse">
+            <tbody>
+              <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Matakuliah</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">IF164205 - PERANCANGAN BASIS DATA (05) (Kuliah)</td>
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">SKS</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">3 dari 3 SKS</td>
+              </tr>
+              <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Waktu Kuliah</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">Kamis, 13:00 ~ 15:30</td>
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Lokasi</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">Kampus Empat, SB410</td>
+              </tr>
+              <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Dosen Koordinator</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">SALI ALAS MAJAPAHIT, S.ST., M.KOM.,</td>
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Kehadiran</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">1/14, Minimal: 0</td>
+              </tr>
+              <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Tambah Presensi</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="Presensi Ke - " />
+                  </mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Pilih Tanggal" (click)="picker.open()" />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </td>
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Pengampu</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                  <div class="dropdown">
+                    <button href="#" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                      SALI ALAS MAJAPAHIT, S.ST., M.KOM.,
+                      <b class="caret"></b>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">SALI ALAS MAJAPAHIT, S.ST., M.KOM.,</a></li>
+                      <li><a href="#">Pilih Pengampu</a></li>
+                    </ul>
+                  </div>
+                  <button mat-raised-button class="btn btn-success">Tambahkan</button>
+                </td>
+              </tr>
+              <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+                <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Pilihan</th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                  <a routerLink="tambah-presensi-lengkap"><button mat-raised-button class="btn btn-default">Tambahkan Presensi Dengan Form Lengkap</button></a>
+                </td>
+                <th class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                  <a routerLink="../rincian-jadwal"><button mat-raised-button class="btn btn-default">Jadwal Kuliah</button></a>
+                </th>
+                <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                  <a routerLink="refresh"><button mat-raised-button class="btn btn-default">Refresh</button></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- Table Presensi -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-yarsi">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Presensi</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="text-center">{{ tablePresensi.headerRow[0] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[1] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[2] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[3] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[4] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[5] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[6] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[7] }}</th>
+                      <th class="text-center">{{ tablePresensi.headerRow[8] }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of tablePresensi.dataRows">
+                      <td class="text-center">{{ row[0] }}</td>
+                      <td class="text-center">{{ row[1] }}</td>
+                      <td class="text-center">{{ row[2] }}</td>
+                      <td class="text-center">{{ row[3] }}</td>
+                      <td class="text-center">{{ row[4] }}</td>
+                      <td class="text-center">{{ row[5] }}</td>
+                      <td class="text-center">
+                        <button mat-raised-button type="button" class="btn btn-link btn-success">
+                          <i class="material-icons">verified</i></button
+                        >{{ row[6] }}
+                      </td>
+                      <td class="text-center">
+                        <button mat-raised-button type="button" class="btn btn-link">
+                          <i class="material-icons">print</i></button
+                        >{{ row[7] }}
+                      </td>
+                      <td class="text-center">
+                        <button mat-raised-button type="button" class="btn btn-link btn-danger">
+                          <i class="material-icons">delete</i></button
+                        >{{ row[8] }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

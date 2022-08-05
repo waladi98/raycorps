@@ -1,0 +1,76 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <mat-tab-group class="mx-auto" style="background-color: white">
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">person </i> &nbsp; Data Pribadi </ng-template>
+                <app-data-pribadi></app-data-pribadi>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">home</i> &nbsp; Alamat Tetap </ng-template>
+                <app-alamat-tetap></app-alamat-tetap>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">school</i> &nbsp; Akademik </ng-template>
+                <app-akademik></app-akademik>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">history_edu</i> &nbsp; Jabatan </ng-template>
+                <app-dosen-jabatan></app-dosen-jabatan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">pending_actions</i> &nbsp; Struktural </ng-template>
+                <app-struktural></app-struktural>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">school</i> &nbsp; Pengajaran </ng-template>
+                <app-pengajaran></app-pengajaran>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">biotech</i> &nbsp; Penelitian </ng-template>
+                <app-dosen-penelitian></app-dosen-penelitian>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">volunteer_activism</i> &nbsp; Pengabdian </ng-template>
+                <app-dosen-pengabdian></app-dosen-pengabdian>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">grade</i> &nbsp; Pendidikan </ng-template>
+                <app-dosen-pendidikan></app-dosen-pendidikan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">directions_run</i> &nbsp; Kegiatan </ng-template>
+                <app-dosen-kegiatan></app-dosen-kegiatan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">fitness_center</i> &nbsp; Pelatihan </ng-template>
+                <app-dosen-pelatihan></app-dosen-pelatihan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">work</i> &nbsp; Pekerjaan </ng-template>
+                <app-dosen-pekerjaan></app-dosen-pekerjaan>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-mini-profil></app-mini-profil>
+      </div>
+    </div>
+  </div>
+</div>

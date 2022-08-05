@@ -1,0 +1,28 @@
+<div class="main-content">
+  <div class="container">
+    <div class="col-md-12 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-success card-header-text">
+          <div class="card-text">
+            <h4 class="card-title">{{title}}</h4>
+          </div>
+          <!-- <div class="flex justify-start w-full">
+            <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+              Kembali
+            </button>
+          </div> -->
+        </div>
+        <div class="card-body">
+          <iframe [src]="srcdoc" class="w-full" style="height: 68vh;" #iframe id="frame_data"
+            (load)="frameLoad()"></iframe>
+          <!-- <div class="warning-text py-2">
+            <iframe [src]="srcdoc" class="w-full" style="height: 68vh;" #iframe id="frame_data" (load)="frameLoad()"></iframe>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      
+    </div> -->
+  </div>
+</div>

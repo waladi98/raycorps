@@ -1,0 +1,124 @@
+<div class="card shadow-none">
+  <div class="card-header card-header-success card-header-text">
+    <div class="card-text">
+      <h4 class="card-title">Akademik</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Mulai Bekerja</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="mulai_bekerja" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Dosen</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="number" formControlName="status_dosen" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Kerja</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="number" formControlName="status_kerja" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Prodi Homebase</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="email" formControlName="prodi_homebase" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Mengajar di Prodi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="mengajar_prodi" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Bidang Minat / Konsenstrasi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="bidang_minat" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Instansi Induk</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="kode_instansi" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Lulus Perg. Tinggi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="perguruan_tinggi" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenjang Pendidikan Tertinggi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="pendidikan_tertinggi" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jabatan Fungsional Terakhir</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="jabatan_terakhir" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Keilmuan</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="keilmuan" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,252 @@
+<div class="main-content">
+  <div class="container">
+    <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+      <span class="text-white text-xl">{{ spinnerStatus }}</span>
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="card">
+
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Peserta</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="title">
+              <h3 class="font-medium text-lg text-center">Informasi Peserta</h3>
+            </div>
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" #formNgForm="ngForm" class="w-full">
+              <div class="row">
+                <div class="col-md-12 mx-auto">
+                  <div class="row mx-auto">
+                    <div class="col-md-6">
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/5 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)">No. PMB / No. Test</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">
+                          :
+                        </div>
+                        <div class="table-cell w-2/3 pb-3">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" style="color: rgb(37, 37, 37)" formControlName="formulir_id" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/5 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)">Nama</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">
+                          :
+                        </div>
+                        <div class="table-cell w-2/3 pb-3">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" style="color: rgb(37, 37, 37)" formControlName="nama" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-2">
+                        <label class="table-cell w-1/5 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)">Periode Masuk <span style="color: red">*</span>
+                        </label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">
+                          :
+                        </div>
+                        <div class="table-cell w-2/3 pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select placeholder="Pilih Tahun periode Masuk" name="formulir"
+                              formControlName="kode_tahun_periode">
+                              <mat-option *ngFor="let item of listDataTahunPeriode" [value]="item.kode">
+                                {{ item.semester }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mt-2">
+                        <div class="table-row w-full mt-4" *ngFor="
+                            let prodi of listDataPilihanProdi;
+                            let i = index
+                          ">
+                          <div class="table-cell w-2/6">
+                            <mat-form-field class="w-full">
+                              <input matInput type="text" [placeholder]="'Pilihan Ke - ' + (i + 1)"
+                                [(ngModel)]="prodi.value" [ngModelOptions]="{ standalone: true }"
+                                [disabled]="prodi.disabled" style="color: rgb(37, 37, 37)" />
+                            </mat-form-field>
+                          </div>
+                          <div class="table-cell w-3/6">
+                            <span class="badge badge-pill badge-success" *ngIf="prodi.id_status_seleksi == '1'">{{
+                              prodi.status_seleksi }}</span>
+                            <span class="badge badge-pill badge-danger" *ngIf="prodi.id_status_seleksi == '2'">{{
+                              prodi.status_seleksi }}</span>
+                            <span class="badge badge-pill badge-info" *ngIf="
+                                prodi.id_status_seleksi != '1' &&
+                                prodi.id_status_seleksi != '2'
+                              ">{{ prodi.status_seleksi }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- DOKUMEN PERSYARATAN -->
+
+
+                  <!-- <div class="col"> -->
+
+                  <!-- <div class="table-row w-full mt-2">
+                        <label
+                          class="table-cell w-1/6 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)"
+                          >Status Kelulusan</label
+                        >
+                        <div
+                          class="table-cell px-3 text-sm font-base text-gray-500"
+                        >
+                          :
+                        </div>
+                        <div class="table-cell w-2/6 pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select
+                              placeholder="Pilih Status Kelulusan"
+                              name="formulir"
+                              formControlName="status_seleksi"
+                            >
+                              <mat-option
+                                *ngFor="let item of listDataStatus"
+                                [value]="item.id"
+                              >
+                                {{ item.status_seleksi }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div> -->
+                  <!-- </div> -->
+                  <!-- <div class="col">
+                      <div class="table-row w-full mt-2">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field
+                            class="example-full-width font-semibold"
+                          >
+                            <textarea
+                              matInput
+                              type="text"
+                              formControlName="catatan"
+                              placeholder="Catatan Verifikator"
+                              style="color: rgb(37, 37, 37)"
+                            ></textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-2">
+                        <div
+                          class="table-cell w-1/12 pb-3"
+                          style="width: 600px"
+                        >
+                          <mat-form-field
+                            class="example-full-width font-semibold"
+                          >
+                            <textarea
+                              matInput
+                              type="text"
+                              formControlName="catatan_hasil_seleksi"
+                              placeholder="Catatan Hasil Seleksi"
+                              style="color: rgb(37, 37, 37)"
+                            ></textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div> -->
+
+
+
+                  <!-- <div class="row"> -->
+
+                  <!-- <div class="col">
+  
+                      <div class="table-row w-full mt-2">
+                        <label
+                          class="table-cell w-1/5 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)"
+                          >Periode Masuk <span style="color: red">*</span>
+                        </label>
+                        <div
+                          class="table-cell text-sm font-base text-gray-500"
+                        >
+                          :
+                        </div>
+                        <div class="table-cell w-2/3 pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select
+                              placeholder="Pilih Tahun periode Masuk"
+                              name="formulir"
+                              formControlName="kode_tahun_periode"
+                            >
+                              <mat-option
+                                *ngFor="let item of listDataTahunPeriode"
+                                [value]="item.kode"
+                              >
+                                {{ item.semester }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-2">
+                        <label
+                          class="table-cell w-1/6 mb-2 text-sm font-base text-gray-500 font-semibold"
+                          style="color: rgb(37, 37, 37)"
+                          >Status Kelulusan</label
+                        >
+                        <div
+                          class="table-cell px-3 text-sm font-base text-gray-500"
+                        >
+                          :
+                        </div>
+                        <div class="table-cell w-2/6 pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select
+                              placeholder="Pilih Status Kelulusan"
+                              name="formulir"
+                              formControlName="status_seleksi"
+                            >
+                              <mat-option
+                                *ngFor="let item of listDataStatus"
+                                [value]="item.id"
+                              >
+                                {{ item.status_seleksi }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div> -->
+
+                  <!-- </div> -->
+                  <div class="flex justify-center mx-4">
+                    <div class="">
+                      <button type="submit" mat-raised-button class="btn btn-success" [disabled]="!formGroup.valid">
+                        Simpan
+                      </button>
+                      <button type="button" mat-raised-button class="btn btn-danger" (click)="toRouteBatal(true)">
+                        Batal
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

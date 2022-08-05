@@ -1,0 +1,117 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Surat Pemberitahuan Ujian</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field>
+              <mat-select placeholder="Jenis Ujian" name="jenis_ujian">
+                <mat-option *ngFor="let jenis_ujian of jenis_ujians" [value]="jenis_ujian.value">
+                  {{ jenis_ujian.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Tahun" name="TA">
+                <mat-option *ngFor="let TA of tahun_akademik" [value]="TA.value">
+                  {{ TA.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Program" name="program">
+                <mat-option *ngFor="let program of programs" [value]="program.value">
+                  {{ program.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Program Studi" name="prodi">
+                <mat-option *ngFor="let prodi of prodis" [value]="prodi.value">
+                  {{ prodi.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input placeholder="No. Surat" matInput type="text">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input placeholder="No. SK Dekan" matInput type="text">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input placeholder="Tanggal Surat" matInput type="text">
+            </mat-form-field>
+          </div>
+          <!-- end content-->
+          <div class="card-footer ">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="material-datatables">
+              <table id="datatables" class="table table-striped table-no-bordered table-hover text-sm" cellspacing="0"
+                width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-left w-20">No.</th>
+                    <th class="text-sm disabled-sorting text-left">Kode</th>
+                    <th class="text-sm text-left">Nama</th>
+                    <th class="text-sm text-left">Status</th>
+                    <th class="text-sm text-left">MK</th>
+                    <th class="text-sm text-left">Kelas</th>
+                    <th class="text-sm text-left">Minggu Ke</th>
+                    <th class="text-sm text-left">Rata-rata Kehadiran</th>
+                    <th class="text-sm text-center">Cetak Individual</th>
+                    <th class="text-sm text-center">Cetak</th>
+                    <th class="text-sm text-left">Kirim via Siswa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-left">{{item.nomor}}</td>
+                    <td class="text-left">{{item.kode}}</td>
+                    <td class="text-left">{{item.nama}}</td>
+                    <td class="text-left">{{item.status}}</td>
+                    <td class="text-left">{{item.mk}}</td>
+                    <td class="text-left">{{item.kelas}}</td>
+                    <td class="text-left">{{item.minggu}}</td>
+                    <td class="text-left">{{item.ratarata}}</td>
+                    <td class="text-center">
+                      <a href="">
+                        <i class="material-icons">print</i>
+                      </a>
+                    </td>
+                    <td class="text-center"><mat-checkbox></mat-checkbox></td>
+                    <td class="text-left"><mat-checkbox>WA ke Dosen</mat-checkbox></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

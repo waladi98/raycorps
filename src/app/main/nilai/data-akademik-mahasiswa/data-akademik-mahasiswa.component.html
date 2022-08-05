@@ -1,0 +1,112 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Data Akademik Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field class="program-studi-disable" appearance="fill">
+              <mat-label>Program Studi</mat-label>
+              <input matInput disabled value="110,111,113,120,121,130,140,150,160,210,220,230,301,302,303,304,305,306,444" />
+            </mat-form-field>
+
+            <!-- Search Input -->
+            <section class="relative w-full rounded-md">
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </span>
+
+                <input
+                  type="text"
+                  class="
+                    w-full
+                    py-3
+                    pl-10
+                    pr-4
+                    text-gray-700
+                    bg-white
+                    border border-gray-300
+                    rounded-md
+                    dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600
+                    focus:border-blue-500
+                    dark:focus:border-blue-500
+                    focus:outline-none focus:ring
+                  "
+                  placeholder="Cari NPM atau Nama"
+                />
+              </div>
+            </section>
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <!-- <div class="toolbar"></div> -->
+            <div class="table-responsive">
+              <table id="datatables" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-left w-32">Tahun Akademik</th>
+                    <th class="text-sm text-center w-28">NPM</th>
+                    <th class="text-sm text-left w-44">Nama Mahasiswa</th>
+                    <th class="text-sm text-center w-28">Prodi</th>
+                    <th class="text-sm text-left w-28">Status</th>
+                    <th class="text-sm text-center w-28">Kartu UTS</th>
+                    <th class="text-sm text-center w-28">Kartu UAS</th>
+                    <th class="text-sm text-center w-28">Sunting</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-left">{{ item.tahun_akademik }}</td>
+                    <td class="text-center">{{ item.npm }}</td>
+                    <td class="text-left">{{ item.nama_mahasiswa }}</td>
+                    <td class="text-center">{{ item.prodi }}</td>
+                    <td class="text-left">{{ item.status }}</td>
+                    <td class="text-center">
+                      <i class="material-icons min-icon">{{ item.kartu_uts }}</i>
+                    </td>
+                    <td class="text-center">
+                      <i class="material-icons min-icon">{{ item.kartu_uas }}</i>
+                    </td>
+                    <td class="text-center">
+                      <a routerLink="../edit-data-akademik-mahasiswa">
+                        <i class="material-icons edit-icon">{{ item.sunting }}</i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

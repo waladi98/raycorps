@@ -1,0 +1,36 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-4">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Penyebab</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <textarea matInput placeholder="Penyebab" formControlName="penyebab"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600"></div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <div class="w-full">
+                      <button mat-button [mat-dialog-close]="true" (click)="{}" class="btn btn-fill btn-yarsi">
+                        Simpan
+                      </button>
+                      <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>

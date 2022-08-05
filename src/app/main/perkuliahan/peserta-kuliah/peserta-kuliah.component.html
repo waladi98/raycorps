@@ -1,0 +1,665 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Peserta Kuliah</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field>
+              <mat-select placeholder="Tahun Akademik" name="TA">
+                <mat-option *ngFor="let TA of TahunAkademik" [value]="TA.value">
+                  {{ TA.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Program" name="program">
+                <mat-option *ngFor="let program of ProgramKuliah" [value]="program.value">
+                  {{ program.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Program Studi" name="prodi">
+                <mat-option *ngFor="let prodi of ProgramStudi" [value]="prodi.value">
+                  {{ prodi.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="card-footer ">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+          <!--  end card  -->
+        </div>
+        <!-- end col-md-4 -->
+      </div>
+      <!-- end row -->
+      <div class="col-md-12">
+        <div class="card">
+          <mat-tab-group>
+            <!-- =============================> Jadwal <============================= -->
+            <mat-tab label="Senin">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Selasa">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Rabu">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Kamis">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Jum'at">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Sabtu">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="NA">
+              <div class="row px-4 py-1">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <tr>
+                        <th *ngFor="let cell of tableJadwal.headerRow">{{ cell }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of tableJadwal.dataRows">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td>{{row[10]}}</td>
+                        <td>{{row[11]}}</td>
+                        <td>{{row[12]}}</td>
+                        <td>{{row[13]}}</td>
+                        <td>{{row[14]}}</td>
+                        <td>{{row[15]}}</td>
+                        <td>{{row[16]}}</td>
+                        <td>{{row[17]}}</td>
+                        <td>{{row[18]}}</td>
+                        <td>{{row[19]}}</td>
+                        <td>{{row[20]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr class="col-sm-12 p-1">
+                <div class="row p-2">
+                  <!--Jadwal Serial-->
+                  <div class="col-sm-1">
+                    <b>Jadwal Serial</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jadwal Serial adalah jadwal matakuliah yang dipecah menjadi beberapa kali
+                    pertemuan dalam 1 minggu. Karena sebenarnya adalah 1 jadwal matakuliah,
+                    maka mahasiswa wajib hadir di setiap pertemuan
+                    dan masing-masing pertemuan memiliki isian presensi sendiri.
+                    Nilai akan diperhitungkan dengan jumlah SKS-nya.
+                  </div>
+                  <!--Pres-->
+                  <div class="col-sm-1">
+                    <b>Pres (Presensi)</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Memasukkan presensi dosen dan mahasiswa.
+                  </div>
+                  <!--FP-->
+                  <div class="col-sm-1">
+                    <b>FP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kehadiran Menggunakan Finger Print
+                  </div>
+                  <!--KK-->
+                  <div class="col-sm-1">
+                    <b>KK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Kapasitas Kelas
+                  </div>
+                  <!--PK-->
+                  <div class="col-sm-1">
+                    <b>PK</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang mengisi KRS.
+                  </div>
+                  <!--PP-->
+                  <div class="col-sm-1">
+                    <b>PP</b>
+                  </div>
+                  <div class="col-sm-11">
+                    Jumlah mahasiswa yang KRSnya sudah diproses.
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>

@@ -1,0 +1,185 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Tambah Jenis Formulir</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <section class="col-md-10 mx-auto">
+              <div class="title mb-2">
+                <h3 class="font-medium text-lg">Informasi Formulir</h3>
+              </div>
+
+              <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                <div class="table">
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;"
+                      >Institusi<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full " appearance="fill">
+                        <mat-select
+                          placeholder="Institusi"
+                          name="kode_institusi"
+                          formControlName="kode_institusi"
+                        >
+                          <mat-option
+                            
+                            *ngFor="let ls of listDataInstitusi"
+                            [value]="ls.kode"
+                          >
+                            <span style="font-size:larger">{{ ls.name }}</span>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;"
+                      >Jenjang<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full " appearance="fill">
+                        <mat-select
+                          placeholder="Pilih Jenjang"
+                          name="jenjang"
+                          formControlName="jenjang"
+                        >
+                          <mat-option
+                            
+                            *ngFor="let ls of listDataJenjang"
+                            [value]="ls.id"
+                          >
+                            <span style="font-size:larger">{{ ls.jenjang }}</span>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600" style="color: black;">Nama Formulir</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full" appearance="fill">
+                        <input type="text" matInput formControlName="nama_formulir" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="table-row w-full mt-4">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600" style="color: black;">Jumlah Pilihan</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full" appearance="fill">
+                        <input type="number" matInput formControlName="jumlah_pilihan" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="table-row w-full mt-4">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600" style="color: black;">Harga</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full" appearance="fill">
+                        <input type="number" matInput formControlName="harga" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="table-row w-full mt-4">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600" style="color: black;">Keterangan</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full" appearance="fill">
+                        <input type="text" matInput formControlName="keterangan" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;"
+                      >Ada Tes?<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full " appearance="fill">
+                        <mat-select
+                          placeholder="keterangan TES?"
+                          name="ada_tes"
+                          formControlName="ada_tes"
+                        >
+                          <mat-option
+                            
+                            *ngFor="let ls of listDataAktif"
+                            [value]="ls.id"
+                          >
+                            <span style="font-size:larger">{{ ls.keterangan }}</span>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;"
+                      >Aktif?<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full " appearance="fill">
+                        <mat-select
+                          placeholder="Tentukan Status aktif"
+                          name="aktif"
+                          formControlName="aktif"
+                        >
+                          <mat-option
+                            
+                            *ngFor="let ls of listDataAktif"
+                            [value]="ls.id"
+                          >
+                            <span style="font-size:larger">{{ ls.keterangan }}</span>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="card-footer">
+                <div class="btn-action mx-48">
+                  <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">Simpan</button>
+                  <button mat-raised-button routerLink="../" type="submit" class="btn btn-fill btn-yarsi bg-danger">Batal</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

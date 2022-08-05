@@ -1,0 +1,104 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Edit Transkrip Nilai</h4>
+          </div>
+          <div class="card-body">
+
+            <mat-form-field>
+              <mat-select placeholder="Program Studi" name="prodi">
+                <mat-option *ngFor="let prodi of prodis" [value]="prodi.value">
+                  {{ prodi.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>NPM</mat-label>
+              <input matInput>
+            </mat-form-field>
+
+
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header ">
+            <h4 class="card-title">Edit Transkrip Nilai
+            </h4>
+          </div>
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-lg-4 col-md-6">
+                <!--
+                                          color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                      -->
+                <ul class="nav nav-pills nav-pills-rose nav-pills-icons flex-column" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#link10" role="tablist">
+                      <i class="material-icons">dashboard</i> Data Mahasiswa
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#link11" role="tablist">
+                      <i class="material-icons">schedule</i> Matakuliah
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-8">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="link10">
+                    <div class="col-md-4">
+                      <div class="card card-profile">
+                        <div class="card-avatar">
+                          <a href="#">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                          </a>
+                        </div>
+                        <div class="card-body">
+                          <h6 class="card-category text-gray">Mahasiswa</h6>
+                          <h4 class="card-title">Alec Thompson</h4>
+                          <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye
+                            loves Kanye I love Rick Owens’ bed design but the back is...
+                          </p>
+                          <a href="#" class="btn btn-rose btn-round">Follow</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="link11">
+                    Efficiently unleash cross-media information without cross-media value. Quickly maximize timely
+                    deliverables
+                    for real-time schemas.
+                    <br>
+                    <br>Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

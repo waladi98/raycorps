@@ -1,0 +1,62 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Dispensasi Kehadiran Dosen</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Cari Data" type="text">
+            </mat-form-field>
+          </div>
+          <!-- end content-->
+          <div class="card-footer ">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Cari</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-4 -->
+      
+      
+      <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+                    <thead class="text-primary">
+                        <tr>
+                          <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+                      <tr *ngFor="let row of tableData1.dataRows">
+                          <td>{{row[0]}}</td>
+                          <td>{{row[1]}}</td>
+                          <td>{{row[2]}}</td>
+                          <td>{{row[3]}}</td>
+                          <td>{{row[4]}}</td>
+                          <td>{{row[5]}}</td>
+                          <td>{{row[6]}}</td>
+                          <td>{{row[7]}}</td>
+                          <td>{{row[8]}}</td>
+                          <td><a class="text-primary" href="">Cetak</a></td>
+                          <td><a class="text-primary" href="">Delete</a></td>
+
+                      </tr>
+                  </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

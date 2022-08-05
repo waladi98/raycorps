@@ -1,0 +1,131 @@
+<div style="width: 800px">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'update'">Mahasiswa Baru</span>
+  </h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">No Peserta</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" formControlName="no_peserta" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">No. Pendaftar</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="no_pendaftar" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Gelombang</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" formControlName="gelombang" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Jenis Formulir</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="jenis_formulir" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="nama" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Status Awal</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="status_awal" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Program</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="program" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="program_studi" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Pilihan Ke</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" formControlName="pilihan_ke" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Jurusan SLTA</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="jurusan_slta" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Handphone</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" formControlName="handphone" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Email</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+    <button class="btn btn-info" mat-button [mat-dialog-close]="true" cdkFocusInitial>Export</button>
+    <button class="btn btn-info" mat-button [mat-dialog-close]="true" cdkFocusInitial>Print</button>
+  </mat-dialog-actions>
+</div>

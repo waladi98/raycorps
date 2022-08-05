@@ -1,0 +1,147 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Riwayat Pembayaran DPP</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <!-- Tahun Akademik -->
+                <mat-form-field>
+                  <mat-select placeholder="Tahun Akademik" name="TA">
+                    <mat-option *ngFor="let item of tahun_akademik" [value]="item.value">
+                      {{ item.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-6">
+                <!-- Program -->
+                <mat-form-field>
+                  <mat-select placeholder="Program" name="program">
+                    <mat-option *ngFor="let item of program" [value]="item.value">
+                      {{ item.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Program Studi -->
+              <div class="col-md-6">
+                <mat-form-field>
+                  <mat-select placeholder="Program Studi" name="prodi">
+                    <mat-option *ngFor="let item of program_studi" [value]="item.value">
+                      {{ item.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <!-- Dosen Wali -->
+              <div class="col-md-6">
+                <mat-form-field>
+                  <mat-select placeholder="Dosen Wali" name="doswal">
+                    <mat-option *ngFor="let item of dosen_wali" [value]="item.value">
+                      {{ item.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Dari NPM Input -->
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Dari NPM" type="text" />
+                </mat-form-field>
+              </div>
+
+              <!-- Sampai NPM Input -->
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Sampai NPM" type="text" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-table">
+          <div class="card-body">
+            <div class="toolbar flex mb-4">
+              <!-- tombol Cetak -->
+              <button mat-raised-button class="btn btn-info mr-2">
+                <span class="btn-label pr-1">
+                  <i class="material-icons">print</i>
+                </span>
+                Cetak
+              </button>
+
+              <!-- tombol Whatsapp ke Mahasiswa -->
+              <button mat-raised-button class="btn btn-info mr-2">
+                <span class="btn-label pr-1">
+                  <i class="material-icons">whatsapp</i>
+                </span>
+                Whatsapp ke Mahasiswa
+              </button>
+
+              <!-- tombol Whatsapp ke orangtua -->
+              <button mat-raised-button class="btn btn-info">
+                <span class="btn-label pr-1">
+                  <i class="material-icons">whatsapp</i>
+                </span>
+                Whatsapp ke orangtua
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table id="datatables" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center w-16 pr-4"><mat-checkbox class="example-margin"></mat-checkbox></th>
+                    <th class="text-sm text-center w-20 pr-4">#</th>
+                    <th class="text-sm text-center w-24 pr-4">NPM</th>
+                    <th class="text-sm text-left w-48 pr-4">Nama Mahasiswa</th>
+                    <th class="text-sm text-center w-16 pr-4">DPP</th>
+                    <th class="text-sm text-left w-48 pr-4">Wali Akademik</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center"><mat-checkbox class="example-margin"></mat-checkbox></td>
+                    <td class="text-center">{{ item.no }}</td>
+                    <td class="text-center">{{ item.npm }}</td>
+                    <td class="text-left">{{ item.nama_mahasiswa }}</td>
+                    <td class="text-center">{{ item.dpp }}</td>
+                    <td class="text-left">{{ item.wali_akademik }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+    </div>
+  </div>
+</div>

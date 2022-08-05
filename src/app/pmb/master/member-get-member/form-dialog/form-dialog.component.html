@@ -1,0 +1,110 @@
+<mat-dialog-content class="mat-typography">
+  <div class="card-body mx-10 my-auto">
+    <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full " style="width: 800px;height: 100%;">
+
+      <div style="font-size: 14px; margin-bottom: 15px;">Tambah Data</div>
+
+      <mat-dialog-content class="mat-typography">
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;">Nipy<span
+              style="color: red">*</span></label>
+          <div class="table-cell px-3 text-sm font-base " style="color: black;">
+            :
+          </div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field appearance="fill" style="color: rgb(66, 66, 66)">
+              <input type="text" placeholder="Cari berdasarkan NIK/Nama/NIPY civitas universitas yarsi" name="nama"
+                aria-label="nama" matInput [matAutocomplete]="autoAsalSekolah" [formControlName]="'nipy'" (input)="
+                  doFilterAsalSekolah($event.target.value)
+                " />
+              <div class="w-full flex flex-auto justify-end" *ngIf="isAsalSekolahSearch">
+                <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                </mat-progress-spinner>
+              </div>
+              <button *ngIf="
+                formGroup.controls['nipy']
+                    .value
+                " matSuffix mat-icon-button aria-label="Clear" (click)="
+                formGroup.controls[
+                    'nama'
+                  ].value = null;
+                  formGroup.controls[
+                    'nik'
+                  ].value = null
+                ">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-autocomplete #autoAsalSekolah="matAutocomplete" class="divide-y" (optionSelected)="
+                  selectAsalSekolah($event.option.value)
+                ">
+                <mat-option *ngFor="
+                    let option of asalSekolahList | async
+                  " [value]="option">
+                  {{ option.nama }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;">Nama<span
+              style="color: red">*</span></label>
+          <div class="table-cell px-3 text-sm font-base " style="color: black;">
+            :
+          </div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput type="text" formControlName="nama" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;">Handphone<span
+              style="color: red">*</span></label>
+          <div class="table-cell px-3 text-sm font-base " style="color: black;">
+            :
+          </div>
+
+
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput type="text" placeholder="ex:081xxxxx" formControlName="handphone" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-medium" style="color: black;">Jenis MGM<span
+              style="color: red">*</span></label>
+          <div class="table-cell px-3 text-sm font-base " style="color: black;">
+            :
+          </div>
+
+
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full ">
+              <mat-select name="kode_institusi" formControlName="id_jenis_mgm">
+                <mat-option *ngFor="let ls of listDataJenisMgm" [value]="ls.id">
+                  <span style="font-size:larger">{{ ls.jenis_mgm }}</span>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-dialog-content>
+
+      <div class="row">
+        <div class="flex justify-center w-full">
+          <div class="btn-action mx-28">
+            <button mat-button [mat-dialog-close]="true" type="submit" class="btn btn-fill btn-yarsi mr-2"
+              (click)="onSubmitData()">
+              Simpan
+            </button>
+            <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

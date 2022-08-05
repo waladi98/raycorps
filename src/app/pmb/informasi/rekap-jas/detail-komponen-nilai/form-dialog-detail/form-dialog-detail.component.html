@@ -1,0 +1,64 @@
+<div style="width: 700px;">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Komponen Nilai SLTA</span>
+    <span *ngIf="dataParam.type == 'update'">Ubah Komponen Nilai SLTA</span>
+  </h2>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Kode" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jurusan SLTA</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field>
+          <mat-select
+            placeholder="Jurusan SLTA"
+            name="jurusan_slta"
+            formControlName="jurusan_slta"
+          >
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nilai Minimum</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Nilai Minimum" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Bobot</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Bobot" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-slide-toggle color="primary"></mat-slide-toggle>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Kembali</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Simpan</button>
+  </mat-dialog-actions>
+</div>

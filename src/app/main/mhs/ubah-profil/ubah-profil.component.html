@@ -1,0 +1,110 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto">
+            <mat-tab-group class="mx-auto" style="background-color: white;">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">person</i> &nbsp; Data Pribadi
+                </ng-template>
+                <app-data-pribadi></app-data-pribadi>
+              </mat-tab>
+            
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">house</i> &nbsp; Alamat Tetap
+                </ng-template>
+                <app-alamat-tetap></app-alamat-tetap>
+              </mat-tab>
+            
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">people</i> &nbsp; Orang Tua
+                </ng-template>
+                <app-lihat-orang-tua></app-lihat-orang-tua>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">school</i> &nbsp; Asal Sekolah
+                </ng-template>
+                <app-asal-sekolah></app-asal-sekolah>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">history_edu</i> &nbsp; Asal Perguruan Tinggi
+                </ng-template>
+                <app-asal-perguruan-tinggi></app-asal-perguruan-tinggi>
+              </mat-tab>
+              
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="material-icons">account_balance_wallet</i> &nbsp; Bank
+                </ng-template>
+                <app-bank></app-bank>
+              </mat-tab>
+
+              
+            </mat-tab-group>
+
+            <!--<div class="page-categories">
+              <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-start" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
+                    <i class="material-icons">person</i> Data Pribadi
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
+                    <i class="material-icons">house</i> Alamat Tetap
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
+                    <i class="material-icons">people</i> Orang Tua
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#link10" role="tablist">
+                    <i class="material-icons">school</i> Asal Sekolah
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#link11" role="tablist">
+                    <i class="material-icons">history_edu</i> Asal Perguruan Tinggi
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#link12" role="tablist">
+                    <i class="material-icons">account_balance_wallet</i> Bank
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content tab-space tab-subcategories">
+                <div class="tab-pane active" id="link7">
+                    <app-data-pribadi></app-data-pribadi>
+                </div>
+                <div class="tab-pane" id="link8">
+                </div>
+                <div class="tab-pane" id="link9">
+                </div>
+                <div class="tab-pane" id="link10">
+                </div>
+                <div class="tab-pane" id="link11">
+                </div>
+                <div class="tab-pane" id="link12">
+                </div>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-mini-profil></app-mini-profil>
+      </div>
+    </div>
+  </div>
+</div>

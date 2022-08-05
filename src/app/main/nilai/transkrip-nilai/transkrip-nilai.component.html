@@ -1,0 +1,45 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Transkrip Nilai</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field>
+              <mat-select placeholder="Program Studi" name="prodi">
+                <mat-option *ngFor="let prodi of prodis" [value]="prodi.value">
+                  {{ prodi.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Program" name="program">
+                <mat-option *ngFor="let program of programs" [value]="program.value">
+                  {{ program.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="NPM" type="text" />
+            </mat-form-field>
+
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

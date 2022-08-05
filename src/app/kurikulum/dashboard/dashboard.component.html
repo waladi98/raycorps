@@ -1,0 +1,125 @@
+<div class="main-content">
+  <div class="container">
+    <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+      <span class="text-white text-xl">{{ spinnerStatus }}</span>
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-info">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title font-medium">Dashboard :</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a href="#reg" class="nav-link" data-toggle="tab" style="background-color: rgba(217, 218, 219, 0.253)">
+                      <i class="material-icons">equalizer</i> Kurikulum
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="reg">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">menu_book</i>
+                          </div>
+                          <h1 class="card-title">
+                            <strong>Surat Keluar</strong>
+                          </h1>
+                          <h2 class="card-title text-xl text-info">28</h2>
+                        </div>
+                        <div class="card-footer">
+                          <i class="material-icons text-danger">format_list_bulleted</i>
+                          <h1>
+                            <strong>Seluruh</strong>
+                          </h1>
+                        </div>
+                      </div>
+
+                      <div class="card card-stats">
+                        <div class="card-header card-header-success card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">menu_book</i>
+                          </div>
+                          <h1 class="card-title">
+                            <strong>Surat Masuk</strong>
+                          </h1>
+                          <h2 class="card-title text-xl text-info">28</h2>
+                        </div>
+                        <div class="card-footer">
+                          <i class="material-icons text-danger">date_range</i>
+                          <h1>
+                            <strong>Tahun Saat Ini</strong>
+                          </h1>
+                        </div>
+                      </div>
+
+                      <div class="card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">menu_book</i>
+                          </div>
+                          <h1 class="card-title">
+                            <strong>Surat Keluar</strong>
+                          </h1>
+                          <h2 class="card-title text-xl text-info">28</h2>
+                        </div>
+                        <div class="card-footer">
+                          <i class="material-icons text-danger">date_range</i>
+                          <h1>
+                            <strong>Tahun Saat Ini</strong>
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-text card-header-warning">
+            <div class="card-text">
+              <h4 class="card-title">Employees Stats</h4>
+              <p class="card-category">New employees on 15th September, 2016</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <google-chart [type]="chartData.type" [data]="chartData.data" [columns]="chartData.columnNames" [options]="chartData.options" [width]="chartData.width" [height]="chartData.height"></google-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info card-header-text">
+            <div class="card-text">
+              <div class="card-title text-lg font-medium">Data Kampus</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="material-datatables">
+              <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

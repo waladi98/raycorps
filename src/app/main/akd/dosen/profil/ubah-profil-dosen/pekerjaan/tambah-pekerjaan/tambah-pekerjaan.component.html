@@ -1,0 +1,141 @@
+<div class="modal-body" style="height: 80vh; overflow-y: auto">
+  <label>Tambah Pekerjaan</label>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Nama Institusi</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Nama Institusi" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Bidang Usaha</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Bidang Usaha" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Jabatan</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Jabatan" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Alamat Institusi</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Alamat Institusi" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Kota</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Kota" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Kodepos</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Kodepos" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Telepon</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Telepon" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Fax</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Fax" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Tanggal Mulai</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Tanggal Selesai</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Tidak Aktif ?</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <section class="example-section">
+        <mat-checkbox class="example-margin"></mat-checkbox>
+      </section>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button
+      mat-button
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      class="btn btn-success"
+    >
+      Simpan
+    </button>
+    <button mat-button mat-dialog-close class="btn btn-danger">Kembali</button>
+  </mat-dialog-actions>
+</div>

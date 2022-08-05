@@ -1,0 +1,105 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Kriteria Penilaian</h4>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg">Informasi Daftar Periksa</h3>
+                </div>
+                <!-- <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+                    <span class="text-white text-xl">{{ spinnerStatus }}</span>
+                  </ngx-spinner> -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Kode</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="inisial" style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Daftar Periksa</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_daftar_periksa"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Deksripsi</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <textarea matInput type="text" formControlName="deskripsi"
+                              style="color: rgb(37, 37, 37)"></textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- <div class="col-md-7">
+                    <h3 class="font-medium text-lg">Detail Kriteria Penilaian</h3>
+                    <app-custom-table [listData]="listData" (dialogData)="dialogData($event)"
+                      [events]="eventsLoad.asObservable()"></app-custom-table>
+
+                  </div> -->
+
+                </div>
+
+                <!-- <div class="table-row w-full mt-4" formArrayName="prodi_pilihan"
+                    *ngFor="let prodi of prodi_pilihan.controls;let i = index" [formGroupName]="i">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pilihan {{ i + 1 }}</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                          <input matInput type="text" [placeholder]="'Pilih Pilihan'+(i + 1)" formControlName="prodi"/>
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+
+                <!-- DOKUMEN PERSYARATAN -->
+
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg">Detail Kriteria Penilaian</h3>
+
+                  <div class="row">
+                    <div class="col-md-12 ml-auto mr-auto">
+                      <div class="warning-text py-2">
+                        <app-custom-table [listData]="listData" (dialogData)="dialogData($event)"
+                          [events]="eventsLoad.asObservable()"></app-custom-table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1299 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pengisian Formulir PMB</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <p class="font-base font-medium italic text-success">
+                Anda sudah terdaftar sebagai peserta Ujian Saringan Masuk
+                UNIVERSITAS YARSI!
+              </p>
+
+              <!-- <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe></iframe> -->
+            </div>
+            <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+              <span class="text-white text-xl">{{ spinnerStatus }}</span>
+            </ngx-spinner>
+            <mat-tab-group class="mt-4" (selectedTabChange)="onTabChanged($event)">
+              <mat-tab label="Informasi Dasar">
+                <div class="row">
+                  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" #formNgForm="ngForm" class="w-full">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">
+                          Data Hasil Pendaftaran Online
+                        </h3>
+                        <span><b>( <span style="color: red">*</span> Isian wajib! )</b></span>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Periode</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="periode" style="color: black" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No.Pendaftaran</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="text" formControlName="no_pendaftaran" style="color: black" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No.Peserta</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="number" formControlName="no_test" style="color: black" disabled />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="text" formControlName="nama" pattern="[a-zA-Z\.\, ]*"
+                                  style="color: black" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Formulir</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="text" formControlName="jenis_formulir" style="color: black"
+                                  disabled />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Program</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <mat-select name="program" formControlName="kode_program">
+                                  <mat-option *ngFor="let item of listDataProgram" [value]="item.kode">
+                                    {{ item.program }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Prodi Pilihan 1</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="text" formControlName="prodi_1" style="color: black" disabled />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status pilihan Prodi
+                              aktif</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <input matInput type="text" formControlName="prodi" disabled style="color: black" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jurusan SLTA</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full font-normal" appearance="fill">
+                                <mat-select name="jurusan_sekolah" placeholder="-" formControlName="jurusan_sekolah">
+                                  <mat-option *ngFor="let ls of listDataJurusanSekolah" [value]="ls.id_jurusan_sekolah">
+                                    {{ ls.jurusan_sekolah }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              style="color: black">Status Awal Masuk
+                              <span style="color: red">*</span></label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600" style="color: black">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <mat-select name="status_awal" formControlName="status_awal"
+                                  placeholder="Silahkan pilih status awal masuk anda.">
+                                  <mat-option *ngFor="let item of listDataStatusAwal" [value]="item.id">
+                                    {{ item.status_awal }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formGroup.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Data Pribadi" [disabled]="!register">
+                <div class="row">
+                  <!-- <lk-form-validation-monitor [mainFormGroup]="formDataPribadi"></lk-form-validation-monitor> -->
+
+                  <form [formGroup]="formDataPribadi" (ngSubmit)="onSubmitDataPribadi()" #formNgForm="ngForm"
+                    class="w-full">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">
+                          Data Pribadi (Isisikan Data Sesuai KTP Anda)
+                        </h3>
+                        <span><b>( <span style="color: red">*</span> Isian wajib! )</b></span>
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+                                <div class="table-cell px-3 text-sm font-base text-gray-600">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="text" formControlName="nama" pattern="[a-zA-Z\.\, ]*" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell px-3 text-sm font-base text-gray-600">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="nik" (blur)="
+                                        onChangeNik($event.target.value, 'pribadi')
+                                      " required minlength="16" />
+                                    <!-- <div *ngIf="formDataPribadi.controls.nik.errors.minlength">Choose at least 3 players</div> -->
+                                    <!-- <div *ngIf="nik.errors?.['minlength']">
+                                        Name must be at least 4 characters long.
+                                      </div> -->
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Warga Negara<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-radio-group aria-label="Select an option" formControlName="warga_negara">
+                                    <mat-radio-button value="WNA" class="pr-8" (change)="
+                                        loadDataWilayah('WNA', false, '', 'pribadi')
+                                      ">
+                                      Warga Negara Asing
+                                    </mat-radio-button>
+                                    <mat-radio-button value="WNI" class="pr-8" (change)="
+                                        loadDataWilayah('WNI', false, '', 'pribadi')
+                                      ">
+                                      Warga Negara Indonesia
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+
+                                  <mat-form-field class="w-full mt-2" appearance="fill">
+                                    <mat-label>Jika WNA, sebutkan:</mat-label>
+                                    <mat-select name="id_warga_negara" formControlName="id_warga_negara">
+                                      <mat-option *ngFor="let item of listDataWilayah" [value]="item.kode">
+                                        {{ item.nama_wilayah }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <mat-select name="agama" placeholder="Pilih Agama" formControlName="agama">
+                                      <mat-option *ngFor="let item of listDataAgama" [value]="item.id">
+                                        {{ item.agama }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Sipil<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <mat-select name="status_sipil" placeholder="Pilih Status Sipil"
+                                      formControlName="status_sipil">
+                                      <mat-option *ngFor="let item of listDataStatusSipil" [value]="item.id">
+                                        {{ item.status_sipil }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="table-row w-full">
+                                <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Pendidikan
+                                  Terakhir<span style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <mat-select name="id_jenjang_pendidikan" placeholder="Pendidikan Terakhir"
+                                      formControlName="id_jenjang_pendidikan">
+                                      <mat-option *ngFor="let item of listDataJenjang" [value]="item.id">
+                                        {{ item.keterangan }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Kelamin<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <mat-select name="jenis_kelamin" placeholder="Pilih Jenis Kelamin"
+                                      formControlName="jenis_kelamin">
+                                      <mat-option *ngFor="let item of listDataJenisKelamin" [value]="item.id">
+                                        {{ item.kelamin }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tempat Lahir<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <input type="text" name="kode_tempat_lahir" aria-label="kode_tempat_lahir" matInput
+                                      [matAutocomplete]="autoTempatLahir" [formControlName]="'kode_tempat_lahir'"
+                                      (input)="
+                                        doFilterTempatLahir($event.target.value)
+                                      " />
+                                    <div class="w-full flex flex-auto justify-end" *ngIf="isParentSearch">
+                                      <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                        [mode]="'indeterminate'">
+                                      </mat-progress-spinner>
+                                    </div>
+                                    <button *ngIf="
+                                        formDataPribadi.controls[
+                                          'kode_tempat_lahir_id'
+                                        ].value
+                                      " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                        formDataPribadi.controls[
+                                          'kode_tempat_lahir_id'
+                                        ].value = null;
+                                        formDataPribadi.controls[
+                                          'kode_tempat_lahir'
+                                        ].value = null
+                                      ">
+                                      <mat-icon>close</mat-icon>
+                                    </button>
+                                    <mat-autocomplete #autoTempatLahir="matAutocomplete" class="divide-y"
+                                      (optionSelected)="
+                                        selectTempatLahir($event.option.value)
+                                      ">
+                                      <mat-option *ngFor="
+                                          let option of tempatLahirList | async
+                                        " [value]="option">
+                                        {{ option.nama_wilayah }}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Lahir<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="tanggal_lahir" placeholder="Tanggal Lahir"
+                                      formControlName="tanggal_lahir" [max]="maxDateTanggalLahir" />
+                                    <mat-datepicker-toggle matSuffix [for]="tanggal_lahir"></mat-datepicker-toggle>
+                                    <mat-datepicker #tanggal_lahir>
+                                    </mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor
+                                  Handphone<span style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="no_hp" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="title mb-2">
+                            <h3 class="font-medium text-lg">
+                              Alamat Tinggal
+                            </h3>
+                          </div>
+                          <div class="row">
+
+                            <div class="col-md-6">
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="telepon" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email<span
+                                    style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="email" email="true" placeholder="ex:email@gmail.com"
+                                      type="email" formControlName="email" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat
+                                  Tinggal</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="example-full-width" appearance="fill">
+                                    <textarea placeholder="Masukan alamat tinggal anda sekarang" matInput type="text"
+                                      formControlName="alamat_tinggal"></textarea>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <!-- RT / RW -->
+                              <div class="flex flex-row mt-4">
+                                <div class="table-row w-full">
+                                  <div class="flex flex-row pb-3">
+                                    <label
+                                      class="table-cell w-3/6 pr-4 text-sm font-base text-gray-600 dark:text-gray-200">RT</label>
+                                    <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                      :
+                                    </div>
+
+                                    <mat-form-field class="" appearance="fill">
+                                      <input matInput placeholder="00" type="number" formControlName="rt" />
+                                    </mat-form-field>
+                                  </div>
+                                </div>
+
+                                <div class="table-row w-full">
+                                  <div class="flex flex-row">
+                                    <label
+                                      class="table-cell pl-8 pr-2 text-sm font-base text-gray-600 dark:text-gray-200">RW</label>
+                                    <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                      :
+                                    </div>
+
+                                    <mat-form-field class="" appearance="fill">
+                                      <input matInput placeholder="00" type="number" formControlName="rw" />
+                                    </mat-form-field>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Wilayah</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <textarea type="text" name="wilayah" aria-label="wilayah"
+                                      placeholder="Cari Berdasarkan Nama Desa/Kelurahan/Kecamatan/Kabupaten Kota/Provinsi/Negara"
+                                      matInput [matAutocomplete]="autoWilayah" [formControlName]="'wilayah'"
+                                      (input)="doFilterWilayah($event.target.value)"></textarea>
+                                    <div class="w-full flex flex-auto justify-end" *ngIf="isParentSearchWilayah">
+                                      <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                        [mode]="'indeterminate'">
+                                      </mat-progress-spinner>
+                                    </div>
+                                    <button *ngIf="
+                                    formDataPribadi.controls['wilayah_id'].value
+                                  " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                    formDataPribadi.controls[
+                                      'wilayah_id'
+                                    ].value = null;
+                                    formDataPribadi.controls['wilayah'].value =
+                                      null
+                                  ">
+                                      <mat-icon>close</mat-icon>
+                                    </button>
+                                    <mat-autocomplete #autoWilayah="matAutocomplete" class="divide-y" (optionSelected)="
+                                    selectWilayah($event.option.value)
+                                  ">
+                                      <mat-option *ngFor="let option of wilayahList | async" [value]="option">
+                                        {{ option.nama_wilayah }}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Pos</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="kode_pos"
+                                      pattern="[a-zA-Z0-9\.\, ]*" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <!-- <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Provinsi</label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input matInput type="text" formControlName="provinsi" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Negara</label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input matInput type="text" formControlName="negara" />
+                              </mat-form-field>
+                            </div>
+                          </div> -->
+
+
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formDataPribadi.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button routerLink="/pmb/dashboard" type="button"
+                          class="btn btn-fill btn-yarsi bg-danger">
+                          Batal
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Pilihan Program Studi" [disabled]="!register">
+                <div class="row">
+                  <form [formGroup]="formProdiPilihan" (ngSubmit)="onSubmitProdiPilihan()" class="w-full"
+                    *ngIf="isDoneMakeForm">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Program Studi</h3>
+                      </div>
+                      <div class="table mb-0" formArrayName="prodi_pilihan">
+                        <div class="table-row" *ngFor="
+                            let prodi of prodi_pilihan.controls;
+                            let i = index
+                          " [formGroupName]="i">
+                          <div class="table-cell w-36 pb-3">
+                            Pilihan {{ i + 1 }}
+                          </div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-select placeholder="Pilih Pilihan {{ i + 1 }}" formControlName="prodi">
+                                <mat-option *ngFor="let item of listDataPilihanProdi[i]"
+                                  [value]="item.kode_prodi_program">
+                                  {{ item.prodi }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formProdiPilihan.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Persyaratan Nilai" [disabled]="!register">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <!-- NILAI RAPOR -->
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Persyaratan Nilai</h3>
+                    </div>
+
+                    <section class="nilai-semester-4" *ngFor="let item of dataPesertaNilai">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-base text-gray-500">
+                          Nilai Semester {{ item.semester }}
+                        </h3>
+                      </div>
+                      <div class="nilai-umum grid md:grid-cols-2 sm:grid-cols-1 gap-4">
+                        <div class="table mb-0" *ngFor="let matkul of item.matkul">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3 text-right">
+                              {{ matkul.name }}
+                            </div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" [(ngModel)]="matkul.nilai" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="flex justify-center w-full">
+                    <div class="btn-action mx-28">
+                      <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2"
+                        (click)="onSubmitNilaiRapor()">
+                        Simpan
+                      </button>
+                      <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                        Kembali
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Data Orang Tua" [disabled]="!register">
+                <div class="row">
+                  <form [formGroup]="formPesertaKeluarga" (ngSubmit)="onSubmitDataPesertaKeluarga()"
+                    #formNgForm="ngForm" class="w-full">
+                    <!-- <lk-form-validation-monitor [mainFormGroup]="formPesertaKeluarga"></lk-form-validation-monitor> -->
+
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Data Orang Tua</h3>
+                        <span><b>( <span style="color: red">*</span> Isian wajib! )</b></span>
+                      </div>
+                      <div class="table mb-0">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="table-row">
+                              <div class="table-cell w-1/5  pb-3">
+                                NIK Ayah <span style="color: red">*</span>
+                              </div>
+
+                              <div class="table-cell">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" formControlName="nik_ayah" (blur)="
+                                    onChangeNik($event.target.value, 'ayah')
+                                  " />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">
+                                Nama Ayah <span style="color: red">*</span>
+                              </div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="text" formControlName="nama_ayah" pattern="[a-zA-Z\.\, ]*" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Agama Ayah</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="agama" placeholder="Pilih Agama" formControlName="agama_ayah">
+                                    <mat-option *ngFor="let item of listDataAgama" [value]="item.id">
+                                      {{ item.agama }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">
+                                Pendidikan Ayah
+                              </div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="id_jenjang_pendidikan" placeholder="Pendidikan Terakhir"
+                                    formControlName="id_jenjang_ayah">
+                                    <mat-option *ngFor="let item of listDataJenjang" [value]="item.id">
+                                      {{ item.keterangan }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Pekerjaan Ayah</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="pekerjaan_ayah" placeholder="Pilih Pekerjaan"
+                                    formControlName="pekerjaan_ayah">
+                                    <mat-option *ngFor="let item of pekerjaan_ortu" [value]="item.value">
+                                      {{ item.viewValue }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div class="col-md-6">
+                            <div class="table-row">
+                              <div class="table-cell w-1/5  pb-3">
+                                NIK Ibu <span style="color: red">*</span>
+                              </div>
+                              <div class="table-cell ">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" formControlName="nik_ibu"
+                                    (blur)="onChangeNik($event.target.value, 'ibu')" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">
+                                Nama Ibu <span style="color: red">*</span>
+                              </div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="text" formControlName="nama_ibu" pattern="[a-zA-Z\.\, ]*" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Agama Ibu</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="agama" placeholder="Pilih Agama" formControlName="agama_ibu">
+                                    <mat-option *ngFor="let item of listDataAgama" [value]="item.id">
+                                      {{ item.agama }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Pendidikan Ibu</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="id_jenjang_ibu" placeholder="Pendidikan Terakhir"
+                                    formControlName="id_jenjang_ibu">
+                                    <mat-option *ngFor="let item of listDataJenjang" [value]="item.id">
+                                      {{ item.keterangan }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Pekerjaan Ibu</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field appearance="fill">
+                                  <mat-select name="pekerjaan_ibu" placeholder="Pilih Pekerjaan"
+                                    formControlName="pekerjaan_ibu">
+                                    <mat-option *ngFor="let item of pekerjaan_ortu" [value]="item.value">
+                                      {{ item.viewValue }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <!-- <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Status Ayah</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-select
+                                name="status_ayah"
+                                placeholder="Pilih Status"
+                                formControlName="status_ayah"
+                              >
+                                <mat-option
+                                  *ngFor="let item of status_ortu"
+                                  [value]="item.value"
+                                >
+                                  {{ item.viewValue }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div> -->
+
+
+
+                        <!-- <div class="table-row">
+                          <p class="table-cell w-36 pb-3">Status Ibu</p>
+                          <span class="table-cell w-10">:</span>
+                          <p class="table-cell pb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-select
+                                name="status_ibu"
+                                placeholder="Pilih Status"
+                                formControlName="status_ibu"
+                              >
+                                <mat-option
+                                  *ngFor="let item of status_ortu"
+                                  [value]="item.value"
+                                >
+                                  {{ item.viewValue }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </p>
+                        </div> -->
+                      </div>
+
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Alamat Tinggal Orang Tua</h3>
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor Handphone
+                                  <span style="color: red">*</span></label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="no_hp" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="email" email="true" placeholder="ex:email@gmail.com"
+                                      formControlName="email" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat
+                                  Tinggal</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="example-full-width" appearance="fill">
+                                    <textarea matInput type="text"
+                                      placeholder="Masukan alamat tinggal orang tua anda sekarang"
+                                      formControlName="alamat_tinggal"></textarea>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Wilayah</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field appearance="fill">
+                                    <textarea type="text" name="wilayah"
+                                      placeholder="Cari Berdasarkan Nama Desa/Kelurahan/Kecamatan/Kabupaten Kota/Provinsi/Negara"
+                                      aria-label="wilayah" matInput [matAutocomplete]="autoWilayahOrangTua"
+                                      [formControlName]="'wilayah'"
+                                      (input)="doFilterWilayah($event.target.value)"></textarea>
+                                    <div class="w-full flex flex-auto justify-end" *ngIf="isParentSearchWilayah">
+                                      <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                        [mode]="'indeterminate'">
+                                      </mat-progress-spinner>
+                                    </div>
+                                    <button *ngIf="
+                                        formPesertaKeluarga.controls['wilayah_id']
+                                          .value
+                                      " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                        formPesertaKeluarga.controls[
+                                          'wilayah_id'
+                                        ].value = null;
+                                        formPesertaKeluarga.controls[
+                                          'wilayah'
+                                        ].value = null
+                                      ">
+                                      <mat-icon>close</mat-icon>
+                                    </button>
+                                    <mat-autocomplete #autoWilayahOrangTua="matAutocomplete" class="divide-y"
+                                      (optionSelected)="
+                                        selectWilayahOrangTua($event.option.value)
+                                      ">
+                                      <mat-option *ngFor="let option of wilayahList | async" [value]="option">
+                                        {{ option.nama_wilayah }}
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="telepon" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <!-- RT / RW -->
+                              <div class="flex flex-row mt-4">
+                                <div class="table-row w-full">
+                                  <div class="flex flex-row pb-3">
+                                    <label
+                                      class="table-cell w-3/6 pr-4 text-sm font-base text-gray-600 dark:text-gray-200">RT</label>
+                                    <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                      :
+                                    </div>
+
+                                    <mat-form-field class="" appearance="fill">
+                                      <input matInput type="number" formControlName="rt" />
+                                    </mat-form-field>
+                                  </div>
+                                </div>
+
+                                <div class="table-row w-full">
+                                  <div class="flex flex-row">
+                                    <label
+                                      class="table-cell pl-8 pr-2 text-sm font-base text-gray-600 dark:text-gray-200">RW</label>
+                                    <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                      :
+                                    </div>
+
+                                    <mat-form-field class="" appearance="fill">
+                                      <input matInput type="number" formControlName="rw" />
+                                    </mat-form-field>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Pos</label>
+                                <div class="table-cell text-sm font-base text-gray-600 px-3">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6 pb-3">
+                                  <mat-form-field class="w-full" appearance="fill">
+                                    <input matInput type="number" formControlName="kode_pos" />
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+                        </div>
+                      </section>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formPesertaKeluarga.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Asal Sekolah" [disabled]="!register">
+                <div class="row">
+                  <form [formGroup]="formAsalSekolah" (ngSubmit)="onSubmitDataAsalSekolah()" #formNgForm="ngForm"
+                    class="w-full">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Informasi Sekolah</h3>
+                      </div>
+                      <p>
+                        Sumber informasi kode dan nama asal sekolah, dapat
+                        dilihat di website berikut ini
+                        <b><a href="https://referensi.data.kemdikbud.go.id/index11.php"
+                            target="_blank">https://referensi.data.kemdikbud.go.id</a></b>
+                      </p>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NPSN Sekolah</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="number" formControlName="kode_sekolah" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Sekolah</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field appearance="fill" style="color: rgb(66, 66, 66)">
+                                <input type="text" placeholder="Cari berdasarkan NPSN/nama Sekolah" name="nama_sekolah"
+                                  aria-label="nama_sekolah" matInput [matAutocomplete]="autoAsalSekolah"
+                                  [formControlName]="'nama_sekolah'" (input)="
+                                    doFilterAsalSekolah($event.target.value)
+                                  " />
+                                <div class="w-full flex flex-auto justify-end" *ngIf="isAsalSekolahSearch">
+                                  <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                    [mode]="'indeterminate'">
+                                  </mat-progress-spinner>
+                                </div>
+                                <button *ngIf="
+                                    formAsalSekolah.controls['kode_sekolah']
+                                      .value
+                                  " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                    formAsalSekolah.controls[
+                                      'kode_sekolah'
+                                    ].value = null;
+                                    formAsalSekolah.controls[
+                                      'nama_sekolah'
+                                    ].value = null
+                                  ">
+                                  <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-autocomplete #autoAsalSekolah="matAutocomplete" class="divide-y" (optionSelected)="
+                                    selectAsalSekolah($event.option.value)
+                                  ">
+                                  <mat-option *ngFor="
+                                      let option of asalSekolahList | async
+                                    " [value]="option">
+                                    {{ option.nama }}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat Sekolah</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="alamat_sekolah" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="font-base font-medium italic text-success">
+                          Jika kode atau nama sekolah yang dicari tidak
+                          ditemukan, silahkan hubungi petugas PMB UNIVERSITAS
+                          YARSI!
+                        </p>
+                      </section>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formAsalSekolah.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Asal PT" [disabled]="!register">
+                <div class="row">
+                  <form [formGroup]="formPerguruanTinggi" (ngSubmit)="onSubmitDataPerguruanTinggi()"
+                    #formNgForm="ngForm" class="w-full">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">
+                          Informasi Perguruan Tinggi
+                        </h3>
+                      </div>
+                      <p>
+                        Sumber informasi kode dan nama PT, dapat dilihat di
+                        website berikut ini
+                        <b><a href="https://pddikti.kemdikbud.go.id/"
+                            target="_blank">https://pddikti.kemdikbud.go.id/</a></b>
+                      </p>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NPSN PT</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="number" formControlName="kode_perguruan_tinggi" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama PT</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field appearance="fill">
+                                <input type="text" placeholder="Cari berdasarkan NPSN/nama PT"
+                                  name="nama_perguruan_tinggi" aria-label="nama_perguruan_tinggi" matInput
+                                  [matAutocomplete]="autoAsalPerguruanTinggi"
+                                  [formControlName]="'nama_perguruan_tinggi'" (input)="
+                                    doFilterAsalPerguruanTinggi(
+                                      $event.target.value
+                                    )
+                                  " />
+                                <div class="w-full flex flex-auto justify-end" *ngIf="isAsalPerguruanTinggiSearch">
+                                  <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                    [mode]="'indeterminate'">
+                                  </mat-progress-spinner>
+                                </div>
+                                <button *ngIf="
+                                    formPerguruanTinggi.controls[
+                                      'kode_perguruan_tinggi'
+                                    ].value
+                                  " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                    formPerguruanTinggi.controls[
+                                      'kode_perguruan_tinggi'
+                                    ].value = null;
+                                    formPerguruanTinggi.controls[
+                                      'nama_perguruan_tinggi'
+                                    ].value = null
+                                  ">
+                                  <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-autocomplete #autoAsalPerguruanTinggi="matAutocomplete" class="divide-y"
+                                  (optionSelected)="
+                                    selectAsalPerguruanTinggi(
+                                      $event.option.value
+                                    )
+                                  ">
+                                  <mat-option *ngFor="
+                                      let option of AsalPerguruanTinggiList
+                                        | async
+                                    " [value]="option">
+                                    {{ option.nama }}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat PT</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="alamat_perguruan_tinggi" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="font-base font-medium italic text-success">
+                          Jika kode atau nama PT yang dicari tidak ditemukan,
+                          silahkan hubungi petugas PMB UNIVERSITAS YARSI!
+                        </p>
+                      </section>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                          [disabled]="!formPerguruanTinggi.valid">
+                          Simpan
+                        </button>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <!-- <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button mat-raised-button routerLink="/pmb/dashboard" type="submit"
+                class="btn btn-fill btn-yarsi bg-danger">
+                Batal
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

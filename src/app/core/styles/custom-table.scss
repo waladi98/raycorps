@@ -1,0 +1,23 @@
+.custom-table-container {
+    @apply flex flex-auto flex-col min-w-0 max-w-full w-full min-h-0 overflow-x-auto overflow-y-hidden;
+}
+
+table.custom-table {
+    @apply table-auto bg-white w-full whitespace-nowrap border-collapse border;
+
+    thead {
+        tr {
+            th {
+                @apply border p-2 uppercase bg-gray-300 text-gray-700;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                @apply p-2 border;
+            }
+        }
+    }
+}

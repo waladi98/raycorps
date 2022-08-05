@@ -1,0 +1,271 @@
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  Inject,
+  ViewEncapsulation,
+} from "@angular/core";
+import {
+  DomSanitizer,
+  SafeHtml,
+  SafeStyle,
+  SafeScript,
+  SafeUrl,
+  SafeResourceUrl,
+} from "@angular/platform-browser";
+import { Router, Route, ActivatedRoute } from "@angular/router";
+import { finalize, map, takeUntil } from "rxjs/operators";
+import {
+  BreakpointObserver,
+  Breakpoints,
+  BreakpointState,
+} from "@angular/cdk/layout";
+import { PageEvent } from "@angular/material/paginator";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DataService } from "../../../../core/services/data.service";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { NgxSpinnerService } from "ngx-spinner";
+import { Subject, Subscription, Observable } from "rxjs";
+import swal from "sweetalert2";
+import { cloneDeep } from "lodash";
+import {
+  CommonReference,
+  FormOptions,
+  FormResponse,
+} from "../../../../shared/types/common";
+import { FileUploaderService } from "../../../../shared/file-uploader/file-uploader.service";
+declare const require: any;
+
+declare const $: any;
+
+interface stat_aktif {
+  value: string;
+  viewValue: string;
+}
+
+@Component({
+  selector: "app-form-dialog",
+  templateUrl: "form-dialog.component.html",
+  styleUrls: ["./form-dialog.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+})
+export class FormDialogComponent implements OnInit {
+  formGroup: FormGroup;
+  asalSekolahList;
+  isAsalSekolahSearch: boolean = false;
+  listDataJenisMgm = [];
+  listDataJenisSekolah = [];
+  wilayahList;
+  listDataInstitusi = [];
+  isParentSearchWilayah: boolean = false;
+  date: any;
+  dataPesertaAsalSekolah: any;
+  dataPeserta: any;
+  file_name: any;
+  spinnerStatus = "Mohon Tunggu sedang memuat data..";
+  isPreparingForm = false;
+  isLoading = false;
+  spinnerName = "formPmbSpinner";
+  dataParam = {
+    type: null,
+  };
+
+  status_aktif: stat_aktif[] = [
+    { value: "T", viewValue: "Tidak Aktif" },
+    { value: "Y", viewValue: "Aktif" },
+  ];
+
+  dataKomponen: any;
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    public breakpointObserver: BreakpointObserver,
+    private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<FormDialogComponent>,
+    private dataService: DataService,
+    private spinner: NgxSpinnerService,
+    private fileUploaderService: FileUploaderService,
+    @Inject(MAT_DIALOG_DATA) private data: any
+  ) {
+    this.dataParam = this.data;
+    this.breakpointObserver;
+  }
+
+  ngOnInit() {
+    this.formGroup = this.formBuilder.group({
+      tahun_periode: ["", Validators.required],
+      nama: ["", Validators.required],
+      id_aktif: ["", Validators.required],
+    });
+    this.loadInitialData();
+  }
+
+  async loadInitialData(): Promise<any> {
+    try {
+      this.showSpinner();
+      // const request = [];
+
+      // const [] = await Promise.all(request);
+      this.listDataInstitusi = [
+        {
+          kode: "demo",
+          name: "Universitas Yarsi",
+        },
+      ];
+      // this.listDataJenisMgm = listDataJenisMgm.result;
+      // this.dataMaster =
+      //   dataMaster.result.length > 0 ? dataMaster.result[0] : null;
+
+      //console.log("Referral", this.dataMaster);
+
+      this.hideSpinner();
+    } catch (error) {
+      console.log(error);
+      this.hideSpinner();
+    }
+  }
+  showSpinner(): void {
+    this.isLoading = true;
+    this.spinner.show(this.spinnerName);
+  }
+
+  hideSpinner(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+      this.spinner.hide(this.spinnerName);
+    }, 2000);
+  }
+  
+  onSubmitData() {
+    swal
+      .fire({
+        title: "Tambah Data",
+        text: "Apakah Yakin Akan Menyimpan Data Ini?",
+        icon: "warning",
+        showCancelButton: true,
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        confirmButtonText: "Ya",
+        cancelButtonText: "Batal",
+        buttonsStyling: false,
+      })
+      .then((result) => {
+        if (result.value) {
+          this.showSpinner();
+          this.submitRequest();
+        }
+      });
+  }
+
+  submitRequest(): void {
+    this.showSpinner();
+    const value = cloneDeep(this.formGroup.value);
+    this.date = new Date();
+    const payload = {
+      tahun_periode: value.tahun_periode,
+      nama: value.nama,
+      id_aktif: value.id_aktif
+    };
+
+    let endpoint = "/pdjama/master/tahunPeriode/create";
+
+    // if (this.undur) {
+    //   payload.id = this.dataPesertaUndurDiri.id;
+    //   endpoint = "/pmb/pesertaUndurDiri/modify";
+    // }
+
+    this.dataService.getPostRequest<FormResponse>(endpoint, payload).subscribe(
+      (success) => {
+        if (success.code == "404") {
+          swal.fire({
+            title: "Tambah Data",
+            text: "Data Gagal di Simpan.",
+            icon: "error",
+            customClass: {
+              confirmButton: "btn btn-error",
+            },
+            buttonsStyling: false,
+          });
+        } else if (
+          success.message.match(/Duplicate entry.*/) ||
+          success.code == "500"
+        ) {
+          swal.fire({
+            title: "Gagal Menambahkan Data Baru",
+            text: "Data yang anda masukan sudah ada sebelumnya.",
+            icon: "error",
+            customClass: {
+              confirmButton: "btn btn-error",
+            },
+            buttonsStyling: false,
+          });
+        } else {
+          swal
+            .fire({
+              title: "Tambah Data",
+              text: "Data Berhasil di Simpan.",
+              icon: "success",
+              customClass: {
+                confirmButton: "btn btn-success",
+              },
+              buttonsStyling: false,
+              showCancelButton: false,
+              confirmButtonText: "Ok",
+            })
+            .then((result) => {
+              if (result.value) {
+                this.showSpinner();
+                this.loadInitialData();
+                //this.manageData(success.result);
+                //this.hideSpinner();
+              }
+            });
+        }
+      },
+      (error) => {
+        swal.fire({
+          title: "Tambah Data",
+          text: "Data Gagal di Simpan.",
+          icon: "error",
+          customClass: {
+            confirmButton: "btn btn-error",
+          },
+          buttonsStyling: false,
+        });
+      }
+    );
+  }
+
+  openFileUploader(): void {
+    this.fileUploaderService
+      .open({
+        title: "Unggah Tanda Tangan",
+        templateUrl: "",
+        templateParams: {
+          action: "",
+        },
+        uploadUrl: "/file/uploadFile",
+        uploadParams: {
+          path: "pdjama",
+        },
+        downlodButtonText: "Download Template",
+        uploadButtonText: "Upload",
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (result.data) {
+          this.file_name = result.data.result.filename;
+          this.formGroup
+            .get("path_to_tanda_tangan")
+            .setValue(result.data.result.newfilename);
+        }
+      });
+  }
+
+  cancelUpload() {
+    //this.dataPendaftaranPmb.bukti_setoran=null;
+    this.formGroup.get("path_to_tanda_tangan").setValue(null);
+  }
+}

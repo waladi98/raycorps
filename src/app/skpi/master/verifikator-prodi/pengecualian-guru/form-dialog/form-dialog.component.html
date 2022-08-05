@@ -1,0 +1,53 @@
+<div style="width: 600px">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Pengecualian Kelengkapan</span>
+    <span *ngIf="dataParam.type == 'update'">Ubah Pengecualian Kelengkapan</span>
+  </h2>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field>
+          <mat-select
+            placeholder="Program Studi"
+            name="program_studi"
+            formControlName="program_studi"
+          >
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Wajib</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field>
+          <mat-select
+            placeholder="Wajib"
+            name="wajib"
+            formControlName="wajib"
+          >
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-slide-toggle color="primary"></mat-slide-toggle>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button class="btn btn-fill btn-yarsi bg-danger" mat-button mat-dialog-close>Kembali</button>
+    <button class="btn btn-fill btn-yarsi mr-2" mat-button [mat-dialog-close]="true">Simpan</button>
+  </mat-dialog-actions>
+</div>

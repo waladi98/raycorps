@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <mat-tab-group class="mx-auto" style="background-color: white">
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">person </i> &nbsp; Data Pribadi </ng-template>
+                <app-data-pribadi></app-data-pribadi>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">home</i> &nbsp; Alamat Tetap </ng-template>
+                <app-alamat-tetap></app-alamat-tetap>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">school</i> &nbsp; Akademik </ng-template>
+                <app-akademik></app-akademik>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">history_edu</i> &nbsp; Jabatan </ng-template>
+                <app-jabatan></app-jabatan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">pending_actions</i> &nbsp; Pengajaran </ng-template>
+                <app-pengajaran></app-pengajaran>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">biotech</i> &nbsp; Penelitian </ng-template>
+                <app-penelitian></app-penelitian>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">grade</i> &nbsp; Pendidikan </ng-template>
+                <app-pendidikan></app-pendidikan>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">work</i> &nbsp; Pekerjaan </ng-template>
+                <app-pekerjaan></app-pekerjaan>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-mini-profil></app-mini-profil>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Kriteria Penilaian</h4>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg">Informasi Audit Internal</h3>
+                </div>
+                <!-- <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+                    <span class="text-white text-xl">{{ spinnerStatus }}</span>
+                  </ngx-spinner> -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tahun Periode</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-2/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_tahun_periode"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Program Audit</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_audit" style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Auditor 1</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_auditor_1"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Auditor 3</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_auditor_3"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                  <div class="col-md-6">
+                    <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Audit</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-2/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="tanggal_audit"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Auditi / Bidang</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_bidang" style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-12">
+                        <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Auditor 2</label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-4/6">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" formControlName="nama_auditor_2"
+                              style="color: rgb(37, 37, 37)" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+
+                <!-- DOKUMEN PERSYARATAN -->
+
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg">Butir Kriteria Penilaian</h3>
+
+                  <div class="row">
+                    <div class="col-md-12 ml-auto mr-auto">
+                      <div class="warning-text py-2">
+                        <app-custom-table [listData]="listData" (dialogData)="dialogData($event)"
+                          [events]="eventsLoad.asObservable()"></app-custom-table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

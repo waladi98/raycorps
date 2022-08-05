@@ -1,0 +1,13 @@
+.min-icon {
+  color: #dc3545;
+}
+
+.edit-icon {
+  color: #ffc107;
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+  .container-fluid {
+    padding: 0;
+  }
+}

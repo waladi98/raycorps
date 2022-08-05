@@ -1,0 +1,283 @@
+<div class="card">
+  <div class="card-header card-header-success card-header-text">
+    <div class="card-text">
+      <h4 class="card-title">Orang Tua</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+      <div class="title mb-2">
+        <h3 class="font-medium text-lg">Data Ayah</h3>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full">
+            <input matInput type="text" placeholder="NIK (Nomor Induk Kependudukan)" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full">
+            <input matInput type="text" placeholder="NIK Ayah" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Agama Ayah" name="formulir">
+              <mat-option *ngFor="let item of agama" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pendidikan Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Pendidikan Ayah" name="formulir">
+              <mat-option *ngFor="let item of pendidikan" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pekerjaan Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Pekerjaan Ayah" name="formulir">
+              <mat-option *ngFor="let item of pekerjaan" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Hidup Ayah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Status Hidup Ayah" name="formulir">
+              <mat-option *ngFor="let item of status_hidup" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="title mb-2">
+        <h3 class="font-medium text-lg">Data Ibu</h3>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full">
+            <input matInput type="text" placeholder="NIK (Nomor Induk Kependudukan)" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full">
+            <input matInput type="text" placeholder="NIK Ayah" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Agama Ibu" name="formulir">
+              <mat-option *ngFor="let item of agama" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pendidikan Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Pendidikan Ibu" name="formulir">
+              <mat-option *ngFor="let item of pendidikan" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pekerjaan Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Pekerjaan Ibu" name="formulir">
+              <mat-option *ngFor="let item of pekerjaan" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="table-row w-full mt-2">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Hidup Ibu</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field appearance="fill">
+            <mat-select placeholder="Pilih Status Hidup Ibu" name="formulir">
+              <mat-option *ngFor="let item of status_hidup" [value]="item.value">
+                {{ item.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="title mb-2">
+        <h3 class="font-medium text-lg">Kontak Orang Tua</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Telepon" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor HP / WA</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Nomor HP / WhatsApp" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Email" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="title mb-2">
+        <h3 class="font-medium text-lg">Alamat Orang Tua</h3>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Alamat" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">RT</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="RT" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">RW</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="RW" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Domisili</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Domisili" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Negara</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Negara" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Telepon" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-right">
+          <div class="text-right px-2">
+            <button type="submit" mat-raised-button class="btn btn-success mx-1">Simpan</button>
+            <button type="submit" mat-raised-button class="btn btn-danger mx-1">Batal</button>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

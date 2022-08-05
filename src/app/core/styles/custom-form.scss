@@ -1,0 +1,150 @@
+.custom-form-panel {
+    @apply min-w-full min-h-full w-full h-full md:min-w-1/3 md:w-auto md:min-h-0 md:h-auto;
+
+    .mat-dialog-container {
+        @apply p-0 m-auto;
+        border-radius: 4px !important;
+        mat-toolbar {
+            @apply bg-gray-200 border-gray-300 text-gray-600 tracking-wide h-12 border-b;
+
+            .mat-dialog-title{
+                @apply text-lg;
+                .material-icons{
+                    @apply relative top-1;
+                }
+            }
+        }
+        .dialog-action{
+            @apply flex  justify-items-end justify-end items-center flex-row w-full p-4 bg-gray-50 border-t border-gray-200;
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        .mat-dialog-container {
+            border-radius: 0px !important;
+        }
+        .mat-dialog-content {
+            max-height: 80vh !important;
+        }
+    }
+}
+
+.custom-form-notif {
+    @apply min-w-full min-h-full w-full h-full md:min-w-1/3 md:w-auto md:min-h-0 md:h-auto;
+
+    .mat-dialog-container {
+        @apply p-1 m-auto;
+        overflow: hidden;
+        border-radius: 4px !important;
+        mat-toolbar {
+            @apply bg-gray-200 border-gray-300 text-gray-600 tracking-wide h-12 border-b;
+
+            .mat-dialog-title{
+                @apply text-lg;
+                .material-icons{
+                    @apply relative top-1;
+                }
+            }
+        }
+        .mat-dialog-content {
+            text-align:center;
+        }
+        .dialog-action{
+            @apply flex justify-items-end justify-end items-center w-full p-4 bg-accent-50 border-t border-gray-200;
+        }
+        .dialog-action-center{
+            @apply flex justify-items-center justify-center items-center w-full p-4 bg-accent-50 border-t border-gray-200;
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        .mat-dialog-container {
+            border-radius: 0px !important;
+        }
+        .mat-dialog-content {
+            text-align:center;
+            max-height: 80vh !important;
+        }
+    }
+}
+
+.custom-form-panel-md {
+    @apply min-w-full min-h-full w-full h-full md:min-w-3/4 md:w-auto md:min-h-0 md:h-auto;
+
+    .mat-dialog-container {
+        @apply p-0 m-auto;
+        overflow: hidden;
+        border-radius: 4px !important;
+        mat-toolbar {
+            @apply bg-gray-200 border-gray-300 text-gray-600 tracking-wide h-12 border-b;
+
+            .mat-dialog-title{
+                @apply text-lg;
+                .material-icons{
+                    @apply relative top-1;
+                }
+            }
+        }
+        .mat-dialog-content {
+            @apply ml-1 mr-1;
+        }
+        .mat-dialog-actions {
+            .action-button {
+                @apply flex items-center justify-end border-t px-8 py-8 bg-gray-50 dark:bg-gray-700;
+            }
+        }
+
+        .dialog-action{
+            @apply flex  justify-items-end justify-end items-center flex-row w-full p-4 bg-gray-50 border-t border-gray-200;
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        .mat-dialog-container {
+            border-radius: 0px !important;
+        }
+        .mat-dialog-content {
+            max-height: 80vh !important;
+        }
+    }
+}
+.custom-form-panel-mid {
+    @apply min-w-full min-h-full w-full h-full md:min-w-2/4 md:w-auto md:min-h-0 md:h-auto;
+
+    .mat-dialog-container {
+        @apply p-0 m-auto;
+        overflow: hidden;
+        border-radius: 4px !important;
+        mat-toolbar {
+            @apply bg-gray-200 border-gray-300 text-gray-600 tracking-wide h-12 border-b;
+
+            .mat-dialog-title{
+                @apply text-lg;
+                .material-icons{
+                    @apply relative top-1;
+                }
+            }
+        }
+        .mat-dialog-content {
+            @apply ml-1 mr-1;
+        }
+        .mat-dialog-actions {
+            .action-button {
+                @apply flex items-center justify-end border-t px-8 py-8 bg-gray-50 dark:bg-gray-700;
+            }
+        }
+
+        .dialog-action{
+            @apply flex  justify-items-end justify-end items-center flex-row w-full p-4 bg-gray-50 border-t border-gray-200;
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        .mat-dialog-container {
+            border-radius: 0px !important;
+        }
+        .mat-dialog-content {
+            max-height: 80vh !important;
+        }
+    }
+}

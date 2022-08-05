@@ -1,0 +1,130 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card class="card-data-mahasiswa p-0">
+          <mat-card-header class="flex items-center rounded-t-md bg-black">
+            <mat-card-title class="text-white m-0">Data Mahasiswa</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="px-3 py-6">
+            <div class="row row-card-data-mahasiswa px-4">
+              <div class="profil-pengguna flex items-center pl-0">
+                <div class="card-avatar">
+                  <img class="img" src="./assets/img/faces/ava.png" />
+                </div>
+                <div class="card-title">
+                  <p class="nama-mahasiswa font-medium text-lg">MAYA NINDYA NUGRAHINI</p>
+                  <p class="npm-mahasiswa text-base text-gray-400">183040093</p>
+                </div>
+              </div>
+              <div class="keterangan-mahasiswa table pt-8 mb-0">
+                <!-- Program -->
+                <div class="table-row flex space-x-4">
+                  <p class="table-cell w-40 pb-3">Program</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3">Regular Pagi (REG)</p>
+                </div>
+
+                <!-- Program Studi -->
+                <div class="table-row">
+                  <p class="table-cell w-40 pb-3">Program Studi</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3">304 - Teknik Informatika</p>
+                </div>
+
+                <!-- Status Akademik -->
+                <div class="table-row">
+                  <p class="table-cell w-40 pb-3">Status Akademik</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3">Aktif</p>
+                </div>
+
+                <!-- Tahun Akademik -->
+                <div class="table-row">
+                  <p class="table-cell w-40">Tahun Akademik Aktif</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell">Semester Ganjil 2040/2041</p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="col-md-12 px-0">
+      <div class="card">
+        <div class="card-body">
+          <!-- <div class="toolbar"></div> -->
+          <div class="table-responsive">
+            <table id="datatables" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="text-sm text-left w-32" colspan="2">Sesi</th>
+                  <th class="text-sm text-center w-28">Tahun</th>
+                  <th class="text-sm text-left w-44">Biaya</th>
+                  <th class="text-sm text-center w-28">Potongan</th>
+                  <th class="text-sm text-left w-28">Bayar</th>
+                  <th class="text-sm text-center w-28">Penarikan</th>
+                  <th class="text-sm text-center w-28">Hitung Ulang</th>
+                  <th class="text-sm text-center w-28">Status DPP</th>
+                  <th class="text-sm text-center w-28">Status</th>
+                  <th class="text-sm text-center w-28">Bayar TA</th>
+                  <th class="text-sm text-center w-28">Max SKS</th>
+                  <th class="text-sm text-center w-28">KRS</th>
+                  <th class="text-sm text-center w-28">KSS</th>
+                  <th class="text-sm text-center w-28">Kartu UTS</th>
+                  <th class="text-sm text-center w-28">Kartu UAS</th>
+                  <th class="text-sm text-center w-28">KHS</th>
+                  <th class="text-sm text-center w-28">IPS</th>
+                  <th class="text-sm text-center w-28">IPK</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listData; let i = index">
+                  <td class="text-left">
+                    <i class="material-icons delete-icon">delete</i>
+                  </td>
+                  <td class="text-left">{{ item.sesi.jumlah_sesi }}</td>
+                  <td class="text-center">{{ item.tahun }}</td>
+                  <td class="text-left">{{ item.biaya }}</td>
+                  <td class="text-center">{{ item.potongan }}</td>
+                  <td class="text-left">{{ item.bayar }}</td>
+                  <td class="text-center">{{ item.penarikan }}</td>
+                  <td class="text-center">
+                    <a href="#"><i class="material-icons task-icon">task</i></a>
+                  </td>
+                  <td class="text-center">{{ item.status_dpp }}</td>
+                  <td class="text-center">{{ item.status }}</td>
+                  <td class="text-center">
+                    <i class="material-icons min-icon">remove</i>
+                  </td>
+                  <td class="text-center">{{ item.max_sks }}</td>
+                  <td class="text-center">
+                    <a href="#"><i class="material-icons task-icon">task</i></a>
+                  </td>
+                  <td class="text-center">
+                    <a href="#"><i class="material-icons print-icon">print</i></a>
+                  </td>
+                  <td class="text-center">
+                    <i class="material-icons min-icon">remove</i>
+                  </td>
+                  <td class="text-center">
+                    <i class="material-icons min-icon">remove</i>
+                  </td>
+                  <td class="text-center">
+                    <a href="#"><i class="material-icons print-icon">print</i></a>
+                  </td>
+                  <td class="text-center">{{ item.ips }}</td>
+                  <td class="text-center">{{ item.ipk }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- end content-->
+      </div>
+      <!--  end card  -->
+    </div>
+  </div>
+</div>

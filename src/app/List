@@ -1,0 +1,57 @@
+PMB
+1. dashboard pmb mhs : dashboard-pmb
+2. dashboard pmb admin : dashboard-pmb-admin
+3. dashboard pmb pimpinan : dashboard-pmb-pimpinan
+4. formulir pendaftaran : formulir
+5. tampilan awal pmb : home
+6. pengisian formulir pmb (sudah login) : isi-formulir-pmb
+7. login : login
+8. reservasi pmb : reservasi-pmb
+9. ubah passowrd : ubah_password
+10. unggah persyaratan  : unggah-persyaratan
+11. ubah persyaratan  : ubah-persyaratan
+12. upload bukti transfer : upload-bukti-transfer
+13. detail gelombang : staff/master-pmb/detail-gelombang
+14. tambah gelombang : staff/master-pmb/tambah-gelombang
+15. ubah gelombang : staff/master-pmb/ubah-gelombang
+16. gelombang : staff/master-pmb/gelombang
+17. jenis formulir : staff/master-pmb/jenis-formulir
+18. prodi pilihan dan komponen : staff/master-pmb/jenis-formulir/prodi-pilihan-dan-komponen-nilai
+19. tambah jenis formulir : staff/master-pmb/jenis-formulir/tambah-jenis-formulir
+20. ubah jenis formulir : staff/master-pmb/jenis-formulir/ubah-jenis-formulir
+21. komponen nilai dan seleksi : staff/master-pmb/komponen-nilai-dan-seleksi
+22. detail komponen nilai dan seleksi : staff/master-pmb/komponen-nilai-dan-seleksi/detail-komponen-nilai
+23. persyaratan : staff/master-pmb/persyaratan
+24. pengecualian persyaratan : staff/master-pmb/pengecualian-persyaratan
+25. tambah persyaratan : staff/master-pmb/tambah-persyaratan
+26. ubah persyaratan : staff/master-pmb/ubah-persyaratan
+27. penyaringan pmb : staff/penyaringan-pmb
+28. verifikasi dokumen : staff/penyaringan-pmb/verifikasi-dokumen
+29. daftar peserta pmb : staff/penyaringan-pmb/verifikasi-dokumen/daftar-peserta-pmb
+30. informasi lengkap peserta : penyaringan-pmb/verifikasi-dokumen/informasi-lengkap-peserta
+31. verifikasi peserta : staff/penyaringan-pmb/verifikasi-dokumen/verifikasi-peserta
+28. verifikasi kelulusan : staff/penyaringan-pmb/verifikasi-kelulusan-dan-nilai
+29. daftar peserta pmb : staff/penyaringan-pmb/verifikasi-kelulusan-dan-nilai/daftar-peserta-pmb
+30. informasi lengkap peserta : staff/penyaringan-pmb/verifikasi-kelulusan-dan-nilai/informasi-lengkap-peserta
+31. verifikasi peserta : staff/penyaringan-pmb/verifikasi-kelulusan-dan-nilai/verifikasi-peserta
+32. referensi : staff/referensi
+33. gelombang : staff/referensi/gelombang
+34. grade : staff/referensi/grade
+35. jenis disabilitas : staff/referensi/jenis-disabilitas
+36. jenis komponen : staff/referensi/jenis-komponen
+37. status dokumen : staff/referensi/status-dokumen
+38. status seleksi : staff/referensi/status-seleksi
+39. transaksi : staff/transaksi
+40. pendaftaran on-site : staff/transaksi/pendaftaran-on-site
+41. pendaftaran on-site (tambah peserta) : staff/transaksi/pendaftaran-on-site/tambah-peserta
+42. pendaftaran on-site (ubah peserta) : staff/transaksi/pendaftaran-on-site/ubah-peserta
+43. proses bukti bayar : staff/transaksi/proses-bukti-bayar
+44. rekapitulasi pmb : staff/informasi/rekapitulasi-pmb
+45. calon pendaftar : staff/laporan/calon-pendaftar
+46. calon peserta : staff/laporan/calon-peserta
+47. kelengkapan per prodi : staff/laporan/kelengkapan-per-prodi
+48. kelengkapan per jenis formulir : staff/laporan/kelengkapan-per-jenis-formulir
+49. kelengkapan per jurusan sekolah : staff/laporan/kelengkapan-per-jurusan-sekolah
+50. pendaftar : staff/laporan/pendaftar
+51. persyaratan per prodi : staff/laporan/persyaratan-per-prodi
+52. peserta : staff/laporan/peserta

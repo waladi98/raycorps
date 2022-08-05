@@ -1,0 +1,81 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Lihat Profil MHS Wali</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <mat-form-field appearance="fill">
+              <mat-label>Cari Mahasiswa</mat-label>
+              <input matInput type="text" formControlName="cari_mahasiswa" />
+            </mat-form-field>
+          </div>
+          <!-- end content-->
+          <div class="card-footer align-self-end">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 mx-auto">
+
+        <div class="card">
+          <div class="card-body">
+            <mat-tab-group class="mx-auto" style="background-color: white">
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">person </i> &nbsp; Data Pribadi </ng-template>
+                <app-lihat-data-pribadi></app-lihat-data-pribadi>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">people</i> &nbsp; Orang Tua </ng-template>
+                <app-lihat-orang-tua></app-lihat-orang-tua>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">school</i> &nbsp; Data Akademik </ng-template>
+                <app-lihat-data-akademik></app-lihat-data-akademik>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">history_edu</i> &nbsp; Nilai Persemester </ng-template>
+                <app-nilai-persemester></app-nilai-persemester>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">pending_actions</i> &nbsp; Riwayat Nilai </ng-template>
+                <app-riwayat-nilai></app-riwayat-nilai>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">trending_up</i> &nbsp; Kemajuan Studi </ng-template>
+                <app-kemajuan-studi></app-kemajuan-studi>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">grade</i> &nbsp; Transkrip Nilai </ng-template>
+                <app-transkrip-nilai></app-transkrip-nilai>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">assignment</i> &nbsp; Tugas Akhir </ng-template>
+                <app-tugas-akhir-mhs></app-tugas-akhir-mhs>
+              </mat-tab>
+
+              <mat-tab>
+                <ng-template mat-tab-label> <i class="material-icons">payments</i> &nbsp; Keuangan </ng-template>
+                <app-keuangan></app-keuangan>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-mini-profil></app-mini-profil>
+      </div>
+    </div>
+  </div>
+</div>

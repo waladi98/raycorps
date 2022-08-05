@@ -1,0 +1,95 @@
+
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Pendaftaran Kerja Praktek</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Cari NPM Mahasiswa" type="text">
+            </mat-form-field>
+          </div>
+          <div class="card-footer ">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Cari</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Data Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <mat-list>
+              <mat-list-item>NPM</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Program</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Master Biaya & Potongan</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Nama</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Program Studi</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Dosen Wali</mat-list-item>
+            </mat-list>
+            <img src="https://demo-yarsi.ddns.net/demo/modul/simpati/gambar/besan.jpg" style="width: 225px; height: 225px;">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="material-datatables">
+              <table id="datatables" class="table table-striped table-no-bordered table-hover text-sm" cellspacing="0"
+                width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-20">No.</th>
+                    <th class="text-sm text-center w-20">Tahun</th>
+                    <th class="text-sm text-center w-20">Waktu</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Judul</th>
+                    <th class="text-sm disabled-sorting text-center">Pembimbing</th>
+                    <th class="text-sm text-center w-20">Batal?</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Ujian</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Penguji</th>
+                    <th class="text-sm disabled-sorting text-center">Berita Acara</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Lulus?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center">{{item.no}}</td>
+                    <td class="text-center">{{item.tahun}}</td>
+                    <td class="text-center">{{item.waktu}}</td>
+                    <td class="text-center">{{item.judul}}</td>
+                    <td class="text-center">{{item.pembimbing}}</td>
+                    <td class="text-center">{{item.batal}}</td>
+                    <td class="text-center">{{item.ujian}}</td>
+                    <td class="text-center">{{item.penguji}}</td>
+                    <td class="text-center">{{item.beritaacara}}</td>
+                    <td class="text-center">{{item.lulus}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form [formGroup]="form">
+            <div class="card-header card-header-yarsi card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">mail_outline</i>
+              </div>
+              <h4 class="card-title">Form Identitas Perguruan Tinggi</h4>
+            </div>
+            <div class="card-body">
+              <br>
+              <div class="grid md:grid-cols-4 sm:grid-cols-1 gap-2">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kode *" formControlName="kode">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kode Hukum *" formControlName="kode_hukum">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Nama *" formControlName="nama">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="tanggal_mulai" placeholder="Tanggal Mulai *"
+                    formControlName="tanggal_mulai">
+                  <mat-datepicker-toggle matSuffix [for]="tanggal_mulai"></mat-datepicker-toggle>
+                  <mat-datepicker #tanggal_mulai></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width md:col-span-2 sm:col-span-1">
+                  <input type="text" matInput placeholder="Alamat *" formControlName="alamat">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kota *" formControlName="kota">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kode Pos *" formControlName="kode_pos">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Telepon *" formControlName="telepon">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Fax *" formControlName="fax">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="email" matInput placeholder="Email *" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Website *" formControlName="website">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="No. Akta *" formControlName="no_akta">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="tgl_akta" placeholder="Tanggal Akta *" formControlName="tgl_akta">
+                  <mat-datepicker-toggle matSuffix [for]="tgl_akta"></mat-datepicker-toggle>
+                  <mat-datepicker #tgl_akta></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="No. Pengesehan *" formControlName="no_pengesahan">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="tgl_pengesahan" placeholder="Tanggal Pengesehan *"
+                    formControlName="tgl_pengesahan">
+                  <mat-datepicker-toggle matSuffix [for]="tgl_pengesahan"></mat-datepicker-toggle>
+                  <mat-datepicker #tgl_pengesahan></mat-datepicker>
+                </mat-form-field>
+
+                <div>
+                  <legend>Logo</legend>
+                  <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail">
+                      <img src="./assets/img/image_placeholder.jpg" alt="...">
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                    <div>
+                      <span class="btn btn-yarsi btn-round btn-file">
+                        <span class="fileinput-new">Select image</span>
+                        <span class="fileinput-exists">Change</span>
+                        <input type="file" name="..." />
+                      </span>
+                      <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i
+                          class="fa fa-times"></i> Remove</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <mat-checkbox class="example-margin mb-0" formControlName="aktif">Hapus ?</mat-checkbox>
+              <mat-checkbox class="example-margin mb-0">NA (tidak aktif)?</mat-checkbox>
+              <br>
+              <button mat-raised-button type="submit" class="btn btn-yarsi" (click)="onSubmit()">Simpan</button>
+            </div>
+          </form>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

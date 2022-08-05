@@ -1,0 +1,185 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pengaturan</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <form
+              [formGroup]="formGroup"
+              #formNgForm="ngForm"
+            >
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/12 mb-2 text-sm font-base text-gray-600 text-right">Pembayaran Atas Nama</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-4/6 pb-3">
+                <input
+                    matInput
+                    type="text"
+                    formControlName="atas_nama"
+                    style="color: black; max-width:100%"
+                    />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">U R L</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                    matInput
+                    type="text"
+                    formControlName="url"
+                    style="color: black"
+                    />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Nara Hubung</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="nara_hubung"
+                        style="color: black"
+                        />
+                    </div>
+                    <!-- <div class="col-md-12">
+                      Text-only: +62 812-9258-6060
+                    </div> -->
+                  </div>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Email</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="email"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Opsi Pilihan 2</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="opsi_pilihan_2"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Opsi Pilihan 3</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="opsi_pilihan_3"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Persen Min Registrasi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="persen_min_registrasi"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">SPP Registrasi FK</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="spp_registrasi_fk"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">SPP Registrasi FKG</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="spp_registrasi_fkg"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Komponen Registrasi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="kode_komponen_registrasi"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Komponen Registrasi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="link_wa_cetak_kartu"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Komponen Registrasi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="link_wa_cetak_kelulusan"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600 text-right">Komponen Registrasi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell  pb-3">
+                <input
+                        matInput
+                        type="text"
+                        formControlName="endpoint_kelulusan"
+                        style="color: black"
+                        />
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Verifikasi Rekomendasi Usulan SKPI</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              
+              <!-- <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe></iframe> -->
+            </div>
+
+            <mat-tab-group class="mt-4">
+              <mat-tab label="Informasi Pengusul">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <app-informasi-pengusul></app-informasi-pengusul>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Kegiatan Wajib">
+                <div class="row">
+                  <div class="col-md-12 mx-auto my-4">
+                    <app-kegiatan-wajib></app-kegiatan-wajib>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Kegiatan SK3">
+                <div class="row">
+                  <div class="col-md-12 mx-auto my-4">
+                    <app-kegiatan-sk3></app-kegiatan-sk3>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Rekomendasi SKPI">
+                <div class="row">
+                  <div class="col-md-10 mx-auto my-4">
+                    <app-rekomendasi-skpi></app-rekomendasi-skpi>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class="card-footer block">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

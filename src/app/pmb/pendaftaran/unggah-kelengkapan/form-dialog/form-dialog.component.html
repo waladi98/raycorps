@@ -1,0 +1,140 @@
+<ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+  <span class="text-white text-xl">{{ spinnerStatus }}</span>
+</ngx-spinner>
+<div class="col-md-12 mx-auto" style="width: 980px;">
+  <div class="card">
+    <div class="card-header card-header-success card-header-text">
+      <div class="card-text">
+        <h4 class="card-title">Unggah Dokumen Kelengkapan</h4>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="row">
+          <div class="col-md-5 mx-auto px-10 py-2">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-black">No.Peserta</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">
+                :
+              </div>
+              <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="peserta_id"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-black">No.Pendaftaran</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">
+                :
+              </div>
+              <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="formulir_id"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-black">Dokumen</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">
+                :
+              </div>
+              <ng-container *ngIf="dataPeserta.id_status_dokumen == '4';else Verifikasi ">
+                <div class="table-cell w-4/6 pb-3">
+                  <td>
+                    <span class="flex" *ngIf="dataPeserta.path_to_dokumen_core">
+                      <a href="{{dataPeserta.path_to_dokumen_core}}" target="_blank" class="text-header-table">Unduh</a>
+
+                    </span>
+
+                  </td>
+                </div>
+
+              </ng-container>
+              <ng-template #Verifikasi>
+                <div class="table-cell w-4/6 pb-3">
+                  <ng-container *ngIf="!dataPeserta.path_to_dokumen_core; else fileIsNull">
+                    <span class="flex" *ngIf="file_name">{{file_name}}
+                      <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </span>
+                    <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2"
+                      (click)="openFileUploader()" *ngIf="!file_name">
+                      <i class="material-icons">folder_open</i>
+                      Browse File
+                    </button>
+                  </ng-container>
+                  <ng-template #fileIsNull>
+
+                    <td>
+                      <span class="flex" *ngIf="dataPeserta.path_to_dokumen_core">
+                        <a href="{{dataPeserta.path_to_dokumen_core}}" target="_blank"
+                          class="text-header-table">Unduh</a>
+                        <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </span>
+
+                    </td>
+                  </ng-template>
+                </div>
+              </ng-template>
+
+            </div>
+
+          </div>
+          <div class="col-md-7 mx-auto px-10 py-2">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-black">Nama</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="nama"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-black">Kelengkapan<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" placeholder="Yang Harus Di unggah" formControlName="kelengkapan"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="flex justify-center w-full">
+            <ng-container *ngIf="dataPeserta.id_status_dokumen == 4; else verif">
+              <button class="btn btn-danger" mat-button mat-dialog-close>Tutup</button>
+            </ng-container>
+            <ng-template #verif>
+              <div class="btn-action mx-28">
+                <button mat-button [mat-dialog-close]="true" type="submit" class="btn btn-fill btn-yarsi mr-2"
+                  (click)="onSubmit()">
+                  Simpan
+                </button>
+                <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

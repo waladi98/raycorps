@@ -1,0 +1,108 @@
+<div style="width: 800px;">
+  <!-- <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'"></span>
+  </h2> -->
+  <mat-dialog-content>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >NPM</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="173040075" disabled/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Nama</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="ABIYYU NUR MUHAMMAD" disabled />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Program Studi</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Teknik Informatika" disabled />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Hanphone</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="+6281234567890" disabled />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+      >Tgl. Ujian</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="04-11-2020" disabled />
+        </mat-form-field>
+      </div>
+    </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+    >Status DPP</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Sudah 50%" disabled />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+    >Alasan</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="status dpp belum mencapai 35%" disabled />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-row w-full mt-4">
+    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+    >Status</label
+    >
+    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+    <div class="table-cell w-5/6 pb-3">
+      <mat-form-field class="w-full">
+        <input matInput type="text" placeholder="Diproses" disabled />
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <mat-dialog-actions align="end">
+    <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    class="btn btn-success"
+    >
+    Export
+  </button>
+  <button mat-button mat-dialog-close class="btn btn-success">Cetak</button>
+  <button mat-button mat-dialog-close class="btn btn-danger">Kembali</button>
+</mat-dialog-actions>
+</mat-dialog-content>
+</div>

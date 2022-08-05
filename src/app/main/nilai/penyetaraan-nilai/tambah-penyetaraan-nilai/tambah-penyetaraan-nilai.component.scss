@@ -1,0 +1,15 @@
+.card {
+  .card-footer {
+    display: block !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+  // .card -> .card-footer -> button
+  .card {
+    .card-footer {
+      display: flex !important;
+      justify-content: space-around;
+    }
+  }
+}

@@ -1,0 +1,164 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Laporan Undur Diri</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+            </div>
+            <!--<mat-form-field appearance="fill">
+              <mat-label>Tahun AKademik</mat-label>
+              <input matInput type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Gelombang</mat-label>
+              <input matInput type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Program Studi</mat-label>
+              <input matInput type="text" />
+            </mat-form-field>-->
+          </div>
+          <!-- end content-->
+          <!--
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>-->
+        </div>
+        <!--  end card  -->
+      </div>
+
+      <!--<div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-body">
+            
+              <div class="warning-text py-2">
+              <div class="toolbar text-right">
+                <button type="button" mat-raised-button class="btn btn-yarsi" routerLink="#">-->
+                  <!-- <mat-icon class="icon-size-5">add</mat-icon> -->
+                  <!--Export
+                </button>
+                <button type="button" mat-raised-button class="btn btn-yarsi" routerLink="#">
+                  <mat-icon class="icon-size-5">print</mat-icon>
+                  Print
+                </button>
+              </div>
+              
+              <div class="material-datatables">
+                <table class="table table-striped table-no-bordered table-hover text-sm responsive-table border-collapse border border-gray-400 whitespace-normal" cellspacing="0" width="100%" style="width: 100%" *ngIf="!isScreenSmall">
+                  <thead>
+                    <tr>
+                      <th *ngFor="let kolom of listData.header; let j = index" [ngClass]="kolom.class">{{ kolom.label }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngIf="!isLoadingTable">
+                      <tr *ngFor="let item of listData.data; let i = index">
+                        <td [ngClass]="kolom.class" *ngFor="let kolom of listData.field; let j = index">
+                          <span *ngIf="kolom.field == 'no'">
+                            {{ i + 1 }}
+                          </span>
+                          <span *ngIf="kolom.field != 'action' && kolom.field != 'no' && kolom.field != 'aktif'">
+                            {{ item[kolom.field] }}
+                          </span>
+                          <span *ngIf="kolom.field == 'aktif'">
+                            <div class="flex flex-col items-center justify-center">
+                              <i class="fa fa-check text-green-500" *ngIf="item[kolom.field] == 'Y'"></i>
+                              <i class="fa fa-minus text-red-500" *ngIf="item[kolom.field] == 'T'"></i>
+                            </div>
+                          </span>
+                          <span *ngIf="kolom.field == 'action'">
+                            <button *ngFor="let action of listData.action; let k = index" mat-raised-button class="btn btn-just-icon btn-link btn-twitter" (click)="this[action.action_name](action.action_title, j, item)">
+                              <i [ngClass]="action.icon"></i>
+                            </button>
+                          </span>
+                        </td>
+                      </tr>
+                    </ng-container>
+                    <tr *ngIf="isLoadingTable">
+                      <td class="text-center" [attr.colspan]="listData.header.length">
+                        <div class="flex flex-col items-center justify-center">
+                          <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+                          <span>Please wait</span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr *ngIf="!isLoadingTable && listData.data.length == 0">
+                      <td class="text-center" [attr.colspan]="listData.header.length">
+                        <div class="flex flex-col items-center justify-center">
+                          <span>No Data</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table table-striped table-no-bordered table-hover text-sm responsive-table border-collapse border border-gray-400 whitespace-normal" cellspacing="0" width="100%" style="width: 100%" *ngIf="isScreenSmall">
+                  <ng-container *ngIf="!isLoadingTable">
+                    <ng-container *ngFor="let item of listData.data; let i = index">
+                      <tr *ngFor="let header of listData.header; let j = index">
+                        <td class="bg-gray-400">{{ header.label }}</td>
+                        <td>
+                          <span *ngIf="header.field == 'no'">
+                            {{ i + 1 }}
+                          </span>
+                          <span *ngIf="header.field != 'action' && header.field != 'no' && header.field != 'aktif'">
+                            {{ item[header.field] }}
+                          </span>
+                          <span *ngIf="header.field == 'aktif'">
+                            <i class="fa fa-check text-green-500" *ngIf="item[header.field] == 'Y'"></i>
+                            <i class="fa fa-minus text-red-500" *ngIf="item[header.field] == 'T'"></i>
+                          </span>
+                          <span *ngIf="header.field == 'action'">
+                            <button *ngFor="let action of listData.action; let k = index" mat-raised-button class="btn btn-just-icon btn-link btn-twitter" (click)="this[action.action_name](action.action_title, j, item)">
+                              <i [ngClass]="action.icon"></i>
+                            </button>
+                          </span>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container *ngIf="isLoadingTable">
+                    <tr *ngFor="let header of listData.header; let j = index">
+                      <td class="bg-gray-400">{{ header.label }}</td>
+                      <td [attr.rowspan]="listData.header.length" *ngIf="j == 0" class="text-center align-middle">
+                        <div class="flex flex-col items-center justify-center">
+                          <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+                          <span>Please wait</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+
+                  <ng-container *ngIf="!isLoadingTable && listData.data.length == 0">
+                    <tr *ngFor="let header of listData.header; let j = index">
+                      <td class="bg-gray-400">{{ header.label }}</td>
+                      <td [attr.rowspan]="listData.header.length" *ngIf="j == 0" class="text-center align-middle">
+                        <div class="flex flex-col items-center justify-center">
+                          <span>No Data</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </table>
+
+                <mat-paginator (page)="onChangePaginator($event)" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"> </mat-paginator>
+              </div>
+            </div>-->
+
+          <!--</div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+</div>

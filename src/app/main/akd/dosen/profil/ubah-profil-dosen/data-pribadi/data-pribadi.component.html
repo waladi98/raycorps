@@ -1,0 +1,146 @@
+<div class="card shadow-none">
+  <div class="card-header card-header-success card-header-text">
+    <div class="card-text">
+      <h4 class="card-title">Edit Data Pribadi</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Login / NIP</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="nip" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIDN</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="nidn" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Dosen</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="nama_dosen" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Gelar</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="gelar" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tempat / Tanggal Lahir</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="tempat_tanggal_lahir" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Kelamin</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-radio-button class="mr-4" value="1">Pria</mat-radio-button>
+              <mat-radio-button value="2">Wanita</mat-radio-button>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="agama" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full">
+                    <input matInput type="text" placeholder="Telepon" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor HP / WA</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full">
+                    <input matInput type="text" placeholder="Nomor HP / WhatsApp" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full">
+                    <input matInput type="text" placeholder="Email" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="program_studi" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tidak Aktif ?</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" formControlName="tidak_aktif" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-12 text-right">
+            <div class="text-right px-2">
+              <button type="submit" mat-raised-button class="btn btn-success mx-1">Simpan</button>
+              <button type="submit" mat-raised-button class="btn btn-danger mx-1">Batal</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

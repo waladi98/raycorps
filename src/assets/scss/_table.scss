@@ -1,0 +1,85 @@
+.simple{
+       //margin-top: 25px;
+       border-radius: 5px !important;
+       th{
+        //  background:material-color('teal','500') !important;
+       //  background: #F9F9F9 !important;
+         //background:#51B06C !important;
+         min-width: 10px !important;
+        text-transform:uppercase;
+         color: #ffffff ;
+         //color :#4C4C4C;
+        // font-weight:normal !important;
+         text-align: center;
+         &.text-left{
+          text-align:left !important;
+         }
+         // &:first-child{
+         //    md-icon{
+         //        color : #4C4C4C !important;
+         //    }
+
+         //  } 
+       }
+        
+
+
+       th,td{
+         padding: 6px 7px !important;  
+       }
+
+        &.stripped{
+        tbody>tr:nth-child(odd){
+          // background-color: darken(#ffffff,1%);
+           background-color: #ffffff ;
+        }
+        tbody>tr:nth-child(even){
+        //  background:material-color('blue','50') ;
+       }
+      }
+
+       &.bordered,&.bordered td,&.bordered th{
+        border: 1px solid darken(#ffffff,15%);
+        border-collapse: collapse;
+      }
+
+       
+        
+       tr.italic{
+        font-style: italic !important;
+       }
+
+       tr.deep-purple{
+        // background: rgba(material-color('deep-purple','50'),10%) !important;
+        td{
+            // color :material-color('deep-purple','500');
+            a{
+                //  color :material-color('deep-purple','500') !important;
+            }
+        }
+       }
+
+       td{
+         color :#757575;
+          md-checkbox{
+            max-width:20px !important;
+          }
+
+        a{
+              color :#757575;
+              text-decoration: underline;
+        }
+        
+       }
+      &.second-table{
+        margin-top: 25px !important;
+      }
+     
+     }
+
+     .table-paging-area{
+      background-color :#ffffff;
+     }
+
+
+

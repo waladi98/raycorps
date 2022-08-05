@@ -1,0 +1,92 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Tambah Persyaratan</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg">Informasi Persyaratan</h3>
+                </div>
+
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Komponen Persyaratan</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input matInput type="text" placeholder="Komponen Persyaratan" />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenjang</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field>
+                      <mat-select
+                        placeholder="Jenjang"
+                        name="jenjang"
+                        formControlName="jenjang"
+                      >
+                        <mat-option>
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Wajib</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field>
+                      <mat-select
+                        placeholder="Wajib"
+                        name="wajib"
+                        formControlName="wajib"
+                      >
+                        <mat-option>
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="btn-action mx-48 mt-4">
+                    <button
+                      mat-raised-button
+                      type="submit"
+                      class="btn btn-fill btn-yarsi mr-2"
+                    >
+                      Simpan
+                    </button>
+                    <button
+                      mat-raised-button
+                      routerLink="../"
+                      type="submit"
+                      class="btn btn-fill btn-yarsi bg-danger"
+                    >
+                      Batal
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

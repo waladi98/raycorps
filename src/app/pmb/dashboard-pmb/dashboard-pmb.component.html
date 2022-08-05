@@ -1,0 +1,899 @@
+<div class="main-content">
+  <div class="container" style="background-color: white">
+    <div class="col-md-12">
+      <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+        <span class="text-white text-xl">{{ spinnerStatus }}</span>
+      </ngx-spinner>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header card-header-success">
+              <h4 class="card-title text-center">{{ listDataSalam.salam }}</h4>
+            </div>
+            <div class="card-body">
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_1</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Bukti Pendaftaran</p>
+                    <button mat-raised-button [matMenuTriggerFor]="menuBukti" class="btn btn-success w-40">
+                      Cetak
+                    </button>
+                    <mat-menu #menuBukti="matMenu" class="w-40">
+                      <button mat-menu-item (click)="cetakReservasi()">
+                        <mat-icon>print</mat-icon>
+                        <span>Unduh</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>whatsapp</mat-icon>
+                        <a *ngIf="dataPendaftaranPmb" href="{{ dataPendaftaranPmb.link_reservasi }}"
+                          target="_blank">Kirim</a>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_2</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Bukti Transfer</p>
+                    <a class="btn btn-success w-40" (click)="
+                        setTitle(
+                          'Upload Bukti Transfer',
+                          'bq_unggah_bukti_bayar'
+                        )
+                      ">Unggah</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_3</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Data Formulir</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="
+                          dataPendaftaranPmb.id_status_bayar == 'Y' || dataPendaftaranPmb.id_status_bayar == 'D' || dataPendaftaranPmb.id_status_bayar == 'O';
+                          else belumBayar
+                        " routerLink="/pmb/pendaftaran/isi-formulir" class="btn btn-info w-40">Isi Formulir</a>
+                      <!-- <a
+                          routerLink="/pmb/isi-formulir"
+                          class="btn btn-info w-40"
+                          >Isi Formulir</a
+                        > -->
+                    </ng-container>
+                    <ng-template #belumBayar>
+                      <a class="btn btn-info w-40" (click)="confirmStatus('BelumBayar')">Isi Formulir</a>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_4</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Dokumen Persyaratan</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="
+                          dataPendaftaranPmb.id_status_bayar == 'Y' || dataPendaftaranPmb.id_status_bayar == 'D' || dataPendaftaranPmb.id_status_bayar == 'O';
+                          else belumBayar2
+                        " class="btn btn-info w-40" (click)="
+                          setTitle('Unggah Persyaratan', 'bq_unggah_persyaratan')
+                        ">Unggah</a>
+                    </ng-container>
+                    <ng-template #belumBayar2>
+                      <a class="btn btn-info w-40" (click)="confirmStatus('BelumBayar')">Unggah</a>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_5</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Kartu Ujian</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="!dataPeserta; else kartu2" class="btn btn-info w-40"
+                        (click)="confirmStatusKartu('BelumIsiFormulir')">Unggah</a>
+                    </ng-container>
+                    <ng-template #kartu2>
+                      <button mat-raised-button [matMenuTriggerFor]="menu" class="btn btn-rose w-40">
+                        Cetak
+                      </button>
+                      <mat-menu #menu="matMenu" class="w-40">
+                        <button mat-menu-item (click)="cetakKartuPeserta()" [disabled]="!dataPeserta">
+                          <mat-icon>print</mat-icon>
+                          <span>Unduh</span>
+                        </button>
+                        <button mat-menu-item [disabled]="!dataPeserta">
+                          <mat-icon>whatsapp</mat-icon>
+                          <a href="{{ dataPeserta.link_kartu }}" target="_blank">Kirim</a>
+                        </button>
+                      </mat-menu>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_6</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Hasil Seleksi</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <!-- <a
+                        *ngIf="
+                          dataPeserta.proses_persyaratan == 'T';
+                          else lulus
+                        "
+                        class="btn btn-info w-40"
+                        (click)="confirmStatusSyarat('BelumIsiSyarat')"
+                        >Cetak</a
+                      > -->
+                      <a *ngIf="!dataPeserta; else dokumenAda" class="btn btn-rose w-40"
+                        (click)="confirmStatusSyarat('BelumIsiSyarat')">Cetak</a>
+                    </ng-container>
+                    <ng-template #dokumenAda>
+                      <ng-container *ngIf="!isPreparingForm">
+                        <a *ngIf="
+                            dataPeserta.proses_persyaratan == 'T' &&
+                              dataPeserta.id_status_seleksi != 2;
+                            else CekKelulusan
+                          " class="btn btn-rose w-40" (click)="confirmStatusUnggahSyarat('BelumDiunggah')">Cetak</a>
+                      </ng-container>
+                    </ng-template>
+                    <ng-template #CekKelulusan>
+                      <ng-container *ngIf="!isPreparingForm">
+                        <a *ngIf="
+                            dataPeserta.proses_persyaratan == 'T' &&
+                              dataPeserta.id_status_seleksi != 2;
+                            else prosesPersyaratan
+                          " class="btn btn-rose w-40" (click)="confirmStatusPersyaratan(dataPeserta)">Cetak</a>
+                      </ng-container>
+                      <ng-template #prosesPersyaratan>
+                        <button *ngIf="
+                            dataPeserta.id_status_seleksi >= 0;
+                            else syarat
+                          " mat-raised-button [matMenuTriggerFor]="menu" class="btn btn-rose w-40">
+                          Cetak
+                        </button>
+                        <mat-menu #menu="matMenu" class="w-40">
+                          <button mat-menu-item (click)="cetakPengumumanNRP()" [disabled]="!dataPeserta">
+                            <mat-icon>print</mat-icon>
+                            <span>Unduh</span>
+                          </button>
+                          <button mat-menu-item [disabled]="!dataPeserta">
+                            <mat-icon>whatsapp</mat-icon>
+                            <a href="{{ dataPeserta.link_kelulusan }}" target="_blank">Kirim</a>
+                          </button>
+                        </mat-menu>
+                      </ng-template>
+
+                      <ng-template #syarat>
+                        <a class="btn btn-info w-40" (click)="confirmKartuLulus('kartu')">Cetak</a>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_7</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Kelengkapan Data Registrasi</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="!dataPeserta; else lulus6" class="btn btn-danger w-40"
+                        (click)="confirmStatusLulus('BelumLulus')">isi kelengkapan</a>
+                    </ng-container>
+                    <ng-template #lulus6>
+                      <ng-container *ngIf="!isPreparingForm">
+                        <!-- <a
+                          *ngIf="dataPeserta.lulus == 'Y'; else kelulusan6"
+                          class="btn btn-info w-40"
+                          (click)="setTitle('Registrasi', 'q_registrasi')"
+                          >Unggah</a
+                        > -->
+                        <a *ngIf="dataPeserta.lulus == 'Y'; else kelulusan6"
+                          routerLink="/pmb/pendaftaran/registrasi-ulang" class="btn btn-danger w-40">Isi Kelengkapan</a>
+                      </ng-container>
+                      <ng-template #kelulusan6>
+                        <a class="btn btn-danger w-40" (click)="confirmStatusLulus('BelumLulus')">Isi Kelengkapan</a>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_8</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Dokumen Registrasi Ulang</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="!dataPeserta; else lulus2" class="btn btn-danger w-40"
+                        (click)="confirmStatusLulus('BelumLulus')">Unggah</a>
+                    </ng-container>
+                    <ng-template #lulus2>
+                      <ng-container *ngIf="!isPreparingForm">
+                        <a *ngIf="dataPeserta.lulus == 'Y'; else kelulusan2" class="btn btn-danger w-40" (click)="
+                            setTitle(
+                              'Unggah Kelengkapan',
+                              'bq_unggah_kelengkapan'
+                            )
+                          ">Unggah</a>
+                      </ng-container>
+                      <ng-template #kelulusan2>
+                        <a class="btn btn-danger w-40" (click)="confirmStatusLulus('BelumLulus')">Unggah</a>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 cards">
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">filter_9</i>
+                    </div>
+                    <p class="card-category" style="color: black;">Pemberitahuan NPM</p>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <a *ngIf="!dataPeserta; else lulus3" class="btn btn-warning w-40"
+                        (click)="confirmKelulusan('kelulusan')">Cetak</a>
+                    </ng-container>
+                    <ng-template #lulus3>
+                      <ng-container *ngIf="!isPreparingForm && dataPeserta">
+                        <button *ngIf="
+                            dataPeserta.dokumen_kelengkapan;
+                            else kelulusan3
+                          " mat-raised-button type="button" class="btn btn-warning w-40"
+                          (click)="confirmPengumumanRegis('404')">
+                          Cetak
+                        </button>
+                      </ng-container>
+                      <ng-template #kelulusan3>
+                        <a class="btn btn-warning w-40" (click)="confirmStatusLulus('BelumLulus')">Cetak</a>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card mx-3">
+              <div class="card-header card-header-text card-header-info">
+                <div class="card-text">
+                  <h4 class="card-title font-bold">
+                    Informasi Penting :
+                  </h4>
+                  <!-- <p class="card-category">
+                    Berikut beberapa hal yang perlu diperhatikan sebelum mengunggah dokumen undur
+                    pengunduran diri.
+                  </p> -->
+                </div>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th><i class="material-icons text-info">info</i></th>
+
+                      <th style="font-weight: semibold;">Berikut hal - hal yang perlu diperhatikan pada saat
+                        pembayaran
+                        melalui
+                        Virtual Account PMB :
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+
+                      <td>Untuk pembayaran Formulir Pendaftaran dapat dibayar ke No. VA yang terdapat di Bukti
+                        Pendaftaran.</td>
+
+                    </tr>
+                    <tr>
+                      <td>&ensp;</td>
+                      <td><a (click)="cetakReservasi()" class="text-green-700 cursor-pointer">Bukti Pendaftaran</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+
+                      <td>Jika sudah dinyatakan lulus, Untuk pembayaran Registrasi Ulang dapat dibayar ke No. VA yang
+                        terdapat di Kartu kelulusan.</td>
+                    </tr>
+                    <ng-container *ngIf="!isPreparingForm">
+                      <tr *ngIf="
+                        dataPeserta.id_status_seleksi == 1">
+                        <td>&ensp;</td>
+                        <td><a (click)="cetakPengumumanNRP()" class="text-green-700 cursor-pointer">Kartu kelulusan</a>
+                        </td>
+                      </tr>
+                    </ng-container>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-5">
+          <div class="card" style="background-color: #edf6f9">
+            <div class="card-header card-header-success">
+              <h1 class="card-title text-center">Ikhtisar</h1>
+            </div>
+            <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+              <span class="text-white text-xl">{{ spinnerStatus }}</span>
+            </ngx-spinner>
+            <div class="card-body">
+              <ul class="timeline">
+                <ng-container *ngIf="!isPreparingForm">
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">1 - Bukti Pendaftaran</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Dapat dicetak dimenu nomor 1
+                      </h4>
+                    </div>
+                  </li>
+                </ng-container>
+                <!-- --1- -->
+                <ng-container *ngIf="!isPreparingForm">
+                  <li class="timeline-inverted" *ngIf="
+                      dataPendaftaranPmb.id_status_bayar == 'Y';
+                      else bayar
+                    ">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">2 - Pembayaran Sudah Diterima</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Sudah dapat mengisi formulir
+                      </h4>
+                    </div>
+                  </li>
+                </ng-container>
+
+                <ng-template #bayar>
+                  <li class="timeline-inverted" *ngIf="dataPendaftaranPmb.id_status_bayar == 'O';">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">2 - Pembayaran Sudah Diterima</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Status : Open House ( Sudah dapat mengisi formulir )
+                      </h4>
+                    </div>
+                  </li>
+                  <li *ngIf="dataPendaftaranPmb.id_status_bayar == 'N';">
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">2 - Pembayaran Belum Diterima</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Silahkan selesaikan pembayaran formulir pendaftaran terlebih dahulu
+                      </h4>
+                    </div>
+                  </li>
+                  <li *ngIf="dataPendaftaranPmb.id_status_bayar == 'D';">
+                    <div class="timeline-badge warning">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-warning">2 - Pembayaran Anda Ditangguhkan</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Silahkan hubungi Tim PMB untuk informasi lebih lengkap, namun anda tetap
+                        dapat mengisi formulir PMB
+                      </h4>
+                    </div>
+                  </li>
+                  <li *ngIf="dataPendaftaranPmb.id_status_bayar == 'S';">
+                    <div class="timeline-badge info">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-info">2 - Status Pembayaran</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Baru dibayar sebagian dari harga formulir yang seharusnya
+                      </h4>
+                    </div>
+                  </li>
+                  <li *ngIf="dataPendaftaranPmb.id_status_bayar == 'T';">
+                    <div class="timeline-badge info">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-info">2 - Status Pembayaran</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Pembayaran Anda Di Tolak
+                      </h4>
+                    </div>
+                  </li>
+                </ng-template>
+
+                <ng-container *ngIf="!isPreparingForm">
+                  <li class="timeline-inverted" *ngIf="dataPeserta; else belumIsiFormulir">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">3 - Isi Formulir</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Formulir pendaftaran Sudah
+                        Diisi
+                      </h4>
+                    </div>
+                  </li>
+                </ng-container>
+                <ng-template #belumIsiFormulir>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">3 - Isi Formulir</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Formulir Pendaftaran Belum
+                        dapat di isi
+                      </h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">4 - Unggah Persyaratan</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Belum Dapat di isi</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">5 - Kartu Ujian</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Kartu Ujian Belum Tersedia</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">6 - Hasil Seleksi</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Informasi hasil seleksi akan diinfokan selanjutnya</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">7 - Kelengkapan Data Registrasi</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Dapat di isi jika anda dinyatakn lulus!</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">8 - Dokumen Registrasi Ulang</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Dapat di isi jika anda dinyatakan lulus!</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">9 - Pemberitahuan NPM</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Dapat di akses jika anda dinyatakn lulus!</h4>
+                    </div>
+                  </li>
+                </ng-template>
+                <ng-container *ngIf="!isPreparingForm && dataPeserta">
+                  <li *ngIf="
+                      !dataPeserta.dokumen_persyaratan;
+                      else belumIsiSyarat; else Syarat;
+                    ">
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">4 - Belum Diisi!</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Unggah Persyaratan</h4>
+                    </div>
+                  </li>
+                </ng-container>
+
+                <ng-template #belumIsiSyarat>
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">4 - Unggah Syarat</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Dokumen persyaratan sudah
+                        diunggah
+                      </h4>
+                    </div>
+                  </li>
+                </ng-template>
+                <!-- 4 -->
+
+                <ng-container>
+                  <ng-container *ngIf="!isPreparingForm && dataPeserta">
+
+
+                    <li *ngIf="!dataPeserta.dokumen_persyaratan; else kartu">
+                      <div class="timeline-badge danger">
+                        <i class="material-icons">hourglass_full</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-danger">5 - Belum Dicetak!</span>
+                        </div>
+                        <h4><i class="ti-time"></i>Kartu Ujian</h4>
+                      </div>
+                    </li>
+                  </ng-container>
+                </ng-container>
+                <ng-template #kartu>
+                  <ng-container *ngIf="dataPeserta.proses_persyaratan == 'T'; else belumLengkap">
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge warning">
+                        <i class="material-icons">check</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-warning">4 - Unggah Syarat</span>
+                        </div>
+                        <h4>
+                          <i class="ti-time"></i>Dokumen persyaratan belum lengkap!
+                        </h4>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-template #belumLengkap>
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge success">
+                        <i class="material-icons">check</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-success">4 - Unggah Syarat</span>
+                        </div>
+                        <h4>
+                          <i class="ti-time"></i>Dokumen persyaratan menunggu diproses, pastikan kembali semua berkas
+                          sudah lengkap!
+                        </h4>
+                        <ng-container *ngIf="!isPreparingForm">
+                          <ng-container *ngIf="dataPeserta.lulus != 'Y'; else hapusCatatan">
+                            <h4 *ngIf="dataPeserta.syarat">
+                              <span class="badge badge-danger">Pesan Petugas PMB: </span>
+                              <br />{{dataPeserta.syarat}}
+                            </h4>
+                          </ng-container>
+                          <ng-template #hapusCatatan>
+                            <span>..</span>
+                          </ng-template>
+                        </ng-container>
+
+                      </div>
+                    </li>
+                  </ng-template>
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge success">
+                      <i class="material-icons">check</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-success">5 - Kartu Peserta</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Silahkan cetak kartu anda,
+                        informasi kelulusan akan diinfokan selanjutnya
+                      </h4>
+                    </div>
+                  </li>
+                  <ng-container *ngIf="dataPeserta.id_status_seleksi== '7'; else kartuLulus">
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge warning">
+                        <i class="material-icons">hourglass_full</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-warning">6 - Hasil Seleksi</span>
+                        </div>
+                        <h4><i class="ti-time"></i>Hasil seleksi anda sedang dalam masa peninjauan, <i>mohon cek hasil
+                            seleksi anda secara berkala dan pastikan semua berkas persyaratan sudah dilengkapi!</i>
+                        </h4>
+                        <ng-container *ngIf="!isPreparingForm">
+                          <ng-container *ngIf="dataPeserta.lulus == 'Y'; else hapusCatatanSeleksi">
+                            <h4 *ngIf="dataPeserta.catatan_hasil_seleksi">
+                              <span class="badge badge-danger">Pesan Petugas PMB: </span>
+                              <br />{{dataPeserta.catatan_hasil_seleksi}}
+                            </h4>
+                          </ng-container>
+                          <ng-template #hapusCatatanSeleksi>
+                            <span>..</span>
+                          </ng-template>
+                        </ng-container>
+                      </div>
+                    </li>
+                  </ng-container>
+
+                  <ng-template #kartuLulus>
+                    <li class="timeline-inverted"
+                      *ngIf="dataPeserta.id_status_seleksi== '1' || dataPeserta.id_status_seleksi== '2' ;">
+                      <div class="timeline-badge success">
+                        <i class="material-icons">check</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-success">6 - Hasil Seleksi</span>
+                        </div>
+                        <h4><i class="ti-time"></i>Informasi hasil seleksi anda sudah diumumkan, silahkan cetak kartu
+                          kelulusan anda!</h4>
+                      </div>
+                    </li>
+                    <li class="timeline-inverted" *ngIf="dataPeserta.id_status_seleksi== '0'">
+                      <div class="timeline-badge warning">
+                        <i class="material-icons">check</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-warning">6 - Hasil Seleksi</span>
+                        </div>
+                        <h4><i class="ti-time"></i>Hasil seleksi anda sedang dalam masa peninjauan, <i>mohon cek hasil
+                            seleksi anda secara berkala dan pastikan semua berkas persyaratan sudah dilengkapi!</i>
+                        </h4>
+                      </div>
+                    </li>
+                    <li class="timeline-inverted" *ngIf="dataPeserta.id_status_seleksi== '6'">
+                      <div class="timeline-badge warning">
+                        <i class="material-icons">check</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-warning">6 - Hasil Seleksi</span>
+                        </div>
+                        <h4><i class="ti-time"></i>Dokumen Persyaratan anda ada yang belum lengkap<i>mohon cek kembali
+                            Dokumen Persyaratan anda.</i>
+                        </h4>
+                      </div>
+                    </li>
+
+
+                  </ng-template>
+                </ng-template>
+
+                <!-- reg1 -->
+                <ng-container>
+                  <ng-container *ngIf="!isPreparingForm && dataPeserta">
+                    <ng-container *ngIf="dataPeserta.id_jas_almamater != '0'; else registrasi">
+                      <li class="timeline-inverted">
+                        <div class="timeline-badge success">
+                          <i class="material-icons">check</i>
+                        </div>
+                        <div class="timeline-panel">
+                          <div class="timeline-heading">
+                            <span class="badge badge-success">7 - Kelengkapan Data Registrasi</span>
+                          </div>
+                          <h4>
+                            <i class="ti-time"></i>Data
+                            kelengkapan registrasi ulang sudah di isi
+                          </h4>
+                        </div>
+                      </li>
+                      <ng-container *ngIf="dataPeserta.id_status_seleksi == '0'; else delepan">
+                        <li>
+                          <div class="timeline-badge danger">
+                            <i class="material-icons">hourglass_full</i>
+                          </div>
+                          <div class="timeline-panel">
+                            <div class="timeline-heading">
+                              <span class="badge badge-danger">8 - Dokumen Registrasi Ulang</span>
+                            </div>
+                            <h4><i class="ti-time"></i>Belum diunggah</h4>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="timeline-badge danger">
+                            <i class="material-icons">hourglass_full</i>
+                          </div>
+                          <div class="timeline-panel">
+                            <div class="timeline-heading">
+                              <span class="badge badge-danger">9 - Pemberitahuan NPM</span>
+                            </div>
+                            <h4><i class="ti-time"></i>Silahkan lengkapi data registrasi ulang anda terlebih dahulu</h4>
+                          </div>
+                        </li>
+                      </ng-container>
+                      <ng-template #delepan>
+
+                        <ng-container *ngIf="!dataPeserta.dokumen_kelengkapan; else sembilan">
+                          <li>
+                            <div class="timeline-badge info">
+                              <i class="material-icons">hourglass_full</i>
+                            </div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <span class="badge badge-info">8 - Dokumen Registrasi Ulang</span>
+                              </div>
+                              <h4><i class="ti-time"></i>Belum diunggah</h4>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="timeline-badge info">
+                              <i class="material-icons">hourglass_full</i>
+                            </div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <span class="badge badge-info">9 - Pemberitahuan NPM</span>
+                              </div>
+                              <h4><i class="ti-time"></i>Silahkan lengkapi data registrasi ulang anda terlebih dahulu
+                              </h4>
+                            </div>
+                          </li>
+
+                        </ng-container>
+                        <ng-template #sembilan>
+                          <li class="timeline-inverted">
+                            <div class="timeline-badge success">
+                              <i class="material-icons">check</i>
+                            </div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <span class="badge badge-success">8 - Dokumen Registrasi Ulang</span>
+                              </div>
+                              <h4><i class="ti-time"></i>Sudah Diunggah</h4>
+                              <!-- <ng-container *ngIf="!isPreparingForm">
+                                <ng-container *ngIf="dataPeserta.dokumen_kelengkapan hapusCatata">
+                                  <h4 *ngIf="dataPeserta.syarat">
+                                    <span class="badge badge-danger">Pesan Petugas PMB: </span>
+                                    <br />{{dataPeserta.syarat}}
+                                  </h4>
+                                </ng-container>
+                                <ng-template #hapusCatatan>
+                                  <span>..</span>
+                                </ng-template>
+                              </ng-container> -->
+                            </div>
+                          </li>
+                          <li>
+                            <div class="timeline-badge danger">
+                              <i class="material-icons">hourglass_full</i>
+                            </div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <span class="badge badge-danger">9 - Pemberitahuan NPM</span>
+                              </div>
+                              <h4><i class="ti-time"></i>Informasi NPM akan diinfokan sesuai jadwal yang ditentukan</h4>
+                            </div>
+                          </li>
+                        </ng-template>
+
+
+                      </ng-template>
+
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+                <ng-template #registrasi>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">7 - Kelengkapan Data Registrasi</span>
+                      </div>
+                      <h4>
+                        <i class="ti-time"></i>Data
+                        kelengkapan registrasi ulang belum di isi
+                      </h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">8 - Dokumen Registrasi Ulang</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Dokumen Belum diunggah</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge danger">
+                      <i class="material-icons">hourglass_full</i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <span class="badge badge-danger">9 - Pemberitahuan NPM</span>
+                      </div>
+                      <h4><i class="ti-time"></i>Silahkan lengkapi data registrasi ulang anda terlebih dahulu</h4>
+                    </div>
+                  </li>
+
+                </ng-template>
+
+                <!-- reg 8 -->
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+</div>

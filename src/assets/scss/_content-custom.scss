@@ -1,0 +1,105 @@
+$toolbarContentHeight:50px;
+
+.rounded{
+				border-radius: 5px !important;
+			}
+.white-bg{
+	background-color:#ffffff;
+}
+.with-toolbar-content{
+	.content{
+		.fullwidth-table{
+			td:first-child,td:last-child{
+				padding-left:15px !important;
+			}
+			md-checkbox{
+				margin-bottom: 0px;
+			}
+
+
+		}
+
+
+		.md-subheader{
+			// border-bottom: 1px solid darken(#ffffff,5%);
+			           border-top-right-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+		}
+
+		.table-tools{
+				background: darken(#ffffff,4);
+				font-size: 16px !important;
+				height: 50px;
+				max-height: 50px;
+				md-input-container{
+				font-size: 14px;
+				color:darken(#ffffff,60%);
+				border-buttom: 1px solid darken(#ffffff,10%);
+				}
+			}
+
+.with-toolbar{
+	margin-top:0px !important;
+}
+
+
+		&.padding{
+		padding: 12px !important;
+
+	}
+		// @media screen and (max-width: $layout-breakpoint-md) {
+        //    &.padding{
+		// padding: 0px !important;
+	    //   }
+		// }
+	  
+}
+	md-toolbar{
+		max-height: $toolbarContentHeight;
+		min-height: $toolbarContentHeight;
+       border-bottom: 1px solid darken(#ffffff,8%);
+       border-top: 1px solid darken(#ffffff,8%);
+       padding: 0 10px;
+       background-color: whitesmoke !important;
+
+		.toolbar-separator {
+        height: $toolbarContentHeight ;
+        width: 1px;
+        background: rgba(0, 0, 0, 0.12);
+     }
+	}
+}
+
+
+
+.detail-assignment-counter {
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    width: 18px;
+    height: 18px;
+    z-index: 10;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 8px;
+    padding-top: 0px;
+}
+
+    
+.badge-assignment-approval {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 7px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+    transition: opacity 0.2s ease-in-out 0.1s;
+}

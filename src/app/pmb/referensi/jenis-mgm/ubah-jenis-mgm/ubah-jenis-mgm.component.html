@@ -1,0 +1,78 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Ubah Jenis MGM</h4>
+            </div>
+          </div>
+          <div class="card-body mx-10 my-auto">
+            <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+            <mat-dialog-content class="mat-typography">
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                  >ID</label
+                >
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full">
+                    <input
+                      matInput
+                      type="text"
+                      formControlName="id"
+                      style="color: rgb(37, 37, 37)"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="table-row w-full">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                  >Jenis MGM</label
+                >
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full">
+                    <input
+                      matInput
+                      type="text"
+                      formControlName="jenis_mgm"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                  >Aktif</label
+                >
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Status Aktif</mat-label>
+                    <mat-select placeholder="Status Aktif" name="aktif_status" formControlName="aktif_status">
+                      <mat-option *ngFor="let ls of listDataAktif" [value]="ls.id">
+                        <span style="font-size:larger">{{ls.keterangan}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </mat-dialog-content>
+            
+            <mat-dialog-actions class="table-row w-full mt-8">
+              <div class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></div>
+              <div class="table-cell px-3 text-sm font-base text-gray-600"></div>
+              <div class="table-cell w-5/6 pb-3">
+                <a class="btn btn-success" (click)="onSubmit()">Simpan</a>
+                <a class="btn btn-fill btn-yarsi bg-danger" (click)="toHome()">Kembali</a>
+              </div>
+            </mat-dialog-actions>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

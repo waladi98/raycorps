@@ -1,0 +1,197 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- Form Card -->
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card class="form-card p-0">
+          <mat-card-header class="flex items-center rounded-t-md bg-black">
+            <mat-card-title class="text-white m-0">Universitas Demo</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="px-4 py-6">
+            <form action="">
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Tahun Akademik Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Tahun Akademik</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of tahunAkademik" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Program Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of program" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Program Studi Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program Studi</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of programStudi" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Datepicker -->
+                  <mat-form-field appearance="outline" class="example-form-field">
+                    <mat-label>Masukkan Rentang Tanggal</mat-label>
+                    <mat-date-range-input [rangePicker]="rangePicker">
+                      <input matStartDate placeholder="Dari Tanggal" />
+                      <input matEndDate placeholder="Sampai Tanggal" />
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #rangePicker>
+                      <mat-date-range-picker-actions>
+                        <button mat-button matDateRangePickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                      </mat-date-range-picker-actions>
+                    </mat-date-range-picker>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Status Dosen Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Status Dosen</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of statusDosen" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Status Kerja Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Status Kerja</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of statusKerja" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="row flex justify-center">
+              <!-- Mat Card Action -->
+              <mat-card-actions class="m-0 p-0">
+                <button mat-flat-button class="btn btn-info text-white">Tampilkan</button>
+              </mat-card-actions>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Rekap Table Matakuliah & Dosen -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table-rekap border-collapse my-8">
+          <tbody>
+            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap">
+              <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Matakuliah</th>
+              <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                <a mat-button routerLink="../rekap-kehadiran-per-mk">Rekap kehadiran per Matakuliah</a>
+              </td>
+              <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border block lg:table-cell relative lg:static">
+                <a mat-button routerLink="../rincian-kehadiran-per-mk">Rincian kehadiran per Matakuliah</a>
+              </td>
+            </tr>
+            <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mt-3">
+              <th class="w-full lg:w-auto p-3 bg-gray-200 font-bold text-lg text-gray-600 text-center border border-b block lg:table-cell relative lg:static">Dosen</th>
+              <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border border-b block lg:table-cell relative lg:static">
+                <a mat-button routerLink="../rekap-kehadiran-dosen">Rekap kehadiran Dosen</a>
+              </td>
+              <td class="w-full lg:w-auto p-3 text-gray-800 font-medium text-center border border-b block lg:table-cell relative lg:static">
+                <a mat-button routerLink="../rincian-kehadiran-dosen">Rincian kehadiran Dosen</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Table Dosen -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Laporan Kehadiran Dosen</h4>
+          </div>
+          <div class="card-body">
+            <div class="tool-bar">
+              <!-- <button type="button" matTooltip="Tambah Data Baru" mat-raised-button class="btn btn-info">
+                <mat-icon class="icon-size-5">add</mat-icon>
+                Tambah Data Baru
+              </button> -->
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-20">ID</th>
+                    <th class="text-sm text-left w-36">Matakuliah</th>
+                    <th class="text-sm text-center w-20">Kelas</th>
+                    <th class="text-sm text-center w-20">K/R</th>
+                    <th class="text-sm text-left w-36">Dosen</th>
+                    <th class="text-sm text-center w-24">hadir (P)</th>
+                    <th class="text-sm text-center w-10">A</th>
+                    <th class="text-sm text-center w-10">B</th>
+                    <th class="text-sm text-center w-10">C</th>
+                    <th class="text-sm text-center w-24">Hadir (S)</th>
+                    <th class="text-sm text-center w-24">Rencana</th>
+                    <th class="text-sm text-center w-20">Persen</th>
+                    <th class="text-sm text-center w-20">Presensi Mahasiswa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center">{{ item.kode }}</td>
+                    <td class="text-left">{{ item.matakuliah }}</td>
+                    <td class="text-center">{{ item.kelas }}</td>
+                    <td class="text-center">{{ item.kr }}</td>
+                    <td class="text-left">{{ item.dosen }}</td>
+                    <td class="text-center">{{ item.hadirP }}</td>
+                    <td class="text-center">{{ item.a }}</td>
+                    <td class="text-center">{{ item.b }}</td>
+                    <td class="text-center">{{ item.c }}</td>
+                    <td class="text-center">{{ item.hadirS }}</td>
+                    <td class="text-center">{{ item.rencana }}</td>
+                    <td class="text-center">{{ item.persen }}</td>
+                    <td class="text-center">{{ item.presensiMahasiswa }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

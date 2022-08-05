@@ -1,0 +1,104 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Tambah Jenis Formulir</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <section class="col-md-10 mx-auto">
+              <div class="title mb-2">
+                <h3 class="font-medium text-lg">Informasi Formulir</h3>
+              </div>
+
+              <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                <div class="table">
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/3 mb-2 text-sm font-medium" style="color: black;"
+                      >Kode<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full" appearance="fill">
+                        <input matInput type="text" placeholder="Kode" formControlName="kode" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+          
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/3 mb-2 text-sm font-medium" style="color: black;"
+                      >Nama Pegawai<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+                      <div class="table-cell w-5/6 pb-3">
+                        <mat-form-field class="w-full" appearance="fill">
+                          <input matInput type="text" placeholder="Nama Pegawai" formControlName="nama_pegawai" />
+                        </mat-form-field>
+                      </div>
+                  </div>
+          
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/3 mb-2 text-sm font-medium" style="color: black;"
+                      >Handphone<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+          
+                    
+                      <div class="table-cell w-5/6 pb-3">
+                        <mat-form-field class="w-full" appearance="fill">
+                          <input matInput type="text" placeholder="Handphone" formControlName="handphone" />
+                        </mat-form-field>
+                      </div>
+                  </div>
+          
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/3 mb-2 text-sm font-medium" style="color: black;"
+                      >Jenis MGM<span style="color: red">*</span></label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base " style="color: black;"
+                    >
+                      :
+                    </div>
+          
+                    
+                      <div class="table-cell w-5/6 pb-3">
+                        <mat-form-field class="w-full" appearance="fill">
+                          <input matInput type="text" placeholder="Jenis MGM" formControlName="jenis_mgm" />
+                        </mat-form-field>
+                      </div>
+                  </div>
+                </div>
+              </form>
+              <div class="card-footer">
+                <div class="btn-action mx-48">
+                  <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">Simpan</button>
+                  <button mat-raised-button routerLink="../" type="submit" class="btn btn-fill btn-yarsi bg-danger">Batal</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

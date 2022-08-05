@@ -1,0 +1,300 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Nilai Kuliah</h4>
+          </div>
+          <div class="card-body">
+            <!-- Tahun Akademik -->
+            <mat-form-field>
+              <mat-select placeholder="Tahun Akademik" name="tahun_akademik">
+                <mat-option *ngFor="let item of tahun_akademik" [value]="item.value">
+                  {{ item.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Dosen -->
+            <mat-form-field>
+              <mat-select placeholder="Dosen" name="dosen">
+                <mat-option *ngFor="let item of dosen" [value]="item.value">
+                  {{ item.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Matakuliah -->
+            <mat-form-field>
+              <mat-select placeholder="Matakuliah" name="matakuliah">
+                <mat-option *ngFor="let item of matakuliah" [value]="item.value">
+                  {{ item.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="warning-text px-4 py-8">
+            <p class="font-base font-medium italic text-warning"><i class="material-icons align-middle pr-2">warning</i> Nilai sudah final. Data sudah tidak dapat diubah lagi!</p>
+          </div>
+
+          <mat-tab-group>
+            <!-- =============================> Bobot Nilai <============================= -->
+            <mat-tab label="Bobot Nilai">
+              <div class="px-4 py-2">
+                <div class="title mb-2">
+                  <h3 class="font-medium text-xl">Konfigurasi Bobot Penilaian</h3>
+                </div>
+
+                <section class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-5">
+                  <div>
+                    <label for="presensi" class="text-gray-700 mb-0">1. Presensi</label>
+                    <div class="flex flex-row mt-2">
+                      <input id="presensi" type="text" value="0.00" class="px-4 py-2 w-40 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="praktikum" class="text-gray-700 mb-0">2. Praktikum</label>
+                    <div class="flex flex-row mt-2">
+                      <input id="praktikum" type="text" value="0.00" class="px-4 py-2 w-40 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="tugas-mandiri" class="text-gray-700 mb-0">3. Tugas Mandiri</label>
+                    <div class="flex flex-row mt-2">
+                      <input id="tugas-mandiri" type="text" value="20.00" class="px-4 py-2 w-40 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="uts" class="text-gray-700 mb-0">4. Ujian Tengah Semester</label>
+                    <div class="flex flex-row mt-2">
+                      <input id="uts" type="text" value="20.00" class="px-4 py-2 w-40 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="uas" class="text-gray-700 mb-0">5. Ujian Akhir Semester</label>
+                    <div class="flex flex-row mt-2">
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-40 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="mt-16">
+                  <div class="note-text">
+                    <p class="font-base font-base italic">Tugas-tugas. Jika <span class="font-medium">Tugas Mandiri</span> diisi, maka persen berikut diabaikan dan persentasenya akan otomatis didistribusikan ke setiap komponen Tugas.</p>
+                  </div>
+                  <div class="grid grid-cols-1 gap-6 mt-2 sm:grid-cols-5">
+                    <div class="flex flex-row mt-2">
+                      <span class="px-4 py-2 text-lg font-medium text-white capitalize transform bg-gray-300 rounded-l-md"> 1 </span>
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-28 text-center text-gray-500 bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+
+                    <div class="flex flex-row mt-2">
+                      <span class="px-4 py-2 text-lg font-medium text-white capitalize transform bg-gray-300 rounded-l-md"> 2 </span>
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-28 text-center text-gray-500 bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+
+                    <div class="flex flex-row mt-2">
+                      <span class="px-4 py-2 text-lg font-medium text-white capitalize transform bg-gray-300 rounded-l-md"> 3 </span>
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-28 text-center text-gray-500 bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+
+                    <div class="flex flex-row mt-2">
+                      <span class="px-4 py-2 text-lg font-medium text-white capitalize transform bg-gray-300 rounded-l-md"> 4 </span>
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-28 text-center text-gray-500 bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+
+                    <div class="flex flex-row mt-2">
+                      <span class="px-4 py-2 text-lg font-medium text-white capitalize transform bg-gray-300 rounded-l-md"> 5 </span>
+                      <input id="uas" type="text" value="50.00" class="px-4 py-2 w-28 text-center text-gray-500 bg-white border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                      <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="mt-16">
+                  <div class="grid grid-cols-1 gap-6 mt-2 sm:grid-cols-4">
+                    <div class="grid-cols-4 gap-4">
+                      <div>
+                        <label for="tugas-mandiri" class="text-gray-700 mb-0">Minimal Kehadiran</label>
+                        <div class="flex flex-row mt-2">
+                          <input id="tugas-mandiri" type="text" value="80.00" class="px-4 py-2 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                          <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="uts" class="text-gray-700 mb-0 mt-4">Total Bobot</label>
+                        <div class="flex flex-row mt-2">
+                          <input id="uts" type="text" value="90" class="px-4 py-2 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:border-blue-500 focus:outline-none focus:ring" disabled />
+                          <span class="px-4 py-2 text-xl font-bold text-white capitalize transform bg-gray-300 rounded-r-md"> % </span>
+                        </div>
+                        <button
+                          class="
+                            w-full
+                            px-4
+                            py-1
+                            mt-2
+                            text-white
+                            transition-colors
+                            duration-200
+                            transform
+                            bg-danger
+                            rounded-sm
+                            focus:outline-none
+                            sm:w-auto
+                            hover:bg-blue-500
+                            focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-40
+                          "
+                          disabled
+                        >
+                          Reset ke Nilai Default
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="bg-white w-72 shadow-md mx-auto rounded-xl p-4">
+                      <mat-checkbox disabled>Nilai Detail</mat-checkbox>
+                      <p class="text-gray-600 mt-4">
+                        Jika <span class="font-medium">Nilai Detail dipilih</span>, maka <span class="font-medium">Komponen Nilai Akhir</span> tidak bisa diisi dan akan dihitung berdasarkan bobot dari setiap komponen.
+                      </p>
+                    </div>
+
+                    <div class="bg-white w-72 shadow-md mx-auto rounded-xl p-4">
+                      <mat-checkbox disabled>UTS / UAS Wajib</mat-checkbox>
+                      <p class="text-gray-600 mt-4">Jika <span class="font-medium">UTS/UAS Wajib</span> dipilih, dan salah satu Nilai UTS atau UAS Kosong maka Grade Nilai otomatis E.</p>
+                    </div>
+
+                    <div class="bg-white w-72 shadow-md mx-auto rounded-xl p-4">
+                      <mat-checkbox disabled>Presensi Mahasiswa Wajb</mat-checkbox>
+                      <p class="text-gray-600 mt-4">Jika <span class="font-medium">Presensi Kehadiran Wajib</span> dipilih, dan Nilai Presensi &#60; dari <span class="font-medium">Presensi Minimal</span>maka Grade Nilai otomatis T.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <div class="card-footer">
+                  <div class="btn-action mx-auto mt-16">
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2" disabled>Simpan</button>
+                    <button mat-raised-button routerLink="" type="submit" class="btn btn-fill btn-yarsi bg-danger" disabled>Reset</button>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <!-- =============================> Nilai Mahasiswa <============================= -->
+            <mat-tab label="Nilai Mahasiswa">
+              <div class="px-4 py-1">
+                <div class="material-datatables">
+                  <table id="pengisian-nilai" class="table table-striped table-no-bordered table-hover text-sm" cellspacing="0" width="100%" style="width: 100%">
+                    <thead>
+                      <tr>
+                        <th rowspan="3" class="text-sm text-center p-2">#</th>
+                        <th rowspan="3" class="text-sm text-left p-2">NPM</th>
+                        <th rowspan="3" class="text-sm text-left p-2">Nama Mahasiswa</th>
+                        <th colspan="5" class="text-sm text-center p-2">Tugas Mandiri</th>
+                        <th rowspan="2" class="text-sm text-center p-2">Pres.</th>
+                        <th rowspan="2" class="text-sm text-center p-2">UTS</th>
+                        <th rowspan="2" class="text-sm text-center p-2">UAS</th>
+                        <th rowspan="2" class="text-sm text-center p-2">Prak.</th>
+                        <th rowspan="2" colspan="2" class="text-sm text-center p-2">Nilai Akhir</th>
+                        <th rowspan="3" class="text-sm text-center p-2">Status KRS</th>
+                      </tr>
+
+                      <tr>
+                        <th class="text-sm text-center p-2">1</th>
+                        <th class="text-sm text-center p-2">2</th>
+                        <th class="text-sm text-center p-2">3</th>
+                        <th class="text-sm text-center p-2">4</th>
+                        <th class="text-sm text-center p-2">5</th>
+                      </tr>
+
+                      <tr>
+                        <th class="text-sm text-center p-2">20.00%</th>
+                        <th class="text-sm text-center p-2">20.00%</th>
+                        <th class="text-sm text-center p-2">0.00%</th>
+                        <th class="text-sm text-center p-2">0.00%</th>
+                        <th class="text-sm text-center p-2">0.00%</th>
+                        <th class="text-sm text-center p-2">0.00%</th>
+                        <th class="text-sm text-center p-2">30.00%</th>
+                        <th class="text-sm text-center p-2">30.00%</th>
+                        <th class="text-sm text-center p-2">0.00%</th>
+                        <th class="text-sm text-center p-2">Angka</th>
+                        <th class="text-sm text-center p-2">Huruf</th>
+                      </tr>
+                    </thead>
+
+                    <tbody *ngFor="let item of dataNilaiMahasiswa">
+                      <ng-container>
+                        <tr>
+                          <td class="text-sm text-center p-2">{{ item.no }}</td>
+                          <td class="text-sm text-left p-2">{{ item.npm }}</td>
+                          <td class="text-sm text-left p-2">{{ item.namaMahasiswa }}</td>
+                          <td class="text-sm text-center p-2">{{ item.tugas_mandiri_1 }}</td>
+                          <td class="text-sm text-center p-2">{{ item.tugas_mandiri_2 }}</td>
+                          <td class="text-sm text-center p-2">{{ item.tugas_mandiri_3 }}</td>
+                          <td class="text-sm text-center p-2">{{ item.tugas_mandiri_4 }}</td>
+                          <td class="text-sm text-center p-2">{{ item.tugas_mandiri_5 }}</td>
+                          <td class="text-sm text-center p-2">{{ item.prestasi }}</td>
+                          <td class="text-sm text-center p-2">{{ item.uts }}</td>
+                          <td class="text-sm text-center p-2">{{ item.uas }}</td>
+                          <td class="text-sm text-center p-2">{{ item.praktikum }}</td>
+                          <td class="text-sm text-center p-2">{{ item.nilai_akhir_angka }}</td>
+                          <td class="text-sm text-center p-2">{{ item.nilai_akhir_huruf }}</td>
+                          <td class="text-sm text-center p-2">{{ item.status_krs }}</td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </mat-tab>
+
+            <!-- =============================> Finalisasi Nilai <============================= -->
+            <mat-tab label="Finalisasi Nilai">
+              <div class="px-4 py-4">
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <p class="font-medium text-xl">Nilai Matakuliah sudah di finalisasi</p>
+                    <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi bg-danger my-4">Batalkan Finalisasi</button>
+                    <div class="note-text">
+                      <p class="font-base italic">Jika Finalisasi dibatalkan, maka jika jadwal ini berstatus 'Gagal Penilaian Dosen', maka status 'Gagal' juga akan direset.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

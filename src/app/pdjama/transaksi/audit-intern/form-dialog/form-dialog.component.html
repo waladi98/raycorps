@@ -1,0 +1,255 @@
+<ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+  <span class="text-white text-xl">{{ spinnerStatus }}</span>
+</ngx-spinner>
+<div class="col-md-12 mx-auto" style="width: 1200px;">
+  <div>
+    <div class="card-header card-header-success card-header-text">
+      <div class="card-text">
+        <h4 class="card-title">Tambah Audit Internal</h4>
+      </div>
+    </div>
+    <!-- <mat-tab-group class="mt-1 (selectedTabChange)="onTabChanged($event)">
+      <mat-tab label="Dokumen Kelengkapan">
+
+      </mat-tab>
+    </mat-tab-group> -->
+    <div class="card-body">
+
+      <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- kiri -->
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Tahun Periode<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full " appearance="fill">
+                  <mat-select placeholder="Tahun Periode" name="kode_tahun_periode"
+                    formControlName="kode_tahun_periode">
+                    <mat-option *ngFor="let ls of listDataTahunPeriode" [value]="ls.kode">
+                      <span style="font-size:larger">{{ ls.nama }}</span>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Bidang/Auditi<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Nama Bidang atau Singkatan" name="kode_bidang"
+                    aria-label="nama_bidang" matInput [matAutocomplete]="autoAsalSekolah"
+                    [formControlName]="'nama_bidang'" (input)="
+                      doFilterAsalSekolah($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isAsalSekolahSearch">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['nama_bidang']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'nipy_pegawai'
+                      ].value = null;
+                      formGroup.controls[
+                        'nik_pegawai'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoAsalSekolah="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectAsalSekolah($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of asalSekolahList | async
+                      " [value]="option " style="color:black">
+                      {{ option.nama_bidang }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Auditor 1<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Nama Auditor" name="kode_auditor_1" aria-label="nama_auditor_1"
+                    matInput [matAutocomplete]="autoAuditor1" [formControlName]="'nama_auditor_1'" (input)="
+                      doFilterAuditor1($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isAuditor1Search">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['nama_auditor_1']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'nipy_pegawai'
+                      ].value = null;
+                      formGroup.controls[
+                        'nik_pegawai'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoAuditor1="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectAuditor1($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of auditorList | async
+                      " [value]="option " style="color:black">
+                      {{ option.nama_auditor }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Auditor 3<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Nama Auditor" name="kode_auditor_3" aria-label="nama_auditor_3"
+                    matInput [matAutocomplete]="autoAuditor3" [formControlName]="'nama_auditor_3'" (input)="
+                      doFilterAuditor3($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isAuditor3Search">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['nama_auditor_3']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'nipy_pegawai'
+                      ].value = null;
+                      formGroup.controls[
+                        'nik_pegawai'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoAuditor3="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectAuditor3($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of auditorList | async
+                      " [value]="option " style="color:black">
+                      {{ option.nama_auditor }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Nama Audit<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="nama_audit" placeholder="Nama Audit"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Tanggal Audit<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field appearance="fill">
+                  <input matInput [matDatepicker]="picker" formControlName="tanggal_audit">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Auditor 2<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Nama Auditor" name="kode_auditor_2" aria-label="nama_auditor_2"
+                    matInput [matAutocomplete]="autoAuditor2" [formControlName]="'nama_auditor_2'" (input)="
+                      doFilterAuditor2($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isAuditor2Search">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['nama_auditor_2']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'nipy_pegawai'
+                      ].value = null;
+                      formGroup.controls[
+                        'nik_pegawai'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoAuditor2="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectAuditor2($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of auditorList | async
+                      " [value]="option " style="color:black">
+                      {{ option.nama_auditor }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+        <div class="row">
+          <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-button [mat-dialog-close]="true" (click)="onSubmitData()" class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

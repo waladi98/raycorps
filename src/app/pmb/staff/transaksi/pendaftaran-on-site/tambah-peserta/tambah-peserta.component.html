@@ -1,0 +1,182 @@
+<div class="main-content">
+  <div class="container">
+    <div class="card-body">
+      <br />
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Tambah Peserta</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" #formNgForm="ngForm" class="form-horizontal">
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Periode</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <mat-select placeholder="Periode" name="periode" formControlName="periode">
+                      <mat-option *ngFor="let ls of listDataGelombangPeriode" [value]="ls.kode">
+                        {{ ls.nama }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Jenis Formulir</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <mat-select placeholder="Jenis Formulir" name="formulir" formControlName="jenis_formulir_id"
+                      (selectionChange)="loadJenisFormulirPilihan($event.value)">
+                      <mat-option *ngFor="let ls of listDataJenisFormulir" [value]="ls.kode">
+                        {{ ls.nama }} {{ ls.harga }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Program Studi Pilihan</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <mat-select placeholder="Program Studi Pilihan" name="prodi" formControlName="prodi_id">
+                      <mat-option *ngFor="let ls of listDataProdi" [value]="ls.kode">
+                        {{ ls.prodi }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Jurusan Sekolah</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <mat-select placeholder="Jurusan Sekolah" name="jurusan" formControlName="jurusan_id">
+                      <mat-option *ngFor="let ls of listDataJurusanSekolah" [value]="ls.id">
+                        {{ ls.jurusan_sekolah }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Nama</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="Nama" formControlName="nama" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Alamat</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="Alamat" formControlName="alamat"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>No HP/Whatspapp</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="number" placeholder="No HP/Whatspapp" formControlName="no_hp" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Email</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="email" placeholder="Email" formControlName="email" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Tanggal Lahir</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" (click)="picker.open()"
+                      formControlName="tanggal_lahir" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Nama Ibu Kandung</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="text" placeholder="Nama Ibu Kandung" formControlName="nama_ibu_kandung" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Jenis Disabilitas<br />(Isi Jika Iya)</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field>
+                    <mat-select placeholder="Jenis Disabilitas" name="disabilitas"
+                      formControlName="jenis_disabilitas_id">
+                      <mat-option *ngFor="let ls of listDataJenisDisabilitas" [value]="ls.id">
+                        {{ ls.jenis_disabilitas }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Keterangan Disabilitas</strong></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="kosongkan jika tidak mempunyai disibilitas"
+                      formControlName="keterangan_disabilitas"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <label class="col-sm-2 col-form-label"><strong>Kode Verifikasi</strong></label>
+                <div class="col-sm-5">
+                  <re-captcha (resolved)="resolved($event)" (error)="onError($event)" errorMode="handled"
+                    siteKey="6LfRLr0dAAAAAEAXduFMC1tNq_5wupfoaMbSQHZd">
+                  </re-captcha>
+                  <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail">
+                                            <img src="./assets/img/image_placeholder.jpg" alt="kode ver">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="btn btn-rose btn-file">
+                                        <span class="fileinput-new">Refresh image</span>
+                                    </div>
+                </div>
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                  <mat-form-field class="example-full-width">
+                                        <input matInput type="text" placeholder="Masukan Kode Verifikasi disini">
+                                    </mat-form-field>
+                </div>
+              </div> -->
+              <div class="row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                  <button type="submit" mat-raised-button class="btn btn-success" style="width: 100px">
+                    Simpan
+                  </button>
+                  <button mat-raised-button routerLink="../" type="submit" class="btn btn-fill btn-yarsi bg-danger">
+                    Batal
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end card -->
+  </div>
+</div>

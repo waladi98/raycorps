@@ -1,0 +1,127 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-4">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">No. NCR</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="No. NCR" formControlName="no_ncr" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Perbaikan</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput [matDatepicker]="tglmasuk" placeholder="Tanggal Masuk" disabled>
+                      <mat-datepicker-toggle matSuffix [for]="tglmasuk"></mat-datepicker-toggle>
+                      <mat-datepicker #tglmasuk></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+            </div>
+
+              <div class="col-md-6">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Ref. Prosedur</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="Ref. Prosedur" formControlName="ref_prosedur" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Penanggung Jawab</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="number" placeholder="Penanggung Jawab" formControlName="penanggung_jawab" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Perbaikan</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <textarea matInput placeholder="Perbaikan" formControlName="perbaikan" disabled></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">File Lampiran</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <!-- <div class="table-cell w-5/6 pb-3">
+                    <span class="flex" *ngIf="file_name">{{file_name}}
+                      <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </span>
+                    <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2" (click)="openFileUploader()"
+                      *ngIf="!file_name">
+                      <i class="material-icons">folder_open</i>
+                      Browse File
+                    </button>
+                  </div> -->
+                  <mat-form-field class="w-full" appearance="fill">
+                    <input matInput type="number" placeholder="File Lampiran" formControlName="file_lampiran" disabled/>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <hr class="mb-4"/>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Verifikasi</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full" appearance="fill">
+                    <input matInput type="text" placeholder="Status Verifikasi" formControlName="status_verifikasi" disabled/>
+                  </mat-form-field>
+                </div>
+              </div>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Catatan Verifikasi</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <textarea style="width: 100%" matInput placeholder="Catatan Verifikasi" formControlName="catatan_verifikasi" disabled></textarea>
+                    </mat-form-field>
+                  </div>
+              </div>
+        
+              <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"> </label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600"> </div>
+                <div class="table-cell w-5/6 pb-3">
+                  <div class="w-full">
+                    <button mat-button [mat-dialog-close]="true" (click)="{}" class="btn btn-fill btn-yarsi">
+                      Simpan
+                    </button>
+                    <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+                  </div>  
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,218 @@
+<div class="main-content">
+  <div class="container" style="background-color: white">
+    <ngx-spinner
+      [name]="spinnerName"
+      [fullScreen]="false"
+      type="line-scale-pulse-out"
+      size="small"
+    >
+      <span class="text-white text-xl">{{ spinnerStatus }}</span>
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title font-medium">Dashboard :</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a
+                      href="#reg"
+                      class="nav-link"
+                      data-toggle="tab"
+                      style="background-color: rgba(217, 218, 219, 0.253)"
+                    >
+                      <i class="material-icons">equalizer</i> Surat Keterangan Pendamping Ijazah
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+        
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body h-44">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card card-stats">
+                  <div
+                    class="card-header card-header-danger card-header-icon my-3">
+                    <h1 class="card-title text-center text-5xl">
+                      <strong>120/140</strong>
+                    </h1>
+                    <h2 class="card-title text-xl  text-center pt-1">Poin SK3</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-stats">
+                  <div
+                    class="card-header card-header-info card-header-icon  my-3"
+                  >
+                    <h1 class="card-title text-center text-5xl">
+                      <strong>10</strong>
+                    </h1>
+                    <h2 class="card-title text-xl  text-center pt-1">Jumlah Kegiatan</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane active" id="reg">
+              
+            </div>
+            <div class="tab-content">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card card-stats">
+            <div class="card-header card-header-success card-header-success items-center">
+              <div class="card-icon">
+                <i class="material-icons">timeline</i>
+              </div>
+              <h4 class="card-title text-2xl">Syarat Pengajuan SKPI</h4>
+            </div>
+            <div class="card-body mx-auto my-5">
+              <div class="">
+                <ul class="flex text-2xl">
+                  <li >
+                    <div class="title-yarsi flex items-center mx-3 py-1"> 
+                      <i class="material-icons text-success">check_box</i> Lulus
+                    </div>
+                  </li>
+                  <li >
+                    <div class="title-yarsi flex items-center mx-3 py-1"> 
+                      <i class="material-icons">check_box_outline_blank</i> Point SK3
+                    </div>
+                  </li>
+                  <li >
+                    <div class="title-yarsi flex items-center mx-3 py-1"> 
+                      <i class="material-icons">check_box_outline_blank</i> Kegiatan Wajib
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <h2 class="card-title text-xl  text-center pt-1">Jumlah Kegiatan</h2> -->
+            
+          
+          <!-- <div class="card-footer">
+            <i class="material-icons text-info">airplane_ticket</i>
+            <h1><strong>Diklat - 15</strong></h1>
+          </div> -->
+        </div>
+        <div class="card-body">
+          <div id="accordion" role="tablist">
+            <div class="card-collapse">
+              <div class="card-header" role="tab" id="headingOne">
+                <h5 class="mb-0">
+                  <a
+                    data-toggle="collapse"
+                    href="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                    class="collapsed"
+                  >
+                    Usulan Kegiatan SK3
+                    <i class="material-icons">keyboard_arrow_down</i>
+                  </a>
+                </h5>
+              </div>
+              <div
+                id="collapseOne"
+                class="collapse show"
+                role="tabpanel"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <div class="material-datatables">
+                    <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 " >
+        <div class="card" >
+          <div class="card-header card-header-success">
+            <h1 class="card-title text-center">RIWAYAT PENGAJUAN SKPI</h1>
+          </div>
+          
+          <div class="card-body">
+            <div class="text-info flex items-center ">
+              <i class="material-icons ">info_outline</i><p class="font-base mx-2 text-base"> Pengusulan SKPI masih belum memenuhi syarat</p>
+            </div>
+            <ul class="">
+              <li class="flex  justify-center ">
+                <div class="flex items-center">
+                  <div class=" text-success ">
+                    <i class="material-icons text-4xl mx-3">check_box</i>
+                  </div>
+                  <div class="card ">
+                    <div class="m-3">
+                      <h4 class="mb-2 text-2xl">
+                        <i class="ti-time"></i>Pengajuan SKPI diusulkan 
+                                    
+                      </h4>
+                      <span class="badge badge-success text-lg">22 May 2022</span> 
+                    </div>
+                    <!-- <span><a href="#" class="btn btn-success mx-3 p-2 w-24">Unduh</a></span> -->
+                  </div>
+                </div>
+              </li>
+              <li class="flex  justify-center ">
+                <div class="flex items-center">
+                  <div class=" text-success ">
+                    <i class="material-icons text-4xl mx-3">check_box</i>
+                  </div>
+                  <div class="card ">
+                    <div class="m-3">
+                      <h4 class="mb-2 text-2xl">
+                        <i class="ti-time"></i>Pengajuan SKPI diusulkan 
+                                    
+                      </h4>
+                      <span class="badge badge-success text-lg">22 May 2022</span> 
+                    </div>
+                    <!-- <span><a href="#" class="btn btn-success mx-3 p-2 w-24">Unduh</a></span> -->
+                  </div>
+                </div>
+              </li>
+              <li class="flex  justify-center ">
+                <div class="flex items-center">
+                  <div class=" text-success ">
+                    <i class="material-icons text-4xl mx-3">check_box</i>
+                  </div>
+                  <div class="card ">
+                    <div class="m-3">
+                      <h4 class="mb-2 text-2xl">
+                        <i class="ti-time"></i>Pengajuan SKPI diusulkan 
+                                    
+                      </h4>
+                      <span class="badge badge-success text-lg">22 May 2022</span> 
+                    </div>
+                    <span><a href="#" class="btn btn-info mx-3 p-2 w-24">Unduh</a></span>
+                  </div>
+                </div>
+              </li>
+              
+              
+            </ul>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>    
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">Nilai Perkuliahan</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ml-auto mr-auto">
+                          <div class="col-md-4">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Tahun Akademik</mat-label>
+                              <input matInput type="number"/>
+                              <!-- <input matInput type="number" formControlName="tahun_akademik" /> -->
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Dosen</mat-label>
+                              <input matInput type="text"/>
+                              <!-- <input matInput type="text" formControlName="dosen" /> -->
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Matakuliah</mat-label>
+                              <input matInput type="text"/>
+                              <!-- <input matInput type="text" formControlName="matakuliah" /> -->
+                            </mat-form-field>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi">Tampilkan</button>
+                        </div>
+                      </div>
+                </div>
+                <!--  end card  -->
+            </div>
+
+            <div class="col-md-12 ml-auto mr-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar text-right">
+                            <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi" (click)="uploadData('data')">Unggah</button>
+                        </div>
+
+                        <div class="material-datatables">
+                            <table class="table table-striped table-no-bordered table-hover text-sm responsive-table border-collapse border border-gray-400 whitespace-normal" cellspacing="0" width="100%" style="width: 100%" *ngIf="!isScreenSmall">
+                                <thead>
+                                    <tr>
+                                        <td rowspan="3" class="text-center">#</td>
+                                        <td rowspan="3" class="text-center">NPM</td>
+                                        <td rowspan="3" class="text-center">Nama Mahasiswa</td>
+                                        <td colspan="5" class="text-center">Tugas Mandiri</td>
+                                        <td rowspan="2" class="text-center">Pres.</td>
+                                        <td rowspan="2" class="text-center">UTS</td>
+                                        <td rowspan="2" class="text-center">UAS</td>
+                                        <td rowspan="2" class="text-center">Prak.</td>
+                                        <td rowspan="2" colspan="2" class="text-center">Nilai Akhir</td>
+                                        <td rowspan="3" class="text-center">Status KRS</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">2</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-center">4</td>
+                                        <td class="text-center">5</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">0.00%</td>
+                                        <td class="text-center">Angka</td>
+                                        <td class="text-center">Huruf</td>
+                                        <td class="text-center">Status</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">213040001</td>
+                                        <td class="text-center">DIVA NUR AFIFAH</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center">Diterima</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

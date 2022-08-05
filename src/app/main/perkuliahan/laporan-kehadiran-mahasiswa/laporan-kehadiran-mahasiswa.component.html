@@ -1,0 +1,146 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card class="form-card p-0">
+          <mat-card-header class="flex items-center rounded-t-md bg-black">
+            <mat-card-title class="text-white m-0">Universitas Demo</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="px-4 py-6">
+            <form action="">
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Tahun Akademik Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Tahun Akademik</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of tahunAkademik" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Program Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of program" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Program Studi Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program Studi</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of programStudi" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Dosen Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Dosen</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of dosen" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Dari NPM Input -->
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Dari NPM</mat-label>
+                    <input matInput />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Sampai NPM Input -->
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Sampai NPM</mat-label>
+                    <input matInput />
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="row flex justify-center">
+              <!-- Mat Card Action -->
+              <mat-card-actions class="m-0 p-0">
+                <button mat-flat-button class="btn btn-info text-white">Tampilkan</button>
+              </mat-card-actions>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Laporan Kehadiran Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <div class="toolbar my-4">
+              <button type="button" matTooltip="Unduh File Rekap" mat-flat-button class="btn btn-info mr-2">
+                <mat-icon class="icon-size-5">file_download</mat-icon>
+                Rekap
+              </button>
+              <button type="button" matTooltip="Unduh File Detail" mat-flat-button class="btn btn-info">
+                <mat-icon class="icon-size-5">file_download</mat-icon>
+                Detail
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table id="datatables" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-sm disable-sorting text-center w-10 pr-4">
+                      <mat-checkbox class="example-margin"></mat-checkbox>
+                    </th>
+                    <th class="text-sm text-left w-14 pr-4">#</th>
+                    <th class="text-sm text-left w-40 pr-4">NPM</th>
+                    <th class="text-sm text-left w-auto pr-4">Nama Mahasiswa</th>
+                    <th class="text-sm text-left w-auto pr-4">Wali Akademik</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dataMahasiswa; let i = index">
+                    <td class="text-center">
+                      <mat-checkbox></mat-checkbox>
+                    </td>
+                    <td class="text-left">{{ item.no }}</td>
+                    <td class="text-left">{{ item.npm }}</td>
+                    <td class="text-left">{{ item.namaMahasiswa }}</td>
+                    <td class="text-left">{{ item.waliAkademik }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- </div> -->
+</div>

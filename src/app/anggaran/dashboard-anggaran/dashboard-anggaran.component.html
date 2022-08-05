@@ -1,0 +1,575 @@
+<div class="main-content">
+  <div class="container" style="background-color: white">
+    <ngx-spinner
+      [name]="spinnerName"
+      [fullScreen]="false"
+      type="line-scale-pulse-out"
+      size="small"
+    >
+      <span class="text-white text-xl">{{ spinnerStatus }}</span>
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-info">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Ikhtisar:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item active">
+                    <a href="#reg" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">contact_mail</i> Formulir Online
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#keuangan" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">account_balance</i> Registrasi
+                      Ulang
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a href="#lulusan" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">school</i> Lulusan
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#nil" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">tips_and_updates</i> Nilai
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="reg">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-warning card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">badge</i>
+                        </div>
+                        <p class="card-category">Calon Pendaftar</p>
+                        <h4 class="card-title">Pendaftar - 20</h4>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">analytics</i>
+                        <h1>Estimasi - 61.250.000</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-info card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">people</i>
+                        </div>
+                        <p class="card-category">Penjualan Formulir Online</p>
+                        <h4 class="card-title">calon Peserta - 1</h4>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">analytics</i>
+                        <h1>Estimasi - 250.000</h1>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-success card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">task_alt</i>
+                        </div>
+                        <p class="card-category">Total Peserta</p>
+                        <h3 class="card-title">Peserta Lulus - 62</h3>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">analytics</i>
+                        <h1>Jumlah Saldo - 61.250.000</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="keuangan">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-warning card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">assignment_ind</i>
+                        </div>
+                        <p class="card-category">CAMABA</p>
+                        <h4 class="card-title">Registrasi- 26</h4>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">addchart</i>
+                        <h1>Estimasi - 11.800.000.000</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-info card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">people</i>
+                        </div>
+                        <p class="card-category">Mahasiswa Baru</p>
+                        <h4 class="card-title">Maba- 1</h4>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">addchart</i>
+                        <h1>Estimasi - 250.000.000</h1>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-4">
+                    <div class="card card-stats">
+                      <div
+                        class="card-header card-header-success card-header-icon"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">task_alt</i>
+                        </div>
+                        <p class="card-category">Total Peserta</p>
+                        <h3 class="card-title">Peserta Lulus - 62</h3>
+                      </div>
+                      <div class="card-footer">
+                        <i class="material-icons text-info">analytics</i>
+                        <h1>Jumlah Saldo - 61.250.000</h1>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="tab-pane" id="lulusan">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div
+                        class="card-header card-header-info card-header-info"
+                      >
+                        <div class="card-icon">
+                          <i class="material-icons">school</i>
+                        </div>
+                        <h4 class="card-title">Lulusan</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class="text-primary">
+                                <tr>
+                                  <th *ngFor="let cell of tableData1.headerRow">
+                                    {{ cell }}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows">
+                                  <td>{{ row[0] }}</td>
+                                  <td>{{ row[1] }}</td>
+                                  <td>{{ row[2] }}</td>
+                                  <td>{{ row[3] }}</td>
+                                  <td class="text-primary">{{ row[4] }}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="nil">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Rekap Nilai per Prodi</h4>
+                      </div>
+                      <div class="card-body">
+                        <div id="accordion" role="tablist">
+                          <div class="card-collapse">
+                            <div class="card-header" role="tab" id="headingOne">
+                              <h5 class="mb-0">
+                                <a
+                                  data-toggle="collapse"
+                                  href="#collapseOne"
+                                  aria-expanded="true"
+                                  aria-controls="collapseOne"
+                                  class="collapsed"
+                                >
+                                  Teknik Industri
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseOne"
+                              class="collapse show"
+                              role="tabpanel"
+                              aria-labelledby="headingOne"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 30 / 60 Matkul (Progres Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="indeterminate"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-collapse">
+                            <div class="card-header" role="tab" id="headingTwo">
+                              <h5 class="mb-0">
+                                <a
+                                  class="collapsed"
+                                  data-toggle="collapse"
+                                  href="#collapseTwo"
+                                  aria-expanded="false"
+                                  aria-controls="collapseTwo"
+                                >
+                                  Teknik Pangan
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseTwo"
+                              class="collapse"
+                              role="tabpanel"
+                              aria-labelledby="headingTwo"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 75 / 80 Matkul (Final Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="determinate"
+                                  value="95"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-collapse">
+                            <div
+                              class="card-header"
+                              role="tab"
+                              id="headingThree"
+                            >
+                              <h5 class="mb-0">
+                                <a
+                                  class="collapsed"
+                                  data-toggle="collapse"
+                                  href="#collapseThree"
+                                  aria-expanded="false"
+                                  aria-controls="collapseThree"
+                                >
+                                  Teknik Mesin
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseThree"
+                              class="collapse"
+                              role="tabpanel"
+                              aria-labelledby="headingThree"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 30 / 60 Matkul (Progres Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="indeterminate"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-collapse">
+                            <div
+                              class="card-header"
+                              role="tab"
+                              id="headingThree"
+                            >
+                              <h5 class="mb-0">
+                                <a
+                                  class="collapsed"
+                                  data-toggle="collapse"
+                                  href="#collapseFour"
+                                  aria-expanded="false"
+                                  aria-controls="collapseFour"
+                                >
+                                  Teknik Informatika
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseFour"
+                              class="collapse"
+                              role="tabpanel"
+                              aria-labelledby="headingThree"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 30 / 60 Matkul (Progres Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="indeterminate"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-collapse">
+                            <div
+                              class="card-header"
+                              role="tab"
+                              id="headingThree"
+                            >
+                              <h5 class="mb-0">
+                                <a
+                                  class="collapsed"
+                                  data-toggle="collapse"
+                                  href="#collapseFive"
+                                  aria-expanded="false"
+                                  aria-controls="collapseFive"
+                                >
+                                  Teknik Lingkungan
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseFive"
+                              class="collapse"
+                              role="tabpanel"
+                              aria-labelledby="headingThree"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 30 / 60 Matkul (Progres Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="indeterminate"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-collapse">
+                            <div
+                              class="card-header"
+                              role="tab"
+                              id="headingThree"
+                            >
+                              <h5 class="mb-0">
+                                <a
+                                  class="collapsed"
+                                  data-toggle="collapse"
+                                  href="#collapseSix"
+                                  aria-expanded="false"
+                                  aria-controls="collapseSix"
+                                >
+                                  Teknik PWK
+                                  <i class="material-icons"
+                                    >keyboard_arrow_down</i
+                                  >
+                                </a>
+                              </h5>
+                            </div>
+                            <div
+                              id="collapseSix"
+                              class="collapse"
+                              role="tabpanel"
+                              aria-labelledby="headingThree"
+                              data-parent="#accordion"
+                            >
+                              <div class="card-body">
+                                <p>
+                                  Nilai Ter Rekap 30 / 60 Matkul (Progres Rekap)
+                                </p>
+                                <br />
+                                <mat-progress-bar
+                                  mode="indeterminate"
+                                ></mat-progress-bar>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <img class="img" src="./assets/icon/mainlogo.png" />
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">Sistem Anggaran</h6>
+            <h4 class="card-title">{{ listDataSalam.salam }}</h4>
+
+            <br />
+            <!-- <button mat-raised-button class="btn btn-rose btn-round">
+              <i class="material-icons">manage_accounts</i> Manage Akun
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary card-header-info">
+              <div class="card-icon">
+                <i class="material-icons">timeline</i>
+              </div>
+              <h4 class="card-title">Jumlah Pendaftaran Online</h4>
+            </div>
+            <div class="card-body">
+              <div id="chartJumPendaftarOnline" class="ct-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="card card-chart">
+          <div class="card-header card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">pie_chart</i>
+            </div>
+            <h4 class="card-title">Penerimaan Per Komponen</h4>
+          </div>
+          <div class="card-body">
+            <div id="chartPreferences" class="ct-chart"></div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-12">
+                <h6 class="card-category">Ikhtisar</h6>
+              </div>
+              <div class="col-md-12">
+                <span
+                  ><i class="fa fa-circle text-primary">PPKMB</i>&nbsp;</span
+                >
+                <span><i class="fa fa-circle text-danger">BPP</i>&nbsp;</span>
+                <span><i class="fa fa-circle text-warning">SPP</i>&nbsp;</span>
+                <span
+                  ><i class="fa fa-circle text-success"
+                    >Potongan Alumni dan Karyawan Yarsi</i
+                  >&nbsp;</span
+                >
+                <span
+                  ><i class="fa fa-circle text-info">SPP Smst. 1</i>&nbsp;</span
+                >
+                <span
+                  ><i class="fa fa-circle text-default">Lainnya</i>&nbsp;</span
+                >
+              </div>
+              <!-- <i class="fa fa-circle text-danger"></i> 100%
+                <i class="fa fa-circle text-danger"
+                  >Potongan Alumni dan Karyawan Yarsi</i
+                >
+                100% <i class="fa fa-circle text-danger"></i> 100%
+                <i class="fa fa-circle text-info">Lainnya</i> 0% -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">timeline</i>
+            </div>
+            <h4 class="card-title">Tingkat Penjualan Form PMB</h4>
+          </div>
+          <div class="card-body">
+            <div id="simpleBarChart" class="ct-chart"></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-warning card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">emoji_events</i>
+            </div>
+            <h4 class="card-title">List IPK Mahasiswa</h4>
+            <p class="card-category">
+              Diambil terakhir pada tanggal 15 September, 2021
+            </p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of tableData.dataRows">
+                  <td *ngFor="let cell of row">{{ cell }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

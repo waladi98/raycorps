@@ -1,0 +1,273 @@
+<mat-dialog-content class="mat-typography">
+  <ngx-spinner
+            [name]="spinnerName"
+            [fullScreen]="false"
+            type="line-scale-pulse-out"
+            size="small"
+          >
+            <span class="text-white text-xl">{{ spinnerStatus }}</span>
+          </ngx-spinner>
+  <div class="col-md-12 mx-auto" style="width: 1380px;">
+    
+    <form
+              [formGroup]="formGroup"
+              #formNgForm="ngForm"
+              class="w-full"
+            >
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="title mb-2">
+                    <h3 class="text-lg font-bold">Informasi Mahasiswa Baru</h3>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-2/6  pb-3">
+                          <mat-form-field class="w-full">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="Periode"
+                              formControlName="periode"
+                              style="color: rgb(37, 37, 37)"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-6/12 pb-3">
+                          <mat-form-field class="w-full">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="N.P.M"
+                              formControlName="kode_mahasiswa"
+                              style="color: rgb(37, 37, 37);font-weight: bold;"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-6/12 pb-3">
+                          <mat-form-field class="w-full">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="No. PMB / No. Peserta"
+                              formControlName="id"
+                              style="color: rgb(37, 37, 37)"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="Nama"
+                              formControlName="nama"
+                              style="color: rgb(37, 37, 37)"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>                   
+                      
+                    </div>
+                    <div class="col-md-4">
+                      <div class="table-cell w-5/6 pb-3">
+                        <mat-form-field class="w-full font-normal">
+                              <mat-select
+                                placeholder="Periode Masuk"
+                                formControlName="kode_tahun_periode"
+                              >
+                                <mat-option
+                                  *ngFor="let item of periodeMasuk"
+                                  [value]="item.value"
+                                 
+                                >
+                                  {{ item.viewValue }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full font-normal">
+                                <mat-select
+                                  placeholder="Program"
+                                  formControlName="kode_program"
+                                >
+                                  <mat-option
+                                    *ngFor="let item of program"
+                                    [value]="item.value"
+                                   
+                                  >
+                                    {{ item.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="No Handphone"
+                              formControlName="handphone"
+                              style="color: rgb(37, 37, 37)"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-full pb-3">
+                          <mat-form-field class="w-72">
+                            <input
+                              matInput
+                              type="text"
+                              placeholder="Email"
+                              formControlName="email"
+                              style="color: rgb(37, 37, 37)"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full font-normal">
+                                <mat-select
+                                  placeholder="Status Awal"
+                                  formControlName="id_status_awal"
+                                >
+                                  <mat-option
+                                    *ngFor="let item of statusAwal"
+                                    [value]="item.value"
+                                   
+                                  >
+                                    {{ item.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="">
+                          <div
+                          class="table-row w-full mt-4"
+                          *ngFor="
+                            let prodi of listDataPilihanProdi;
+                            let i = index
+                          "
+                        >
+                          <div class="table-cell w-full ">
+                            <mat-form-field class="w-72">
+                              <input
+                                matInput
+                                type="text"
+                                [placeholder]="'Pilihan Ke - ' + (i + 1)"
+                                [(ngModel)]="prodi.value"
+                                [ngModelOptions]="{ standalone: true }"
+                                [disabled]="prodi.disabled"
+                                style="color: rgb(37, 37, 37)"
+                              />
+                            </mat-form-field>
+                          </div>
+                          <div class="table-cell w-3/6 ">
+                            <span
+                              class="badge badge-pill badge-success"
+                              *ngIf="prodi.id_status_seleksi == '1'"
+                              >{{ prodi.status_seleksi }}</span
+                            >
+                            <span
+                              class="badge badge-pill badge-danger"
+                              *ngIf="prodi.id_status_seleksi == '2'"
+                              >{{ prodi.status_seleksi }}</span
+                            >
+                            <span
+                              class="badge badge-pill badge-info"
+                              *ngIf="
+                                prodi.id_status_seleksi != '1' &&
+                                prodi.id_status_seleksi != '2'
+                              "
+                              >{{ prodi.status_seleksi }}</span
+                            >
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="table-row w-full mt-4">
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full font-normal">
+                                <mat-select
+                                  placeholder="Status Bayar"
+                                  formControlName="sudah_bayar"
+                                >
+                                  <mat-option
+                                    *ngFor="let item of statusBayar"
+                                    [value]="item.value"
+                                   
+                                  >
+                                    {{ item.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8">
+                      
+                    </div>
+                    <!-- <div class="col-md-8">
+                      <div class="table-row w-full mt-4">
+                        <label
+                        class="table-cell w-1/2  mb-2 text-sm font-base text-gray-500 font-semibold"
+                        style="color: rgb(37, 37, 37)"
+                        >Kartu Kelulusan</label
+                      >
+                      <div
+                        class="table-cell  text-sm font-base text-gray-500"
+                      >
+                        :
+                      </div>
+                      <div class="table-cell w-1/3">
+                        <a
+                              href="#"
+                              target="_blank"
+                              class="btn btn-success rounded-full"
+                              >Unduh</a
+                            >
+                      </div>
+                      </div>
+                    </div> -->
+                    
+                   </div>
+                  
+
+                  <!-- <div class="title mb-2">
+                    <h3 class="font-medium text-lg" style="color: rgb(37, 37, 37)">Dokumen Persyaratan</h3>
+                    <span><b>( <span style="color: red">*</span> Dokumen wajib )</b></span>
+                    <div class="row">
+                    
+                      
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+ <!-- <a class="btn btn-fill btn-yarsi bg-danger" (click)="toHome()">Kembali</a> -->
+        <!-- <a class="btn btn-success" (click)="onSubmit()">Simpan</a> -->
+ <button mat-button mat-dialog-close class="btn btn-danger">Tutup</button> 
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>

@@ -1,0 +1,313 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Verifikasi Bukti Bayar pendaftaran</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <form
+              [formGroup]="formGroup"
+              (ngSubmit)="onSubmit()"
+              #formNgForm="ngForm"
+              class="w-full"
+            >
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="title mb-2">
+                    <h3 class="font-medium text-lg">Informasi Pendaftar</h3>
+                  </div>
+                  <ngx-spinner
+                    [name]="spinnerName"
+                    [fullScreen]="false"
+                    type="line-scale-pulse-out"
+                    size="small"
+                  >
+                    <span class="text-white text-xl">{{ spinnerStatus }}</span>
+                  </ngx-spinner>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Gelombang</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="gelombang"
+                          formControlName="gelombang"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >No. PMB</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="No. PMB"
+                          formControlName="id"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Nama</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="Nama"
+                          formControlName="nama"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Prodi Pilihan 1</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="prodi pilihan 1"
+                          formControlName="prodi_pilihan_1"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Handphone</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="No Handphone"
+                          formControlName="handphone"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="table-row w-full mt-4">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Email</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          placeholder="Email"
+                          formControlName="email"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <!-- <div
+                    class="table-row w-full mt-4"
+                    *ngFor="let prodi of listDataPilihanProdi; let i = index"
+                  >
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Pilihan {{ i + 1 }}</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                        <input
+                          matInput
+                          type="text"
+                          [placeholder]="'Pilih Pilihan' + (i + 1)"
+                          [(ngModel)]="prodi.value"
+                          [ngModelOptions]="{ standalone: true }"
+                          [disabled]="prodi.disabled"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+
+                  <!-- <div class="table-row w-full mt-4" formArrayName="prodi_pilihan"
+                    *ngFor="let prodi of prodi_pilihan.controls;let i = index" [formGroupName]="i">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pilihan {{ i + 1 }}</label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field class="w-full">
+                          <input matInput type="text" [placeholder]="'Pilih Pilihan'+(i + 1)" formControlName="prodi"/>
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+
+                  <!-- DOKUMEN BUKTI BAYAR -->
+
+                  <div class="title mb-2">
+                    <h3 class="font-medium text-lg">Dokumen Bukti Bayar</h3>
+                  </div>
+                  <div class="flex flex-row mt-2">
+                    <div class="table-row w-full">
+                      <label class="table-cell w-1/6 mb-2 text-sm font-base"
+                        >Bukti Bayar
+                        <span style="color: red"> * </span>
+                      </label>
+                      <div
+                        class="table-cell px-3 text-sm font-base text-gray-600"
+                      >
+                        :
+                      </div>
+                      <div class="table-cell w-1/6">
+                        <a
+                          *ngIf="
+                            dataPendaftaranPmb.bukti_setoran != '' &&
+                            dataPendaftaranPmb.bukti_setoran
+                          "
+                          href="{{ dataPendaftaranPmb.bukti_setoran }}"
+                          target="_blank"
+                          >Unduh</a
+                        >
+                        <span
+                          *ngIf="
+                            dataPendaftaranPmb.bukti_setoran == '' ||
+                            !dataPendaftaranPmb.bukti_setoran
+                          "
+                          >Belum Unggah</span
+                        >
+                      </div>
+                      <div class="table-cell w-4/6">
+                        <mat-form-field appearance="fill" class="w-full">
+                          <mat-select
+                            placeholder="Pilih Status Bayar"
+                            formControlName="status_bayar"
+                          >
+                            <mat-option
+                              *ngFor="let item of listDataStatus"
+                              [value]="item.id"
+                            >
+                              {{ item.status_bayar }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="table-row w-full mt-2">
+                    <label
+                      class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                      >Status Kelulusan</label
+                    >
+                    <div
+                      class="table-cell px-3 text-sm font-base text-gray-600"
+                    >
+                      :
+                    </div>
+                    <div class="table-cell w-5/6 pb-3">
+                      <mat-form-field appearance="fill">
+                        <mat-select
+                          placeholder="Pilih Status Bayar"
+                          formControlName="status_bayar"
+                        >
+                          <mat-option
+                            *ngFor="let item of listDataStatus"
+                            [value]="item.id"
+                          >
+                            {{ item.status_bayar }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+                  <br />
+                  <div class="flex justify-center w-full">
+                    <div class="btn-action mx-28">
+                      <button
+                        mat-raised-button
+                        type="submit"
+                        mat-raised-button
+                        class="btn btn-success"
+                        [disabled]="!formGroup.valid"
+                      >
+                        Simpan
+                      </button>
+                      <button
+                        mat-raised-button
+                        routerLink="/pmb/transaksi/proses-bukti-bayar"
+                        type="button"
+                        mat-raised-button
+                        class="btn btn-info"
+                      >
+                        Batal
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- <div class="table-row w-full mt-2">
+                    <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></label>
+                    <div class="table-cell px-3 text-sm font-base text-gray-600"></div>
+                    <div class="row px-2">
+                      <button type="submit" mat-raised-button class="btn btn-success">Simpan</button>
+                      <button type="submit" mat-raised-button class="btn btn-info">Batal</button>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

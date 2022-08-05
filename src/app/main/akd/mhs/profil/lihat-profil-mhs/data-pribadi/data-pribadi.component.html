@@ -1,0 +1,284 @@
+<div class="card">
+  <div class="card-header card-header-success card-header-text">
+    <div class="card-text">
+      <h4 class="card-title">Data Pribadi</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="title mb-2">
+          <h3 class="font-medium text-lg">Data Induk sesuai dengan KTP atau identitas resmi lain</h3>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK (Nomor Induk Kependudukan)</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="NIK (Nomor Induk Kependudukan)" formControlName="nik" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK Ayah</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="NIK Ayah" formControlName="nik_ayah"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK Ibu</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="NIK Ibu" formControlName="nik_ibu"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Ibu Kandung</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Nama Ibu Kandung" formControlName="nama_ibu"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Mahasiswa</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Nama Mahasiswa" formControlName="nama_mahasiswa"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tempat Lahir</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Tempat Lahir" formControlName="tempat_lahir"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Lahir</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Tanggal Lahir" formControlName="tgl_lahir"/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Kelamin</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-radio-group formControlName="gender">
+              <mat-radio-button class="mr-4" value="1">Pria</mat-radio-button>
+              <mat-radio-button value="2">Wanita</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Warga Negara</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Warga Negara" formControlName="warga_negara" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Agama" formControlName="agama" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Sipil</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full">
+              <input matInput type="text" placeholder="Status Sipil" formControlName="status_sipil" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="title mb-2">
+          <h3 class="font-medium text-lg">Kontak</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Telepon" formControlName="telepon" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor HP / WA</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Nomor HP / WhatsApp" formControlName="no_hp_wa" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Email" formControlName="email"/>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="title mb-2">
+          <h3 class="font-medium text-lg">Alamat menetap di DKI Jakarta bagi Mahasiwa dari luar DKI Jakarta</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Alamat" formControlName="alamat" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">RT</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="RT" formControlName="rt" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">RW</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="RW" formControlName="rw" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Domisili</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Domisili" formControlName="domisili" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Desa / Kel.</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Desa / Kelurahan" formControlName="desa_kel"/>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kec.</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Kecamatan" formControlName="kec" />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kab. / Kota</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Kabupaten / Kota" formControlName="kab_kota"/>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Prov.</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Provinsi" formControlName="prov"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Pos</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Kode Pos" formControlName="kodepos"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Negara</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <input matInput type="text" placeholder="Negara" formControlName="negara"/>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-12 text-right">
+            <div class="text-right px-2">
+              <button type="submit" mat-raised-button class="btn btn-success mx-1">Simpan</button>
+              <button type="submit" mat-raised-button class="btn btn-danger mx-1">Batal</button>
+            </div>
+          </div>
+      </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="main-content">
+  <div class="container rounded-r-lg" style="background-color: white">
+    <ngx-spinner
+      [name]="spinnerName"
+      [fullScreen]="false"
+      type="line-scale-pulse-out"
+      size="small"
+    >
+      <span class="text-white text-xl">{{ spinnerStatus }}</span>
+    </ngx-spinner>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        
+        <div class="card">
+          <div
+                class="col-md-12 ml-auto lg:flex items-center justify-center flex-1 px-3"
+                style="padding-right: 0px; padding-left: 0px"
+              >
+                <img
+                  class="rounded-r-lg"
+                  src="../../../assets/img/banner-feeder2.png"
+                  style="height: 100%; width: 100%"
+                />
+              </div>
+          <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title"><i class="material-icons text-warning">info</i></span>
+                <ul class="nav nav-tabs" data-tabs="tab">
+                  <li class="nav-item ">
+                    <a href="#reg" class="nav-link active" data-toggle="tab" >
+                      <i class="material-icons">contact_mail</i> Periode Periode Lampau
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#keuangan" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">account_balance</i> Update Log Sinkronasi
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#informasi" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">account_balance</i> Informasi
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="reg">
+                <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+              </div>
+
+              <div class="tab-pane" id="keuangan">
+                <app-custom-table [listData]="listData2" [events]="eventsLoad.asObservable()"></app-custom-table>
+              </div>
+
+              <div class="tab-pane" id="informasi">
+                <app-custom-table [listData]="listData3" [events]="eventsLoad.asObservable()"></app-custom-table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title"><i class="material-icons text-warning">info</i></span>
+                <ul class="nav nav-tabs" data-tabs="tab">
+                  <li class="nav-item ">
+                    <a href="#checkpointI" class="nav-link active" data-toggle="tab" >
+                      <i class="material-icons">contact_mail</i> Checkpoint I (Rencana Studi)
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#checkpointII" class="nav-link" data-toggle="tab">
+                      <i class="material-icons">account_balance</i> Checkpoint II (Hasil Studi)
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="checkpointI">
+                <app-custom-table [listData]="listData4" [events]="eventsLoad.asObservable()"></app-custom-table>
+              </div>
+
+              <div class="tab-pane" id="checkpointII">
+                <app-custom-table [listData]="listData5" [events]="eventsLoad.asObservable()"></app-custom-table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

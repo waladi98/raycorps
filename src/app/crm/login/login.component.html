@@ -1,0 +1,117 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="">
+          <div class="card-body">
+            <div class="row">
+              <div
+                class="col-md-5 pt-5 pl-5 pb-5 rounded md:rounded-l-lg"
+                style="background: white"
+              >
+                <div class="card-title text-center">
+                  <span>
+                    <mat-card-title>
+                      <h1>Smart Campus</h1>
+                    </mat-card-title>
+                  </span>
+                  <span>
+                    <mat-card-subtitle style="font-size: medium;">
+                      <h1>Universitas Yarsi</h1>
+                    </mat-card-subtitle>
+                  </span>
+                </div>
+                <div class="card-title mb-3">
+                  <div class="row ml-0">
+                    <img
+                      src="../../assets/icon/mainlogo.png"
+                      alt="Logo Yarsi"
+                      style="width: 25px; margin: auto 0"
+                    />
+                    <span class="ml-2">
+                      <mat-card-title>
+                        <h1>Login - {{title}}</h1>
+                      </mat-card-title>
+                    </span>
+                  </div>
+                </div>
+                <form
+                  class="form"
+                  [formGroup]="signInForm"
+                  #signInNgForm="ngForm"
+                >
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      type="text"
+                      class="form-control"
+                      placeholder="Username"
+                      [formControlName]="'username'"
+                    />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Password"
+                      [type]="hide ? 'password' : 'text'"
+                      [formControlName]="'password'"
+                      #passwordField
+                    />
+                    <mat-icon matSuffix (click)="hide = !hide">{{
+                      hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </mat-form-field>
+
+                  <div class="flex justify-end">
+                    <a routerLink="/home" class="btn btn-info w-34">
+                      <span class="btn-label">
+                        <i class="material-icons">other_houses</i>
+                      </span>
+                      Beranda</a
+                    >
+                    &nbsp;
+                    <button
+                      [disabled]="isLoading"
+                      class="btn btn-success flex justify-end px-5"
+                      (click)="toggleLoading()"
+                    >
+                      <ng-container *ngIf="isLoading == false; else loading">
+                        <span class="btn-label">
+                          <i class="material-icons">send</i>
+                        </span>
+                        Login
+                      </ng-container>
+                      <ng-template #loading>
+                        <span class="normal-case"
+                          >Mohon tunggu..</span
+                        >
+                        <span>
+                          <img
+                            style="width: 20px; margin-left: 3px"
+                            src="../../assets/img/gif/load-button.gif"
+                            alt="load.gif"
+                          />
+                        </span>
+                      </ng-template>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <div
+                class="col-md-7 ml-auto hidden lg:flex items-center justify-center flex-1"
+                style="padding-right: 0px; padding-left: 0px"
+              >
+                <img
+                  class="rounded-r-lg"
+                  src="../../../assets/img/banner public/12.png"
+                  style="height: 100%; width: 100%"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

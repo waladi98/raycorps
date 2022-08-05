@@ -1,0 +1,59 @@
+<mat-toolbar class="flex justify-start items-center">
+    <h2 mat-dialog-title>
+        Filter Builder
+    </h2>
+    <button class="ml-auto" mat-icon-button mat-dialog-close aria-label="close icon">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-dialog-content class="flex flex-col mx-0 py-2">
+    <div class="flex flex-row space-x-2 items-center" *ngFor="let item of listFilter; let i = index">
+        <mat-form-field class="flex-auto">
+            <mat-select [(ngModel)]="item.field" [ngModelOptions]="{ standalone: true }">
+                <mat-option *ngFor="let ls of listField" [value]="ls">
+                    {{ ls.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="flex-auto">
+            <mat-select [(ngModel)]="item.type" [ngModelOptions]="{ standalone: true }">
+                <mat-option *ngFor="let ls of listType" value="{{ ls.id }}">
+                    {{ ls.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="flex-auto" *ngIf="!item.field">
+            <input type="text" matInput [(ngModel)]="item.value_1"/>
+        </mat-form-field>
+        <mat-form-field class="flex-auto" *ngIf="item.field">
+            <input type="text" matInput [(ngModel)]="item.value_1"
+            [ngModelOptions]="{ standalone: true }" *ngIf="item.field.filter_type != 'date'"/>
+            <input type="date" matInput [(ngModel)]="item.value_1"
+            [ngModelOptions]="{ standalone: true }" *ngIf="item.field.filter_type == 'date'"/>
+        </mat-form-field>
+        <mat-form-field class="flex-auto" *ngIf="item.type == '--' && item.field">
+            <input type="text" matInput [(ngModel)]="item.value_2"
+            [ngModelOptions]="{ standalone: true }" *ngIf="item.field.filter_type != 'date'"/>
+            <input type="date" matInput [(ngModel)]="item.value_2"
+            [ngModelOptions]="{ standalone: true }" *ngIf="item.field.filter_type == 'date'"/>
+        </mat-form-field>
+        <button mat-icon-button color="primary" type="button" (click)="addOrRemove(i)">
+            <mat-icon>remove</mat-icon>
+        </button>
+    </div>
+    <div class="flex flex-row justify-center">
+        <button mat-button color="primary" type="button" (click)="addOrRemove(-1)">
+            <mat-icon>add</mat-icon>
+            Add Condition
+        </button>
+    </div>
+</mat-dialog-content>
+<div class="flex justify-between justify-items-end items-center flex-row w-full p-4">
+    <button color="accent" mat-raised-button class="ml-auto m-2" type="button" (click)="onSubmit()">
+        Apply
+    </button>
+    <button mat-stroked-button class="" type="button" (click)="closeDialog()">
+        Cancel
+    </button>
+</div>

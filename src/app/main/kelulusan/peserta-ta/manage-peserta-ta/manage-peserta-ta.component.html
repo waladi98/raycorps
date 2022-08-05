@@ -1,0 +1,50 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form [formGroup]="form">
+            <div class="card-header card-header-yarsi card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">mail_outline</i>
+              </div>
+              <h4 class="card-title">PesertaTA</h4>
+            </div>
+            <div class="card-body">
+<br>
+              <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-2">
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'institusi_id'" placeholder="Tahun Akademik *">
+                    <mat-option *ngFor="let item of listDataInstitusi" [value]="item.id">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'institusi_id'" placeholder="Program *">
+                    <mat-option *ngFor="let item of listDataInstitusi" [value]="item.id">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'institusi_id'" placeholder="Program Studi *">
+                    <mat-option *ngFor="let item of listDataInstitusi" [value]="item.id">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="btn-short">
+                  <button mat-raised-button type="submit" class="btn btn-yarsi" (click)="onSubmit()">Tampilkan</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

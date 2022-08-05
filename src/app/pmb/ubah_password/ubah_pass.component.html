@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">password</i>
+            </div>
+            <h4 class="card-title">Ubah Password</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8 ml-auto mr-auto">
+                <form
+                  class="form"
+                  [formGroup]="signInForm"
+                  #signInNgForm="ngForm"
+                >
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Username"
+                      type="text"
+                      disabled
+                    />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Password Lama"
+                      type="password"
+                    />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Password Baru"
+                      type="password"
+                    />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Konfirmasi Password Baru"
+                      type="password"
+                    />
+                  </mat-form-field>
+                  <div class="card-footer">
+                    <a class="btn btn-success btn-round" (click)="signIn()"
+                      >Ubah Password</a
+                    >
+                    <a
+                      class="btn btn-danger btn-round"
+                      routerLink="/pmb/dashboard"
+                      >Batal</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

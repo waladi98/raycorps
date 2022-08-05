@@ -1,0 +1,80 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form [formGroup]="form">
+            <div class="card-header card-header-yarsi card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">mail_outline</i>
+              </div>
+              <h4 class="card-title">Tambah Data Penyetaraan Nilai</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="title mb-0">
+                    <h3 class="font-medium font-base">Tambah Penyetaraan</h3>
+                  </div>
+
+                  <!-- Matakuliah -->
+                  <mat-form-field>
+                    <mat-select placeholder="Matakuliah" name="matakuliah">
+                      <mat-option *ngFor="let item of matakuliah" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!-- Tahun Akademik -->
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Tahun Akademik" type="text" />
+                  </mat-form-field>
+
+                  <!-- Nilai -->
+                  <mat-form-field>
+                    <mat-select placeholder="Nilai" name="nilai">
+                      <mat-option *ngFor="let item of nilai" [value]="item.value">
+                        {{ item.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="title mb-0">
+                    <h3 class="font-medium font-base">Matakuliah Asal</h3>
+                  </div>
+
+                  <!-- Kode -->
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Kode" type="text" />
+                  </mat-form-field>
+
+                  <!-- Matakuliah -->
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="matakuliah" type="text" />
+                  </mat-form-field>
+
+                  <!-- Grade Nilai -->
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Grade Nilai" type="text" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="btn-action flex justify-between w-56">
+                <button mat-raised-button type="submit" class="btn btn-yarsi" (click)="onSubmit()">Simpan</button>
+                <button mat-raised-button type="submit" class="btn btn-yarsi" routerLink="../penyetaraan-nilai">Batal</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

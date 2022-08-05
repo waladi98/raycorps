@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form [formGroup]="form">
+            <div class="card-header card-header-yarsi card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">mail_outline</i>
+              </div>
+              <h4 class="card-title">Kampus</h4>
+            </div>
+            <div class="card-body">
+<br>
+              <div class="grid md:grid-cols-4 sm:grid-cols-1 gap-2">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kode *" formControlName="kode">
+                </mat-form-field>
+                <mat-form-field class="example-full-width md:col-span-2 sm:col-span-1">
+                  <input type="text" matInput placeholder="Nama *" formControlName="nama">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'institusi_id'" placeholder="Institusi *">
+                    <mat-option *ngFor="let item of listDataInstitusi" [value]="item.id">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Alamat *" formControlName="alamat">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Kota *" formControlName="kota">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Telepon *" formControlName="telepon">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Fax *" formControlName="fax">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <mat-checkbox class="example-margin mb-0">NA (tidak aktif)?</mat-checkbox>
+              <br>
+              <button mat-raised-button type="submit" class="btn btn-yarsi" (click)="onSubmit()">Simpan</button>
+            </div>
+          </form>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

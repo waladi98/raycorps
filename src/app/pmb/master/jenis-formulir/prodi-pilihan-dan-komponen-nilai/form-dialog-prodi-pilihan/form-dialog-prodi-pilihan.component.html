@@ -1,0 +1,49 @@
+<div style="width: 500px">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Prodi Pilihan</span>
+    <span *ngIf="dataParam.type == 'update'">Edit Prodi Pilihan</span>
+    <span *ngIf="dataParam.type == 'info'">Info Data</span>
+  </h2>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Jenis Prodi</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="jenis_prodi" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Pilihan Ke</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" formControlName="pilihan" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="program_studi" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-slide-toggle color="primary"></mat-slide-toggle>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Kembali</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Simpan</button>
+  </mat-dialog-actions>
+</div>

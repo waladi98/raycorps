@@ -1,0 +1,35 @@
+mat-card.form-card {
+  mat-card-header {
+    height: 48px;
+    background-color: #343a40;
+  }
+  mat-card-content {
+    border: 2px solid #343a40;
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+.table-rekap {
+  max-width: 660px;
+  width: 100%;
+
+  td {
+    a {
+      color: #5fcf80;
+    }
+
+    a:hover {
+      color: #00a041;
+    }
+  }
+}
+
+// MEDIA QUERIES
+// Phone Screen
+@media (min-width: 320px) and (max-width: 640px) {
+  // .card -> .card-body -> toolbar
+  .toolbar {
+    display: flex;
+    justify-content: center;
+  }
+}

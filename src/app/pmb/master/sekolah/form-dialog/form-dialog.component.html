@@ -1,0 +1,198 @@
+<ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+  <span class="text-white text-xl">{{ spinnerStatus }}</span>
+</ngx-spinner>
+<div class="col-md-12 mx-auto" style="width: 1200px;">
+  <div>
+    <div class="card-header card-header-success card-header-text">
+      <div class="card-text">
+        <h4 class="card-title">Tambah Data</h4>
+      </div>
+    </div>
+    <!-- <mat-tab-group class="mt-1 (selectedTabChange)="onTabChanged($event)">
+      <mat-tab label="Dokumen Kelengkapan">
+
+      </mat-tab>
+    </mat-tab-group> -->
+    <div class="card-body">
+
+      <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="row">
+          <!-- kiri -->
+          <div class="col-md-6">
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">NPSN<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="kode"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Nama<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="nama"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Alamat<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="alamat_1"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Kode Pos</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="kode_pos"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+
+
+          </div>
+
+          <!-- Kanan -->
+          <div class="col-md-6">
+            <!-- <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Desa/kelurahan</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="telepon"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div> -->
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Kecamatan/Kota</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6  pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="alamat_2"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Kab.-kota/Negara</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6  pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="kota"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Propinsi/Luar Negri</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="Propinsi"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Status Sekolah</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <mat-select name="JenisSekolaID" formControlName="JenisSekolaID">
+                    <mat-option *ngFor="let ls of listDataJenisSekolah" [value]="ls.kode">
+                      <span style="font-size:larger">{{ ls.name }}</span>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Wilayah</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field>
+                  <textarea type="text" name="wilayah" aria-label="wilayah"
+                    placeholder="Cari Berdasarkan Nama Desa/Kelurahan/Kecamatan/Kabupaten Kota/Provinsi/Negara" matInput
+                    [matAutocomplete]="autoWilayah" [formControlName]="'wilayah'"
+                    (input)="doFilterWilayah($event.target.value)"></textarea>
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isParentSearchWilayah">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="
+                  formGroup.controls['kode_wilayah'].value
+                " matSuffix mat-icon-button aria-label="Clear" (click)="
+                formGroup.controls[
+                    'kode_wilayah'
+                  ].value = null;
+                  formGroup.controls['wilayah'].value =
+                    null
+                ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoWilayah="matAutocomplete" class="divide-y" (optionSelected)="
+                  selectWilayah($event.option.value)
+                ">
+                    <mat-option *ngFor="let option of wilayahList | async" [value]="option">
+                      {{ option.nama_wilayah }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div> -->
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-button [mat-dialog-close]="true" (click)="onSubmitData()" class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

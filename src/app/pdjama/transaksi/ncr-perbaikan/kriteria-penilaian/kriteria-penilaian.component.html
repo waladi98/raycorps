@@ -1,0 +1,130 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-success card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">Tindakan Perbaikan</h4>
+                </div>
+            </div>
+            <div class="card-body m-4">
+              <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+                <div class="row">
+                  <!-- kiri -->
+        
+                  <div class="col-md-12">
+                    <div class="table-row w-full mt-4">
+                      <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">No. NCR<span
+                          style="color:red">*</span></label>
+                      <div class="table-cell px-3 text-sm font-bold text-black">
+                        :
+                      </div>
+                      <div class="table-cell w-5/6 pb-3">
+                        <mat-form-field class="w-full" appearance="fill">
+                          <input matInput type="text" placeholder="No. NCR" formControlName="no_ncr" disabled
+                            style="color: rgb(37, 37, 37);font-weight: bold;" />
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Ref Prosedur<span
+                            style="color:red">*</span></label>
+                        <div class="table-cell px-3 text-sm font-bold text-black">
+                          :
+                        </div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full" appearance="fill">
+                            <input matInput type="text" placeholder="Ref Prosedur" formControlName="ref_prosedur" disabled
+                              style="color: rgb(37, 37, 37);font-weight: bold;" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Tanggal Perbaikan<span
+                              style="color:red">*</span></label>
+                          <div class="table-cell px-3 text-sm font-bold text-black">
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" placeholder="Tanggal Perbaikan" formControlName="tanggal_perbaikan"
+                                style="color: rgb(37, 37, 37);font-weight: bold;" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Penanggung Jawab<span
+                              style="color:red">*</span></label>
+                          <div class="table-cell px-3 text-sm font-bold text-black">
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" placeholder="Penanggung Jawab" formControlName="penanggung_jawab"
+                                style="color: rgb(37, 37, 37);font-weight: bold;" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Perbaikan<span
+                              style="color:red">*</span></label>
+                          <div class="table-cell px-3 text-sm font-bold text-black">
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <textarea matInput placeholder="Perbaikan" formControlName="perbaikan" rows="5"></textarea>
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">File Lampiran<span
+                              style="color:red">*</span></label>
+                          <div class="table-cell px-3 text-sm font-bold text-black">
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <span class="flex" *ngIf="file_name">{{file_name}}
+                              <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </span>
+                            <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2" (click)="openFileUploader()"
+                              *ngIf="!file_name">
+                              <i class="material-icons">folder_open</i>
+                              Browse File
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+                        <div class="table-row w-full mt-4"><label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left"> </label>
+                          <div class="table-cell px-3 text-sm font-bold text-black"> </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="row">
+                                <div class="btn-action">
+                                  <button mat-button class="btn btn-fill btn-yarsi mr-2">
+                                    Simpan
+                                  </button>
+                                  <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+                                </div>  
+                              </div>
+                            </div>
+                        </div>
+                </div>
+                
+              </div>
+              
+              </form>  
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

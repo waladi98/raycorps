@@ -1,0 +1,210 @@
+<div class="card">
+  <div class="card-header card-header-success card-header-text">
+    <div class="card-text">
+      <h4 class="card-title">Data Akademik</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">
+            <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">  
+            <div class="title mb-2">
+              <h3 class="font-medium text-lg">Data Akademik</h3>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Program" formControlName="program"/>
+                </mat-form-field>
+              </div>
+            </div>
+          
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Program Studi" formControlName="prodi"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Status" formControlName="status"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Masuk</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Status Masuk" formControlName="status_masuk"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Sesi / Smt Terakhir</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Sesi / Semester Terakhir" formControlName="sesi_smt_terakhir"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Batas Studi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Batas Studi" formControlName="batas_studi"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="title mb-2">
+              <h3 class="font-medium text-lg">Data PMB</h3>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No PMB</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Nomor PMB" formControlName="no_pmb"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Periode</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Periode" formControlName="periode"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Formulir</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Jenis Formulir" formControlName="jenis_formulir"/>
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Grade Test</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Grade Test" formControlName="grade_test"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="title mb-2">
+              <h3 class="font-medium text-lg">Asal Sekolah</h3>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Sekolah</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Sekolah" formControlName="sekolah"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jurusan</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Jurusan" formControlName="jurusan"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nilai Formulir</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Nilai Formulir" formControlName="nilai_formulir"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="title mb-2">
+              <h3 class="font-medium text-lg">Asal Perguruan Tinggi</h3>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Perguruan Tinggi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Perguruan Tinggi" formControlName="perguruan_tinggi"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Program Studi" formControlName="program_studi"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tgl Lulus</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan Tgl Lulus" formControlName="tgl_lulus"/>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="table-row w-full mt-4">
+              <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">IPK</label>
+              <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full">
+                  <input matInput type="text" placeholder="Masukkan IPK" formControlName="ipk"/>
+                </mat-form-field>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div class="col-md-12 text-right">
+            <div class="text-right px-2">
+              <button type="submit" mat-raised-button class="btn btn-success mx-1">Simpan</button>
+              <button type="submit" mat-raised-button class="btn btn-danger mx-1">Batal</button>
+            </div>
+          </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header register-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ml-auto mr-auto">
+          <div class="card card-signup">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 mr-auto ml-auto">
+                  <div class="card-header card-header-success">
+                    <h4 class="card-title text-center">
+                      Selamat Datang di Layanan Menu
+                    </h4>
+                    <p class="card-category text-center">Universitas Yarsi</p>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div
+                        [ngClass]="menu.class.menu"
+                        *ngFor="let menu of portal_menu; let i = index"
+                      >
+                        <div
+                          class="card card-pricing card-raised"
+                          [ngClass]="menu.class.card"
+                        >
+                          <div class="card-body grid grid-cols-1">
+                            <h6
+                              class="card-category font-medium"
+                              style="color: rgb(46, 46, 46)"
+                            >
+                              {{ menu.title }}
+                            </h6>
+                            <div
+                              [ngClass]="menu.class.icon"
+                              *ngIf="!menu.link_icon"
+                            >
+                              <i class="material-icons">{{ menu.icon }}</i>
+                            </div>
+
+                            <a
+                              [ngClass]="menu.class.icon"
+                              target="_blank"
+                              *ngIf="menu.link_icon && !menu.internal"
+                              [href]="menu.link"
+                            >
+                              <i class="material-icons">{{ menu.icon }}</i>
+                            </a>
+
+                            <a
+                              [ngClass]="menu.class.icon"
+                              target="_blank"
+                              *ngIf="menu.link_icon && menu.internal"
+                              (click)="toRoute(menu)"
+                            >
+                              <i class="material-icons">{{ menu.icon }}</i>
+                            </a>
+                            <!-- <p class="card-description">{{ menu.subtitle }}</p> -->
+                            <a
+                              target="_blank"
+                              [href]="menu.link"
+                              class="btn btn-success btn-round w-40 ml-auto mr-auto"
+                              *ngIf="
+                                !menu.internal && menu.type_menu == 'general'
+                              "
+                              >{{ menu.subtitle }}</a
+                            >
+                            <a
+                              target="_blank"
+                              class="btn btn-success btn-round w-40 ml-auto mr-auto"
+                              *ngIf="
+                                menu.internal && menu.type_menu == 'general'
+                              "
+                              (click)="toRoute(menu)"
+                              >{{ menu.subtitle }}</a
+                            >
+
+                            <button
+                              href="#"
+                              class="btn btn-success btn-round dropdown-toggle w-40 ml-auto mr-auto"
+                              data-toggle="dropdown"
+                              aria-expanded="true"
+                              *ngIf="menu.type_menu == 'dropdown'"
+                            >
+                              <a
+                                data-toggle="menu.id"
+                                (click)="clickMenuActive(menu.id)"
+                              >
+                                <i class="material-icons"> </i>
+                                <span>
+                                  {{ menu.subtitle }}<b class="caret"></b
+                                ></span>
+                              </a>
+                            </button>
+
+                            <ul
+                              id="{{ menu.id }}"
+                              class="dropdown-menu w-full"
+                              *ngIf="menu.type_menu == 'dropdown'"
+                            >
+                              <li
+                                routerLinkActive="active"
+                                *ngFor="let sub_menu of menu.sub_menu"
+                                class="w-full"
+                                style="background: #adffb1 !important"
+                              >
+                                <a
+                                  target="_blank"
+                                  [href]="sub_menu.link"
+                                  *ngIf="!sub_menu.internal"
+                                  style="display: contents; color: black"
+                                  >{{ sub_menu.subtitle }}</a
+                                >
+                                <a
+                                  target="_blank"
+                                  class="btn btn-success btn-round"
+                                  *ngIf="sub_menu.internal"
+                                  (click)="toRoute(sub_menu)"
+                                  style="display: contents; color: black"
+                                  >{{ sub_menu.subtitle }}</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

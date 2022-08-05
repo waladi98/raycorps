@@ -1,0 +1,1198 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pengisian Formulir PMB</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <p class="font-base font-medium italic text-success">Anda sudah terdaftar sebagai peserta Ujian Saringan Masuk UNIVERSITAS YARSI!</p>
+
+              <!-- <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe></iframe> -->
+            </div>
+
+            <mat-tab-group class="mt-4">
+              <mat-tab label="Informasi Dasar">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Data PMB</h3>
+                    </div>
+                    <div class="table mb-0">
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No.Pendaftaran</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full" appearance="fill">
+                            <input matInput type="text" value="PMB2024000050" disabled />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No.PMB</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full" appearance="fill">
+                            <input matInput type="number" value="24200018" disabled />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No.Test</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full" appearance="fill">
+                            <input matInput type="number" value="24200018" disabled />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field class="w-full">
+                            <input matInput type="text" placeholder="Nama" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Formulir</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select placeholder="pilih Jenis Formulir" name="formulir">
+                              <mat-option *ngFor="let item of formulir" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row w-full mt-4">
+                        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Awal Masuk</label>
+                        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                        <div class="table-cell w-5/6 pb-3">
+                          <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="1" class="pr-8">Asing</mat-radio-button>
+                            <mat-radio-button value="2" class="pr-8">Baru</mat-radio-button>
+                            <mat-radio-button value="2" class="pr-8">Bidik Misi</mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Data Pribadi (Sesuai KTP)</h3>
+                    </div>
+                    <section class="table w-full">
+                      <div class="mt-6">
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Warga Negara</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-radio-group aria-label="Select an option">
+                              <mat-radio-button value="WNA" class="pr-8">Warga Negara Asing</mat-radio-button>
+                              <mat-radio-button value="WNI" class="pr-8">Warga Negara Indonesia</mat-radio-button>
+                            </mat-radio-group>
+
+                            <mat-form-field class="w-full mt-2" appearance="fill">
+                              <mat-label>Jika WNA, sebutkan:</mat-label>
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Agama</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-select name="agama" placeholder="pilih agama">
+                                <mat-option *ngFor="let item of agama" [value]="item.value">
+                                  {{ item.viewValue }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Sipil</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-radio-group aria-label="Select an option">
+                              <mat-radio-button value="M" class="pr-8">Menikah</mat-radio-button>
+                              <mat-radio-button value="BM" class="pr-8">Belum Menikah</mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat Tinggal</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <textarea matInput type="text"></textarea>
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kota</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <!-- RT / RW -->
+                        <div class="flex flex-row mt-4">
+                          <div class="table-row w-full">
+                            <div class="flex flex-row pb-3">
+                              <label class="table-cell w-3/6 pr-4 text-sm font-base text-gray-600 dark:text-gray-200">RT</label>
+                              <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+
+                              <mat-form-field class="" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full">
+                            <div class="flex flex-row">
+                              <label class="table-cell pl-8 pr-2 text-sm font-base text-gray-600 dark:text-gray-200">RW</label>
+                              <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+
+                              <mat-form-field class="" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Pos</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Provinsi</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Negara</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor Handphone</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="email" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Pilihan Program Studi">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Program Studi</h3>
+                    </div>
+                    <div class="table mb-0">
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Program</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="program" placeholder="pilih program">
+                              <mat-option *ngFor="let item of program" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pilihan 1</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pilihan1" placeholder="pilih pilihan 1">
+                              <mat-option *ngFor="let item of pilihan1" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pilihan 2</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pilihan2" placeholder="pilih pilihan 2">
+                              <mat-option *ngFor="let item of pilihan2" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pilihan 3</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pilihan3" placeholder="pilih pilihan 3">
+                              <mat-option *ngFor="let item of pilihan3" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Nilai Rapor">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Asal Sekolah</h3>
+                    </div>
+
+                    <div class="table mb-0">
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Kode Sekolah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Nama Sekolah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <section class="relative w-full rounded-md">
+                            <div class="relative">
+                              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                  <path
+                                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  ></path>
+                                </svg>
+                              </span>
+
+                              <input type="search" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" placeholder="Masukkan nama sekolah" />
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Jurusan</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select placeholder="pilih Jurusan" name="jurusan">
+                              <mat-option *ngFor="let item of jurusan" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Tahun Lulus</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Rerata Nilai UN</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- NILAI RAPOR -->
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Nilai Rapor</h3>
+                    </div>
+
+                    <!-- Nilai Semester 4 -->
+                    <section class="nilai-semester-4">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-base text-gray-500">Nilai Semester 4</h3>
+                      </div>
+                      <div class="nilai-umum">
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Matematika</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Bhs. Indonesia</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Bhs. Inggris</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="" id="SMA_IPA_4">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Kimia</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Kimia</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="hidden" id="SMA_IPS_4">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Ekonomi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Ekonomi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Ekonomi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Sosiologi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Sosiologi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Geografi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="hidden" id="SMK_4">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Nama Pelajaran</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="text" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Nilai Pelajaran</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="nilai-semester-5">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-base text-gray-500">Nilai Semester 5</h3>
+                      </div>
+                      <div class="nilai-umum">
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Matematika</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Bhs. Indonesia</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Bhs. Inggris</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="" id="SMA_IPA_5">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Biologi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Biologi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Fisika</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Fisika</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="hidden" id="SMA_IPS_5">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Geografi</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="hidden" id="SMK_5">
+                          <div class="table mb-0">
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Nama Pelajaran</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="text" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="table-row">
+                              <div class="table-cell w-36 pb-3">Nilai Pelajaran</div>
+                              <div class="table-cell w-10">:</div>
+                              <div class="table-cell pb-3">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                  <input matInput type="number" />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <!-- <section class="nilai-umum">
+                      <div class="table mb-0">
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Matematika semester 4</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Matematika semester 5</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Bhs. Indonesia semester 4</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Bhs. Indonesia semester 5</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Bhs. Inggris semester 4</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Bhs. Inggris semester 5</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="nilai-sesuai jurusan">
+                      <div class="" id="SMA-IPA">
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Kimia semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Kimia semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Biologi semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Biologi semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Fisika semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Fisika semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="hidden" id="SMA-IPS">
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Ekonomi semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Ekonomi semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Sosiologi semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Sosiologi semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Geografi semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Geografi semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="hidden" id="SMK">
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Nama pelajaran sesuai jurusan</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="text" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Nilai jurusan semester 4</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row">
+                            <div class="table-cell w-36 pb-3">Nilai jurusan semester 5</div>
+                            <div class="table-cell w-10">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section> -->
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Data Orang Tua">
+                <div class="row">
+                  <div class="col-md-10 mx-auto">
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Data Orang Tua</h3>
+                    </div>
+                    <div class="table mb-0">
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">NIK Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Nama Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="text" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Agama Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="agama" placeholder="pilih agama">
+                              <mat-option *ngFor="let item of agama" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pendidikan Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pendidikan_ortu" placeholder="pilih pendidikan">
+                              <mat-option *ngFor="let item of pendidikan_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pekerjaan Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pekerjaan_ortu" placeholder="pilih pekerjaan">
+                              <mat-option *ngFor="let item of pekerjaan_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Status Ayah</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="status_ortu" placeholder="pilih status">
+                              <mat-option *ngFor="let item of status_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">NIK Ibu</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="number" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Nama Ibu</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput type="text" />
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Agama Ibu</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="agama" placeholder="pilih agama">
+                              <mat-option *ngFor="let item of agama" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pendidikan Ibu</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pendidikan_ortu" placeholder="pilih pendidikan">
+                              <mat-option *ngFor="let item of pendidikan_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell w-36 pb-3">Pekerjaan Ibu</div>
+                        <div class="table-cell w-10">:</div>
+                        <div class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="pekerjaan_ortu" placeholder="pilih pekerjaan">
+                              <mat-option *ngFor="let item of pekerjaan_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="table-row">
+                        <p class="table-cell w-36 pb-3">Status Ibu</p>
+                        <span class="table-cell w-10">:</span>
+                        <p class="table-cell pb-3">
+                          <mat-form-field appearance="fill">
+                            <mat-select name="status_ortu" placeholder="pilih status">
+                              <mat-option *ngFor="let item of status_ortu" [value]="item.value">
+                                {{ item.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="title mb-2">
+                      <h3 class="font-medium text-lg">Alamat Orang Tua</h3>
+                    </div>
+                    <section class="table w-full">
+                      <div class="mt-6">
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Alamat Orang Tua</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kota</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode Pos</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="flex flex-row mt-4">
+                          <div class="table-row w-full">
+                            <div class="flex flex-row pb-3">
+                              <label class="table-cell w-3/6 pr-4 text-sm font-base text-gray-600 dark:text-gray-200">RT</label>
+                              <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+
+                              <mat-form-field class="" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full">
+                            <div class="flex flex-row">
+                              <label class="table-cell pl-8 pr-2 text-sm font-base text-gray-600 dark:text-gray-200">RW</label>
+                              <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+
+                              <mat-form-field class="" appearance="fill">
+                                <input matInput type="number" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Provinsi</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Negara</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="text" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Telepon</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor Handphone</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="number" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row w-full mt-4">
+                          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Email</label>
+                          <div class="table-cell text-sm font-base text-gray-600 px-3">:</div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <mat-form-field class="w-full" appearance="fill">
+                              <input matInput type="email" />
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class="card-footer block">
+            <div class="btn-action mx-28">
+              <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">Simpan</button>
+              <button mat-raised-button routerLink="/pmb/dashboard-pmb" type="submit" class="btn btn-fill btn-yarsi bg-danger">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

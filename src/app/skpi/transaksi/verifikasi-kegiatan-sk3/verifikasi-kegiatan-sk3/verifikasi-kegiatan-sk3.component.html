@@ -1,0 +1,223 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Verifikasi Kegiatan SK3</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="title mb-2">
+                  <h3 class="font-medium text-lg"></h3>
+                </div>
+
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >NPM</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="npm"
+                        style="color: rgb(37, 37, 37)"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >Nama Lengkap</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="nama_lengkap"
+                        style="color: rgb(37, 37, 37)"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                    >Jenis Kegiatan</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                    <mat-form-field appearance="fill">
+                      <mat-label>Jenis Kegiatan</mat-label>
+                      <mat-select placeholder="Status Aktif" name="jenis_kegiatan" formControlName="jenis_kegiatan">
+                        
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                    >Kegiatan</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                    <mat-form-field appearance="fill">
+                      <mat-label>Kegiatan</mat-label>
+                      <mat-select placeholder="Status Aktif" name="kegiatan" formControlName="kegiatan">
+                        
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                    >Tingkat</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                    <mat-form-field appearance="fill">
+                      <mat-label>Tingkat</mat-label>
+                      <mat-select placeholder="Status Aktif" name="tingkat" formControlName="tingkat">
+                        
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                    >Partisipasi</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                    <mat-form-field appearance="fill">
+                      <mat-label>Partisipasi</mat-label>
+                      <mat-select placeholder="Status Aktif" name="partisipasi" formControlName="partisipasi">
+                        
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >Nama Kegiatan</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="nama_kegiatan"
+                        style="color: rgb(37, 37, 37)"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >Lokasi</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="lokasi"
+                        style="color: rgb(37, 37, 37)"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >No. SK/ST</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <div class="row">
+                      <div class="col-md-10">
+                        <mat-form-field class="w-full">
+                          <input
+                            matInput
+                            type="text"
+                            formControlName="noskst"
+                            style="color: rgb(37, 37, 37)"
+                          />
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-2">
+                        <a class="btn btn-success" (click)="toTable()">No. SK/ST</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >Dokumen</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    Unduh
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 text-sm font-base text-gray-600"
+                    >Catatan Verifikasi</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="catatan_verifikasi"
+                        style="color: rgb(37, 37, 37)"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                    >Status Kegiatan</label
+                  >
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <!-- <mat-slide-toggle color="primary"></mat-slide-toggle> -->
+                    <mat-form-field appearance="fill">
+                      <mat-label>Status Kegiatan</mat-label>
+                      <mat-select placeholder="Status Aktif" name="status_kegiatan" formControlName="status_kegiatan">
+                        
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                
+                <mat-dialog-actions class="table-row w-full mt-8">
+                  <div class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></div>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600"></div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <a class="btn btn-success" (click)="onSubmit()">Kirim</a>
+                    <a class="btn btn-fill btn-yarsi bg-danger" (click)="toHome()">Kembali</a>
+                  </div>
+                </mat-dialog-actions>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

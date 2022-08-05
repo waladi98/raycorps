@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 min-h-full">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pembayaran Tugas Akhir</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-mini-profil></app-mini-profil>
+      </div>
+    </div>
+  </div>
+</div>

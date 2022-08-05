@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/e2e
+/.tmp
+/.sass-cache
+/bower_components
+.DS_Store
+.vscode/
+/hcportal_push_notification
+hcportal_push_notification.crx
+hcportal_push_notification.pem
+package-lock.json
+proxy.conf.json
+node_modules

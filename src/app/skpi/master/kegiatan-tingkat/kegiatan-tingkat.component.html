@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Kegiatan Tingkat</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="toolbar text-right">
+              <mat-dialog-actions class="table-row w-full mt-8">
+                  <a class="btn btn-fill btn-yarsi bg-info" (click)="toAdd()"><mat-icon class="icon-size-5">add</mat-icon> Tambah</a>
+              </mat-dialog-actions>
+            </div>
+            <div class="warning-text py-2">
+              <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

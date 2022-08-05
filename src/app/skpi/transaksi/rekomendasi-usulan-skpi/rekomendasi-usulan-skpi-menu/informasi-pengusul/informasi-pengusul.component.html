@@ -1,0 +1,138 @@
+<div class="col-md-12 my-4">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <div class="title mb-2">
+          <h3 class="font-medium text-lg">Syarat Pengajuan SKPI</h3>
+        </div>
+        
+        <div class="row">
+          <section class="example-section">
+            <mat-checkbox class="example-margin">Lulus</mat-checkbox>
+            <mat-checkbox class="example-margin">Poin SK3</mat-checkbox>
+            <mat-checkbox class="example-margin">Kegiatan Wajib</mat-checkbox>
+          </section>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 mt-4">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NPM</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput type="text" placeholder="NPM" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tempat Lahir</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput [matDatepicker]="picker" placeholder="Tempat Lahir">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Masuk</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput [matDatepicker]="picker" placeholder="Tempat Lahir">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Gelar Akademik</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput type="number" placeholder="Gelar Akademik"/>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+          <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+          <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+          <div class="table-cell w-5/6 pb-3">
+            <mat-form-field class="w-full" appearance="fill">
+              <input matInput type="text" placeholder="Prodi" />
+            </mat-form-field>
+          </div>
+        </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Lengkap</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full" appearance="fill">
+            <input matInput type="text" placeholder="Nama Lengkap"/>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Lahir</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full" appearance="fill">
+            <input matInput [matDatepicker]="picker" placeholder="Tempat Lahir">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Lulus</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full" appearance="fill">
+            <input matInput [matDatepicker]="picker" placeholder="Tempat Lahir">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor Ijazah</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full" appearance="fill">
+            <input matInput type="number" placeholder="Nomor Ijazah"/>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="table-row w-full mt-4">
+        <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Pendidikan</label>
+        <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+        <div class="table-cell w-5/6 pb-3">
+          <mat-form-field class="w-full" appearance="fill">
+            <input matInput type="text" placeholder="Jenis Pendidikan" />
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+    <div class="btn-action my-2">
+      <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">Simpan</button>
+      <button mat-raised-button routerLink="/pmb/dashboard-pmb" type="submit" class="btn btn-fill btn-yarsi bg-danger">Batal</button>
+    </div>
+  </div>
+</div>

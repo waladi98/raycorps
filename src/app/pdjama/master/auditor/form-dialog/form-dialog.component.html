@@ -1,0 +1,210 @@
+<ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+  <span class="text-white text-xl">{{ spinnerStatus }}</span>
+</ngx-spinner>
+<div class="col-md-12 mx-auto" style="width: 1280px;">
+  <div>
+    <div class="card-header card-header-success card-header-text">
+      <div class="card-text">
+        <h4 class="card-title">Tambah Data</h4>
+      </div>
+    </div>
+    <!-- <mat-tab-group class="mt-1 (selectedTabChange)="onTabChanged($event)">
+      <mat-tab label="Dokumen Kelengkapan">
+
+      </mat-tab>
+    </mat-tab-group> -->
+    <div class="card-body">
+
+      <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="row">
+          <!-- kiri -->
+          <div class="col-md-6">
+            <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Institusi<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full ">
+                  <mat-select placeholder="Institusi" name="kode_institusi" formControlName="kode_institusi">
+                    <mat-option *ngFor="let ls of listDataInstitusi" [value]="ls.kode">
+                      <span style="font-size:larger">{{ ls.name }}</span>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Nama Auditor<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Cari berdasarkan NIK/Nama/NIPY Karyawan" name="nama_pegawai"
+                    aria-label="nama_pegawai" matInput [matAutocomplete]="autoAsalSekolah"
+                    [formControlName]="'nama_pegawai'" (input)="
+                      doFilterAsalSekolah($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isAsalSekolahSearch">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['nama_pegawai']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'nipy_pegawai'
+                      ].value = null;
+                      formGroup.controls[
+                        'nik_pegawai'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoAsalSekolah="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectAsalSekolah($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of asalSekolahList | async
+                      " [value]="option " style="color:black">
+                      {{ option.nama }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Nama Bidang<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="nama_bidang"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div> -->
+            <!-- <div class="table-row w-full ">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">singkatan bidang<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full font-normal">
+                  <input matInput type="text" formControlName="singkatan"
+                    style="color: rgb(37, 37, 37);font-weight: bold;" />
+                </mat-form-field>
+              </div>
+            </div> -->
+
+            <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+
+
+          </div>
+
+          <!-- Kanan -->
+          <div class="col-md-6">
+
+            <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Akun LDAP</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field style="color: rgb(66, 66, 66)">
+                  <input type="text" placeholder="Cari berdasarkan kode akun LDAP" name="kode_pengguna"
+                    aria-label="kode_pengguna" matInput [matAutocomplete]="autoPenggunaKelompok"
+                    [formControlName]="'kode_pengguna'" (input)="
+                      doFilterPenggunaKelompok($event.target.value)
+                    " />
+                  <div class="w-full flex flex-auto justify-end" *ngIf="isPenggunaKelompokSearch">
+                    <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                    </mat-progress-spinner>
+                  </div>
+                  <button *ngIf="formGroup.controls['kode_pengguna']
+                        .value
+                    " matSuffix mat-icon-button aria-label="Clear" (click)="
+                    formGroup.controls[
+                        'kode_pengguna'
+                      ].value = null;
+                      formGroup.controls[
+                        'kode_pengguna'
+                      ].value = null;
+                      
+                    ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <mat-autocomplete #autoPenggunaKelompok="matAutocomplete" class="divide-y" (optionSelected)="
+                      selectPenggunaKelompok($event.option.value)
+                    ">
+                    <mat-option *ngFor="
+                        let option of asalPenggunaKelompokList | async
+                      " [value]="option " style="color:black">
+                      {{ option.kode }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Role Pengguna<span
+                  style="color:red">*</span></label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <mat-form-field class="w-full ">
+                  <mat-select placeholder="Role Pengguna" name="id_kelompok" formControlName="id_kelompok">
+                    <mat-option *ngFor="let ls of listDataRole" [value]="ls.kode">
+                      <span style="font-size:larger">{{ ls.name }}</span>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="table-row w-full">
+              <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">File Tanda Tangan</label>
+              <div class="table-cell px-3 text-sm font-bold text-black">
+                :
+              </div>
+              <div class="table-cell w-5/6 pb-3">
+                <span class="flex" *ngIf="file_name">{{file_name}}
+                  <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                    <i class="material-icons">close</i>
+                  </button>
+                </span>
+                <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2" (click)="openFileUploader()"
+                  *ngIf="!file_name">
+                  <i class="material-icons">folder_open</i>
+                  Browse File
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-button [mat-dialog-close]="true" (click)="submitRequest()"
+                class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

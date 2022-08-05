@@ -1,0 +1,32 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Audit Internal</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="toolbar text-right">
+              <!-- <button type="button" matTooltip="" mat-raised-button class="btn btn-yarsi"
+                  routerLink="tambah-data">
+                  <mat-icon class="icon-size-5">add</mat-icon>
+                  Tambah
+                </button> -->
+            </div>
+            <div class="row">
+              <div class="col-md-12 ml-auto mr-auto">
+                <div class="warning-text py-2">
+                  <app-custom-table [listData]="listData" (dialogData)="dialogData($event)"
+                    [events]="eventsLoad.asObservable()"></app-custom-table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

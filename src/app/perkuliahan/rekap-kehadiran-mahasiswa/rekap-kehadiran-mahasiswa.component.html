@@ -1,0 +1,239 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card class="form-card p-0">
+          <mat-card-header class="flex items-center rounded-t-md bg-black">
+            <mat-card-title class="text-white m-0">Universitas Demo</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="px-4 py-6">
+            <form action="">
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Tahun Akademik Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Tahun Akademik</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of tahunAkademik" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Program Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of program" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Program Studi Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Program Studi</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of programStudi" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Dosen Select -->
+                  <mat-form-field appearance="outline">
+                    <mat-label>Dosen</mat-label>
+                    <mat-select name="item">
+                      <mat-option *ngFor="let item of dosen" [value]="item.value">
+                        {{ item.viewItem }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Dari NPM Input -->
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Dari NPM</mat-label>
+                    <input matInput />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <!-- Sampai NPM Input -->
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Sampai NPM</mat-label>
+                    <input matInput />
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="row flex justify-center">
+              <!-- Mat Card Action -->
+              <mat-card-actions class="m-0 p-0">
+                <button mat-flat-button class="btn btn-info text-white">Tampilkan</button>
+              </mat-card-actions>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Rekap Kehadiran Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <!-- <div class="toolbar">
+              <button type="button" matTooltip="Unduh File Rekap" mat-flat-button class="btn btn-info mr-2">
+                <mat-icon class="icon-size-5">file_download</mat-icon>
+                Rekap
+              </button>
+              <button type="button" matTooltip="Unduh File Detail" mat-flat-button class="btn btn-info">
+                <mat-icon class="icon-size-5">file_download</mat-icon>
+                Detail
+              </button>
+            </div> -->
+            <div class="material-datatables">
+              <table id="datatables" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-8 p-2">#</th>
+                    <th class="text-sm text-left w-20 p-2">NPM</th>
+                    <th class="text-sm text-left w-40 p-2">Nama Mahasiswa</th>
+                    <th class="text-sm text-left w-40 p-2">Dosen Wali</th>
+                    <th class="text-sm text-center w-16 p-2">IPS</th>
+                    <th class="text-sm text-center w-20 p-2">Rerata</th>
+                    <th class="text-sm text-center w-2 p-2">MK1</th>
+                    <th class="text-sm text-center w-2 p-2">MK2</th>
+                    <th class="text-sm text-center w-2 p-2">MK3</th>
+                    <th class="text-sm text-center w-2 p-2">MK4</th>
+                    <th class="text-sm text-center w-2 p-2">MK5</th>
+                    <th class="text-sm text-center w-2 p-2">MK6</th>
+                    <th class="text-sm text-center w-2 p-2">MK7</th>
+                    <th class="text-sm text-center w-2 p-2">MK8</th>
+                    <th class="text-sm text-center w-2 p-2">MK9</th>
+                    <th class="text-sm text-center w-2 p-2">MK10</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let item of dataMahasiswa; let i = index">
+                  <ng-container *ngIf="!isLoadingTable">
+                    <tr class="border">
+                      <td class="text-center p-2" rowspan="2">
+                        {{ item.no }}
+                      </td>
+                      <td class="text-left p-2" rowspan="2">
+                        {{ item.npm }}
+                      </td>
+                      <td class="text-left p-2" rowspan="2">
+                        {{ item.namaMahasiswa }}
+                      </td>
+                      <td class="text-left p-2" rowspan="2">
+                        {{ item.dosenWali }}
+                      </td>
+                      <td class="text-center p-2" rowspan="2">
+                        {{ item.ips }}
+                      </td>
+                      <td class="text-center p-2" rowspan="2">
+                        {{ item.rerata }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk1 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk2 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk3 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk4 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk5 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk6 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk7 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk8 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk9 }}
+                      </td>
+                      <td class="text-center font-medium p-2">
+                        {{ item.kode_matkul.kode_mk10 }}
+                      </td>
+                    </tr>
+
+                    <!-- Baris Nilai Matauliah -->
+                    <tr class="border">
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk1 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk2 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk3 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk4 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk5 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk6 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk7 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk8 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk9 }}
+                      </td>
+                      <td class="text-center p-2">
+                        {{ item.nilai_matkul.nilai_mk10 }}
+                      </td>
+                    </tr>
+                  </ng-container>
+                  <tr *ngIf="isLoadingTable">
+                    <td class="text-center" colspan="5">
+                      <div class="flex flex-col items-center justify-center">
+                        <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+                        Please wait
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

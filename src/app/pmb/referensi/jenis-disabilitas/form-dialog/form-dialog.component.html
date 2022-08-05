@@ -1,0 +1,39 @@
+<div style="width: 500px;">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Jenis Disabilitas</span>
+    <span *ngIf="dataParam.type == 'update'">Ubah Jenis Disabilitas</span>
+  </h2>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">ID</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="ID" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jenis Disabilitas</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Jenis Disabilitas" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-slide-toggle color="primary"></mat-slide-toggle>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-success">Simpan</button>
+    <button mat-button mat-dialog-close class="btn btn-info">Kembali</button>
+  </mat-dialog-actions>
+</div>

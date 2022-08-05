@@ -1,0 +1,93 @@
+<ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+  <span class="text-white text-xl">{{ spinnerStatus }}</span>
+</ngx-spinner>
+<div class="col-md-12 mx-auto" style="width: 600px;">
+  <div>
+    <div class="card-header card-header-success card-header-text">
+      <div class="card-text">
+        <h4 class="card-title">Tambah Kriteria Penilaianx</h4>
+      </div>
+    </div>
+    <!-- <mat-tab-group class="mt-1 (selectedTabChange)="onTabChanged($event)">
+      <mat-tab label="Dokumen Kelengkapan">
+
+      </mat-tab>
+    </mat-tab-group> -->
+    <div class="card-body">
+
+      <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+        <div class="row">
+          <!-- kiri -->
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Kode<span
+                style="color:red">*</span></label>
+            <div class="table-cell px-3 text-sm font-bold text-black">
+              :
+            </div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full font-normal">
+                <input matInput type="text" formControlName="kode" style="color: rgb(37, 37, 37);font-weight: bold;" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Nama Kriteria<span
+                style="color:red">*</span></label>
+            <div class="table-cell px-3 text-sm font-bold text-black">
+              :
+            </div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full font-normal">
+                <input matInput type="text" formControlName="nama_kriteria"
+                  style="color: rgb(37, 37, 37);font-weight: bold;" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">Aspek Penilaian<span
+                style="color:red">*</span></label>
+            <div class="table-cell px-3 text-sm font-bold text-black">
+              :
+            </div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full font-normal">
+                <input matInput type="text" formControlName="aspek_penilaian"
+                  style="color: rgb(37, 37, 37);font-weight: bold;" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="table-row w-full mt-4">
+            <label class="table-cell w-1/5 mb-2 text-sm font-base text-black text-left">ID Aktif</label>
+            <div class="table-cell px-3 text-sm font-bold text-black">
+              :
+            </div>
+            <div class="table-cell w-5/6 pb-3">
+              <mat-form-field class="w-full">
+                <mat-select name="ID Aktif" formControlName="id_aktif">
+                  <mat-option *ngFor="let ls of status_aktif" [value]="ls.value">
+                    <span style="font-size:larger">{{ ls.viewValue }}</span>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+
+
+          <div class="row">
+            <div class="flex justify-center w-full">
+              <div class="btn-action mx-28">
+                <button mat-button [mat-dialog-close]="true" (click)="submitRequest()"
+                  class="btn btn-fill btn-yarsi mr-2">
+                  Simpan
+                </button>
+                <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

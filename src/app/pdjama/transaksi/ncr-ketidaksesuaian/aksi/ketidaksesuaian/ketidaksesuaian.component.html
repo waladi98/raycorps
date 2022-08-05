@@ -1,0 +1,143 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-4">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">No. NCR</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="No. NCR" formControlName="no_ncr" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Perbaikan</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput [matDatepicker]="tglmasuk" placeholder="Tanggal Masuk" disabled>
+                      <mat-datepicker-toggle matSuffix [for]="tglmasuk"></mat-datepicker-toggle>
+                      <mat-datepicker #tglmasuk></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+            </div>
+
+              <div class="col-md-6">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Ref. Prosedur</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="Ref. Prosedur" formControlName="ref_prosedur" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Dasar NCR</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="number" placeholder="Dasar NCR" formControlName="dasar_ncr" disabled/>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Institusi</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <textarea matInput placeholder="Institusi" formControlName="institusi" disabled></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Ketidaksesuaian</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full" appearance="fill">
+                    <input matInput type="text" placeholder="Ketidaksesuaian" formControlName="Ketidaksesuaian" disabled/>
+                  </mat-form-field>
+                </div>
+              </div>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                <div class="table-cell w-5/6 pb-3">
+                  <mat-form-field class="w-full" appearance="fill">
+                    <input matInput type="text" placeholder="Status Verifikasi" formControlName="status_verifikasi" disabled/>
+                  </mat-form-field>
+                </div>
+              </div>
+        
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Auditor</label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field style="color: rgb(66, 66, 66)">
+                      <input type="text" placeholder="Nama Auditor" name="kode_auditor"
+                        aria-label="nama_auditor" matInput [matAutocomplete]="autoAuditor"
+                        [formControlName]="'nama_auditor'" (input)="
+                          doFilterAuditor($event.target.value)
+                        " />
+                      <div class="w-full flex flex-auto justify-end" *ngIf="isAuditorSearch">
+                        <mat-progress-spinner class="justify-end" color="warn" [diameter]="18" [mode]="'indeterminate'">
+                        </mat-progress-spinner>
+                      </div>
+                      <button *ngIf="formGroup.controls['nama_auditor']
+                            .value
+                        " matSuffix mat-icon-button aria-label="Clear" (click)="
+                        formGroup.controls[
+                            'nipy_pegawai'
+                          ].value = null;
+                          formGroup.controls[
+                            'nik_pegawai'
+                          ].value = null;
+                          
+                        ">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                      <mat-autocomplete #autoAuditor="matAutocomplete" class="divide-y" (optionSelected)="
+                          selectAuditor($event.option.value)
+                        ">
+                        <mat-option *ngFor="
+                            let option of auditorList | async
+                          " [value]="option " style="color:black">
+                          {{ option.nama_auditor }}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+              </div>
+        
+              <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+              <div class="table-row w-full mt-4">
+                <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"> </label>
+                <div class="table-cell px-3 text-sm font-base text-gray-600"> </div>
+                <div class="table-cell w-5/6 pb-3">
+                  <div class="w-full">
+                    <button mat-button [mat-dialog-close]="true" (click)="{}" class="btn btn-fill btn-yarsi">
+                      Simpan
+                    </button>
+                    <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+                  </div>  
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>

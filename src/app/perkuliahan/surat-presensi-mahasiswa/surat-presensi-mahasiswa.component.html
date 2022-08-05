@@ -1,0 +1,66 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Surat Presensi Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <button type="button" matTooltip="Filter Data" mat-raised-button class="btn btn-yarsi"
+                (click)="manageData(null)">
+                Filter Data
+              </button>
+            </div>
+            <div class="material-datatables">
+              <table id="datatables" class="table table-striped table-no-bordered table-hover text-sm" cellspacing="0"
+                width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-20" rowspan="2">No.</th>
+                    <th class="text-sm text-center w-20" rowspan="2">NPM</th>
+                    <th class="text-sm text-center" rowspan="2">Nama</th>
+                    <th class="text-sm disabled-sorting text-center w-20" rowspan="2">Status</th>
+                    <th class="text-sm disabled-sorting text-center w-20" rowspan="2">MK</th>
+                    <th class="text-sm text-center w-20" rowspan="2">Kelas</th>
+                    <th class="text-sm disabled-sorting text-center w-20" rowspan="2">Rata-rata Kehadiran</th>
+                    <th class="text-sm disabled-sorting text-center w-20" colspan="3">Cetak Individual</th>
+                    <th class="text-sm disabled-sorting text-center w-20" rowspan="2">Cetak</th>
+                  </tr>
+                  <tr>
+                    <th class="text-sm text-center w-20">>= 14</th>
+                    <th class="text-sm text-center w-20">11..13</th>
+                    <th class="text-sm text-center w-20"><= 10</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center">{{item.no}}</td>
+                    <td class="text-center">{{item.npm}}</td>
+                    <td class="text-center">{{item.nama}}</td>
+                    <td class="text-center">{{item.status}}</td>
+                    <td class="text-center">{{item.mk}}</td>
+                    <td class="text-center">{{item.kelas}}</td>
+                    <td class="text-center">{{item.ratarata}}</td>
+                    <td class="text-center">{{item.lebih14}}</td>
+                    <td class="text-center">{{item.sebelas}}</td>
+                    <td class="text-center">{{item.kurang10}}</td>
+                    <td class="text-center">{{item.cetak}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <form [formGroup]="form">
+            <div class="card-header card-header-yarsi card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">mail_outline</i>
+              </div>
+              <h4 class="card-title">Dosen</h4>
+            </div>
+            <div class="card-body">
+              <br>
+              <div class="grid md:grid-cols-4 sm:grid-cols-1 gap-2">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Login/NIP *" formControlName="kode">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-hint class="text-xs" align="start">
+                    Nomer Induk Dosen Nasional
+                  </mat-hint>
+                  <input type="text" matInput placeholder="NIDN *" formControlName="nidn">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Nama Dosen *" formControlName="nama">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Gelar *" formControlName="gelar">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Tempat Lahir *" formControlName="tempat_lahir">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="tanggal_lahir" placeholder="Tanggal Lahir *"
+                    formControlName="tanggal_lahir">
+                  <mat-datepicker-toggle matSuffix [for]="tanggal_lahir"></mat-datepicker-toggle>
+                  <mat-datepicker #tanggal_lahir></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'jenis_kelamin'" placeholder="Jenis Kelamin *">
+                    <mat-option [value]="'L'">Laki-laki</mat-option>
+                    <mat-option [value]="'P'">Perempuan</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'agama'" placeholder="Agama *">
+                    <mat-option [value]="'B'">Budha</mat-option>
+                    <mat-option [value]="'H'">Hindu</mat-option>
+                    <mat-option [value]="'I'">Islam</mat-option>
+                    <mat-option [value]="'K'">Katholik</mat-option>
+                    <mat-option [value]="'L'">Lain-lain</mat-option>
+                    <mat-option [value]="'P'">Protestan</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Telepon *" formControlName="telepon">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Ponsel *" formControlName="ponsel">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input type="email" matInput placeholder="Email *" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-select [formControlName]="'homebase'" placeholder="Prodi Homebase *">
+                    <mat-option [value]="item.id" *ngFor="let item of listDataProdi">{{item.label}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="example-full-width md:col-span-4 sm:col-span-1">
+                  <mat-label>Program Studi</mat-label>
+                  <section class="example-section" class="md:col-span-2 sm:col-span-1">
+                    <span class="example-list-section">
+                      <mat-checkbox class="example-margin" [checked]="allComplete" [indeterminate]="someComplete()"
+                        (change)="setAll($event.checked)">
+                        Select All
+                      </mat-checkbox>
+                    </span>
+                    <span class="example-list-section">
+                      <ul class="grid md:grid-cols-4 sm:col-span-1">
+                        <li *ngFor="let item of listDataProdi">
+                          <mat-checkbox [(ngModel)]="item.completed" [ngModelOptions]="{standalone: true}"
+                            [color]="item.id" (ngModelChange)="updateAllComplete()">
+                            {{item.label}}
+                          </mat-checkbox>
+                        </li>
+                      </ul>
+                    </span>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <mat-checkbox class="example-margin mb-0">NA (tidak aktif)?</mat-checkbox>
+              <br>
+              <button mat-raised-button type="submit" class="btn btn-yarsi" (click)="onSubmit()">Simpan</button>
+            </div>
+          </form>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

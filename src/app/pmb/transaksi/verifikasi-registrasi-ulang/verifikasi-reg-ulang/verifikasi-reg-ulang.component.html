@@ -1,0 +1,643 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pengisian Form Registrasi Ulang</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <p class="font-base font-medium italic text-success">
+                Lakukan Pengecekan terkait dokumen persyaratan / kelengkapan
+                yang belum terisi
+              </p>
+
+              <!-- <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe></iframe> -->
+            </div>
+
+            <mat-tab-group
+              class="mt-4"
+              (selectedTabChange)="onTabChanged($event)"
+            >
+              <mat-tab label="Dokumen Persyaratan">
+                <div class="row">
+                  <form
+                    [formGroup]="formDataPribadi"
+                    (ngSubmit)="onSubmitDataPribadi()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Dokumen Persyaratan</h3>
+                        <span
+                          >tanda (*) merupakan dokumen wajib yang harus
+                          ada</span
+                        >
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Dok 1*</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div
+                                class="fileinput fileinput-new text-center"
+                                data-provides="fileinput"
+                              >
+                                <div
+                                  class="fileinput-preview fileinput-exists"
+                                ></div>
+                                <span class="btn btn-info btn-file">
+                                  <span class="fileinput-new"
+                                    >Upload Dokumen</span
+                                  >
+                                  <span class="fileinput-exists">Ubah</span>
+                                  <input type="file" name="..." />
+                                </span>
+                                <a
+                                  href="#"
+                                  class="btn btn-danger fileinput-exists"
+                                  data-dismiss="fileinput"
+                                  ><i class="fa fa-times"></i> Hapus</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            ></label>
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            ></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button
+                                  mat-raised-button
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi mr-2"
+                                >
+                                  Simpan
+                                </button>
+                                <button
+                                  mat-raised-button
+                                  routerLink="/pmb/verifikasi-reg-ulang"
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi bg-danger"
+                                >
+                                  Batal
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Dokumen Kelengkapan">
+                <div class="row">
+                  <form
+                    [formGroup]="formDataPribadi"
+                    (ngSubmit)="onSubmitDataPribadi()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Dokumen Kelengkapan</h3>
+                        <span
+                          >tanda (*) merupakan dokumen wajib yang harus
+                          ada</span
+                        >
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Dok 1*</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div
+                                class="fileinput fileinput-new text-center"
+                                data-provides="fileinput"
+                              >
+                                <div
+                                  class="fileinput-preview fileinput-exists"
+                                ></div>
+                                <span class="btn btn-info btn-file">
+                                  <span class="fileinput-new"
+                                    >Upload Dokumen</span
+                                  >
+                                  <span class="fileinput-exists">Ubah</span>
+                                  <input type="file" name="..." />
+                                </span>
+                                <a
+                                  href="#"
+                                  class="btn btn-danger fileinput-exists"
+                                  data-dismiss="fileinput"
+                                  ><i class="fa fa-times"></i> Hapus</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            ></label>
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            ></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button
+                                  mat-raised-button
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi mr-2"
+                                >
+                                  Simpan
+                                </button>
+                                <button
+                                  mat-raised-button
+                                  routerLink="/pmb/dashboard"
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi bg-danger"
+                                >
+                                  Batal
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Verifikasi Reg-Ulang">
+                <div class="row">
+                  <form
+                    [formGroup]="formDataPribadi"
+                    (ngSubmit)="onSubmitDataPribadi()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Data PMB</h3>
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >No. PMB / No. Test</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input
+                                  matInput
+                                  type="text"
+                                  formControlName="nama"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Nama</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Lulus pada Prodi</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Program</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Tahun Akademik Masuk</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Ukuran Almamater</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Status Registrasi Ulang</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            ></label>
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            ></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button
+                                  mat-raised-button
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi mr-2"
+                                >
+                                  Simpan
+                                </button>
+                                <button
+                                  mat-raised-button
+                                  routerLink="/pmb/dashboard"
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi bg-danger"
+                                >
+                                  Batal
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <mat-tab label=" Member Get Member">
+                <div class="row">
+                  <form
+                    [formGroup]="formDataPribadi"
+                    (ngSubmit)="onSubmitDataPribadi()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Member Get Member</h3>
+                        <span
+                          >Mohon diisi bila anda mendapat referensi terkait PMB
+                          Yarsi</span
+                        >
+                      </div>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >NIK/NPM</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input
+                                  matInput
+                                  type="text"
+                                  formControlName="nama"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >Nama</label
+                            >
+                            <div
+                              class="table-cell px-3 text-sm font-base text-gray-600"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                              >No. Hp</label
+                            >
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            >
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input
+                                  matInput
+                                  type="number"
+                                  formControlName="nik"
+                                  (blur)="
+                                    onChangeNik($event.target.value, 'pribadi')
+                                  "
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label
+                              class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            ></label>
+                            <div
+                              class="table-cell text-sm font-base text-gray-600 px-3"
+                            ></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button
+                                  mat-raised-button
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi mr-2"
+                                >
+                                  Simpan
+                                </button>
+                                <button
+                                  mat-raised-button
+                                  routerLink="/pmb/dashboard"
+                                  type="submit"
+                                  class="btn btn-fill btn-yarsi bg-danger"
+                                >
+                                  Batal
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <!-- <mat-tab label="Pengunduran Diri" [disabled]="!register"> -->
+              <mat-tab label="Pengunduran Diri">
+                <div class="row">
+                  <form
+                    [formGroup]="formPesertaKeluarga"
+                    (ngSubmit)="onSubmitDataPesertaKeluarga()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">
+                          Informasi Pengunduran Diri
+                        </h3>
+                        <span
+                          >Mohon diisi bila anda tidak melanjutkan proses PMB
+                          Universitas Yarsi</span
+                        >
+                        <br />
+                      </div>
+                      <div class="table mb-0">
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">Alasan</div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <mat-form-field appearance="fill">
+                              <mat-select
+                                name="agama"
+                                placeholder="Mohon isikan alasan Pengunduran Diri"
+                                formControlName="agama_ayah"
+                              >
+                                <mat-option
+                                  *ngFor="let item of listDataAgama"
+                                  [value]="item.id_agama"
+                                >
+                                  {{ item.nm_agama }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="table-row">
+                          <div class="table-cell w-36 pb-3">
+                            Dokumen Pendukung
+                          </div>
+                          <div class="table-cell w-10">:</div>
+                          <div class="table-cell pb-3">
+                            <div
+                              class="fileinput fileinput-new text-center"
+                              data-provides="fileinput"
+                            >
+                              <div
+                                class="fileinput-preview fileinput-exists"
+                              ></div>
+                              <span class="btn btn-info btn-file">
+                                <span class="fileinput-new"
+                                  >Upload Dokumen</span
+                                >
+                                <span class="fileinput-exists">Ubah</span>
+                                <input type="file" name="..." />
+                              </span>
+                              <a
+                                href="#"
+                                class="btn btn-danger fileinput-exists"
+                                data-dismiss="fileinput"
+                                ><i class="fa fa-times"></i> Hapus</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <button
+                          mat-raised-button
+                          type="submit"
+                          class="btn btn-fill btn-yarsi mr-2"
+                        >
+                          Simpan
+                        </button>
+                        <button
+                          mat-raised-button
+                          routerLink="/pmb/dashboard"
+                          type="submit"
+                          class="btn btn-fill btn-yarsi bg-danger"
+                        >
+                          Batal
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <!-- <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button mat-raised-button routerLink="/pmb/dashboard" type="submit"
+                class="btn btn-fill btn-yarsi bg-danger">
+                Batal
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

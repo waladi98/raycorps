@@ -1,0 +1,434 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header register-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ml-auto mr-auto">
+          <div class="card card-signup">
+            <div class="card-body">
+              <div class="row m-2">
+                <div class="col-md-12">
+                  <div class="col-md-12 ml-auto mr-auto">
+                    <div class="card-header-success text-center">
+                      <h4 class="card-title font-medium">
+                        Selayang Pandang PMB
+                      </h4>
+                      <p class="card-title font-medium">Universitas Yarsi</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="card w-full" style="height: 430px">
+                        <div class="info info-horizontal ml-5">
+                          <div class="icon icon-success">
+                            <i class="material-icons">mosque</i>
+                          </div>
+                          <div class="description">
+                            <h4 class="info-title font-semibold">Berkarakteristik Islami</h4>
+                            <p class="description font-normal w-full" style="color: rgb(70, 70, 70)">
+                              Perguruan Tinggi yang berpedoman pada nilai-nilai
+                              islami.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="info info-horizontal ml-5">
+                          <div class="icon icon-warning">
+                            <i class="material-icons">public</i>
+                          </div>
+                          <div class="description">
+                            <h4 class="info-title">
+                              Fasilitas Standar Internasional
+                            </h4>
+                            <p class="description font-normal" style="color: rgb(70, 70, 70)">
+                              Memiliki gedung dan fasilitas pendidikan dengan
+                              standar internasional.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="info info-horizontal ml-5">
+                          <div class="icon icon-info">
+                            <i class="material-icons">group</i>
+                          </div>
+                          <div class="description">
+                            <h4 class="info-title">
+                              Dosen dan Peneliti Terbaik
+                            </h4>
+                            <p class="description font-normal" style="color: rgb(70, 70, 70)">
+                              Memiliki dosen dan peneliti terbaik di Indonesia.
+                            </p>
+                            <br />
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                          <div class="icon icon-info">
+                            <i class="material-icons">group</i>
+                          </div>
+                          <div class="description">
+                            <h4 class="info-title">
+                              Dosen dan Peneliti Terbaik
+                            </h4>
+                            <p class="description">
+                              Universitas YARSI memiliki kurikulum terkini
+                              berbasis KKNI yang sesuai dengan kebutuhan dunia
+                              kerja
+                            </p>
+                            <br />
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card">
+                        <img class="bg-no-repeat bg-center rounded" src="../../../assets/img/pmyar.jpg" alt="gedung"
+                          style="height: 430px" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="col-md-6">
+                  <div class="card">
+                    <img
+                      class="h-612 w-408 bg-no-repeat bg-center"
+                      src="../../../assets/img/pmyar.jpg"
+                      alt="gedung"
+                    />
+                  </div>
+                </div> -->
+
+                <div class="col-md-7">
+                  <div class="cards">
+                    <div class="row">
+                      <div class="col-md-4 ml-auto">
+                        <div class="card card-pricing card-raised">
+                          <div class="card-body">
+                            <h6 class="card-category" style="color: rgb(70, 70, 70)">
+                              <strong>Pendaftaran</strong>
+                            </h6>
+                            <div class="card-icon icon-info">
+                              <i class="material-icons">contact_mail</i>
+                            </div>
+                            <ng-container *ngIf="
+                                listDataRefPengaturan.maintenance == 1;
+                                else maintenanceTrue
+                              ">
+                              <a routerLink="/404" class="btn btn-warning btn-round w-35">Pendaftaran</a>
+                            </ng-container>
+                            <ng-template #maintenanceTrue>
+                              <a routerLink="/pmb/formulir" class="btn btn-info btn-round w-35">Pendaftaran</a>
+
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 ml-auto mr-auto">
+                        <div class="card card-pricing card-raised">
+                          <div class="card-body">
+                            <h6 class="card-category" style="color: rgb(70, 70, 70)">
+                              <strong>Dokumen PMB</strong>
+                            </h6>
+                            <div class="card-icon icon-success">
+                              <i class="material-icons">assignment</i>
+                            </div>
+                            <!-- <a
+                              href="https://bit.ly/Brosur-PMB-YARSI"
+                              class="btn btn-success btn-round w-35"
+                              target="_blank"
+                              >Unduh</a
+                            > -->
+                            <div class="dropdown">
+                              <button mat-raised-button href="#"
+                                class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Unduh
+                                <b class="caret"></b>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-left">
+                                <li class="dropdown-header font-semibold" style="color: black;">Pilih Menu :</li>
+                                <li>
+                                  <a href="https://bit.ly/Brosur-PMB-YARSI" target="_blank">Unduh Brosur</a>
+                                </li>
+                                <li>
+                                  <a href="http://pmb.yarsi.ac.id" target="_blank">User Guide</a>
+                                </li>
+                                <li>
+                                  <a href="http://pmb.yarsi.ac.id/" target="_blank">FAQ</a>
+                                </li>
+                                <li class="divider"></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mr-auto">
+                        <div class="card card-pricing card-raised">
+                          <div class="card-body">
+                            <h6 class="card-category" style="color: rgb(70, 70, 70)">
+                              <strong>Login PMB</strong>
+                            </h6>
+                            <div class="card-icon icon-primary">
+                              <i class="material-icons">login</i>
+                            </div>
+                            <a routerLink="/pmb/auth/login" class="btn btn-primary btn-round w-35">Login</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div class="col-md-5 ml-auto">
+                        <div class="card">
+                          <div class="info info-horizontal">
+                            <div class="icon icon-success">
+                              <i class="material-icons">call</i>
+                            </div>
+                            <div class="description">
+                              <h4 class="info-title">Hotline PMB</h4>
+                              <p class="description">
+                                Telephone: +62 (21) 4206675
+                              </p>
+                              <p class="description">
+                                Text-only: +62 812-9258-6060
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-5 mr-auto">
+                        <div class="card pb-4">
+                          <div class="info info-horizontal">
+                            <div class="icon icon-success">
+                              <i class="material-icons">email</i>
+                            </div>
+                            <div class="description">
+                              <h4 class="info-title">Email PMB</h4>
+                              <p class="description">pmbyarsi@yarsi.ac.id</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-5 ml-auto pr-">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header card-header-primary card-header-info">
+                        <div class="card-icon">
+                          <i class="material-icons">today</i>
+                        </div>
+                        <h4 class="card-title">Jadwal Gelombang PMB</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="col-md-12">
+                          <div class="card" *ngFor="
+                              let gelombang of listDataGelombangPeriode;
+                              let i = index
+                            ">
+                            <div class="card-header card-header-icon card-header-primary">
+                              <div class="card-icon">
+                                <i class="material-icons">lightbulb</i>
+                              </div>
+                              <h4 class="card-title">
+                                {{ gelombang.nama }}
+                              </h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="row text-lg">
+                                <div class="col-md-5 font-medium">
+                                  <ul>
+                                    <li>Pendaftaran</li>
+
+                                    <!-- <li>Ujian Masuk</li> -->
+
+                                    <li>Pengumuman</li>
+
+                                    <li>Registrasi Ulang</li>
+
+                                    <!-- <li>OPMB</li> -->
+                                  </ul>
+                                </div>
+                                <div class="col-md-5 ">
+                                  <ul>
+                                    <li class="badge badge-danger ">
+                                      {{
+                                      gelombang.mulai_pendaftaran !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.mulai_pendaftaran != null
+                                      ? (gelombang.mulai_pendaftaran
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                      -
+                                      {{
+                                      gelombang.selesai_pendaftaran_online !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.selesai_pendaftaran_online !=
+                                      null
+                                      ? (gelombang.selesai_pendaftaran_online
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                    </li>
+
+                                    <!-- <li class="badge badge-info">15 Agustus 2022</li> -->
+
+                                    <li class="badge badge-warning">
+                                      {{
+                                      gelombang.mulai_pengumuman !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.mulai_pengumuman != null
+                                      ? (gelombang.mulai_pengumuman
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                      -
+                                      {{
+                                      gelombang.selesai_pengumuman !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.selesai_pengumuman != null
+                                      ? (gelombang.selesai_pengumuman
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                    </li>
+
+                                    <li class="badge badge-info">
+                                      {{
+                                      gelombang.mulai_registrasi !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.mulai_registrasi != null
+                                      ? (gelombang.mulai_registrasi
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                      -
+                                      {{
+                                      gelombang.selesai_registrasi !=
+                                      "0000-00-00 00:00:00" &&
+                                      gelombang.selesai_registrasi != null
+                                      ? (gelombang.selesai_registrasi
+                                      | date: "dd MMM y")
+                                      : ""
+                                      }}
+                                    </li>
+
+                                    <!-- <li class="badge badge-rose">16 Agu 22 - 14 Sep 22</li> -->
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--  <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header card-header-icon card-header-primary">
+                              <div class="card-icon">
+                                <i class="material-icons">looks_two</i>
+                              </div>
+                              <h4 class="card-title">Gelombang 2</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <ul>
+                                    <li>Pendaftaran</li>
+
+                                    <li>Ujian Masuk</li>
+
+                                    <li>Pengumuman</li>
+
+                                    <li>Registrasi</li>
+
+                                    <li>OPMB</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-5">
+                                  <ul>
+                                    <li class="badge badge-success">06 Jul 22 - 14 Agu 22</li>
+
+                                    <li class="badge badge-info">15 Agustus 2022</li>
+
+                                    <li class="badge badge-warning">16 Agustus 2022</li>
+
+                                    <li class="badge badge-primary">16 Agu 22 - 14 Sep 22</li>
+
+                                    <li class="badge badge-rose">16 Agu 22 - 14 Sep 22</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+
+                        <!-- <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header card-header-icon card-header-primary">
+                              <div class="card-icon">
+                                <i class="material-icons">looks_3</i>
+                              </div>
+                              <h4 class="card-title">Gelombang 3</h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-5">
+                                  <ul>
+                                    <li>Pendaftaran</li>
+
+                                    <li>Ujian Masuk</li>
+
+                                    <li>Pengumuman</li>
+
+                                    <li>Registrasi</li>
+
+                                    <li>OPMB</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-5">
+                                  <ul>
+                                    <li class="badge badge-success">06 Jul 22 - 14 Agu 22</li>
+
+                                    <li class="badge badge-info">15 Agustus 2022</li>
+
+                                    <li class="badge badge-warning">16 Agustus 2022</li>
+
+                                    <li class="badge badge-primary">16 Agu 22 - 14 Sep 22</li>
+
+                                    <li class="badge badge-rose">16 Agu 22 - 14 Sep 22</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="card">
+                    <img class="bg-no-repeat bg-center rounded" src="../../../assets/img/banner-01.png"
+                      alt="banner-01" />
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="card">
+                    <img class="bg-no-repeat bg-center rounded" src="../../../assets/img/banner-02.png"
+                      alt="banner-02" />
+                  </div>
+                </div>
+                <div class="col-md-10 ml-auto mr-auto">
+                  <div class="alert alert-info alert-with-icon" data-notify="container">
+                    <i class="material-icons" data-notify="icon">add_alert</i>
+                    <span data-notify="message" class="text-center text-lg"><strong>Hotline PMB </strong> Telephone :
+                      <strong>+62 (21) 4206675</strong> | Text-only :
+                      <strong>+62 812-9258-6060</strong>, Email PMB :
+                      <strong>pmbyarsi@yarsi.ac.id</strong>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

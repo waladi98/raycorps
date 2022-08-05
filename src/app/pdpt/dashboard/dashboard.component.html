@@ -1,0 +1,77 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <img src="../../../assets/img/logo public/9.png" alt="pdpt" style="width: 250px;">
+          </div>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="grid grid-cols-3 gap-4 col-md-12">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">face</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Kepuasan MHS</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Sesuai Evaluasi : 89%</h3>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">biotech</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Kepuasan Manajemen</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Sesuai Evaluasi : 89%</h3>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-secondary card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">groups</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Kepuasan Dosen</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Sesuai Evaluasi : 89%</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Informasi Penting</h4>
+          </div>
+          <div class="card-body">
+            <app-custom-table [listData]="listData" [events]="eventsLoad.asObservable()"></app-custom-table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Mahasiswa Berdasarkan Prodi</h4>
+          </div>
+          <div class="card-body">
+            <div id="simpleBarChart" class="ct-chart"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

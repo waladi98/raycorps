@@ -1,0 +1,146 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Koreksi Nilai Mahasiswa</h4>
+          </div>
+          <div class="card-body">
+            <mat-form-field class="example-full-width">
+              <input placeholder="Tahun Akademik" matInput type="number" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input placeholder="NPM" matInput type="number" />
+            </mat-form-field>
+          </div>
+          <!-- end content-->
+          <div class="card-footer">
+            <button
+              mat-raised-button
+              type="submit"
+              class="btn btn-fill btn-yarsi"
+            >
+              Tampilkan
+            </button>
+          </div>
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-6 -->
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+
+    <!-- Card Data Mahasiswa -->
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card class="card-data-mahasiswa p-0 my-8">
+          <mat-card-header class="flex items-center rounded-t-md bg-black">
+            <mat-card-title class="text-white m-0"
+              >Data Mahasiswa</mat-card-title
+            >
+          </mat-card-header>
+          <mat-card-content class="px-3 py-6">
+            <div class="row row-card-data-mahasiswa px-4">
+              <div class="profil-pengguna flex items-center pl-0">
+                <div class="card-avatar">
+                  <img class="img" src="./assets/img/faces/ava.png" />
+                </div>
+                <div class="card-title">
+                  <p class="nama-mahasiswa font-medium text-lg">
+                    MAYA NINDYA NUGRAHINI
+                  </p>
+                  <p class="npm-mahasiswa text-base text-gray-400">183040093</p>
+                </div>
+              </div>
+              <div class="keterangan-mahasiswa table pt-8 mb-0">
+                <!-- Program -->
+                <div class="flex space-x-4">
+                  <p class="table-cell w-40 pb-3">Program</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3">Regular Pagi (REG)</p>
+                </div>
+
+                <!-- Program Studi -->
+                <div class="table-row">
+                  <p class="table-cell w-40 pb-3">Program Studi</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3">304 - Teknik Informatika</p>
+                </div>
+
+                <!-- Status Akademik -->
+                <div class="table-row">
+                  <p class="table-cell w-40 pb-3">Master biaya & potongan</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell pb-3"></p>
+                </div>
+
+                <!-- Tahun Akademik -->
+                <div class="table-row">
+                  <p class="table-cell w-40">Dosen Wali</p>
+                  <span class="table-cell">:</span>
+                  <p class="table-cell">IR. AGUS HEXAGRAHA, (IF003)</p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- row Table -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="material-datatables">
+              <table
+                id="datatables"
+                class="table table-striped table-no-bordered table-hover text-sm"
+                cellspacing="0"
+                width="100%"
+                style="width: 100%"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-20">#</th>
+                    <th class="text-sm text-center">Kode</th>
+                    <th class="text-sm text-left">Matakuliah</th>
+                    <th class="text-sm text-center">Grade</th>
+                    <th class="text-sm text-center">Bobot</th>
+                    <th class="text-sm text-center">SK Koreksi</th>
+                    <th class="text-sm text-center">Ubah</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center">{{ item.nomor }}</td>
+                    <td class="text-center">{{ item.kode }}</td>
+                    <td class="text-left">{{ item.matakuliah }}</td>
+                    <td class="text-center">{{ item.grade }}</td>
+                    <td class="text-center">{{ item.bobot }}</td>
+                    <td class="text-center">{{ item.sk_koreksi }}</td>
+                    <td class="text-center">
+                      <a
+                        routerLink="../manage-koreksi-nilai-mahasiswa"
+                        class="text-warning hover:text-amber-700"
+                        ><i class="material-icons">edit</i></a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+    </div>
+  </div>
+</div>

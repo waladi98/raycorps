@@ -1,0 +1,64 @@
+<ng-container class="p-0">
+    <form class="relative flex md:min-w-40 h-full flex-col w-full ">
+        <mat-toolbar class="flex justify-start items-center">
+            <h2 mat-dialog-title>
+                {{config.title}}
+            </h2>
+            <button class="ml-auto text-red-500" mat-icon-button mat-dialog-close matTooltip="Tutup" aria-label="close icon">
+                <i class="material-icons">close</i>
+            </button>
+        </mat-toolbar>
+
+        <mat-dialog-content class="flex flex-col mx-0 py-2">
+            <input type="file" hidden [accept]="config?.acceptMimeType || '*'" (change)="onFileChange($event, file)"
+                #file>
+
+            <ng-container *ngIf="!file.value">
+                <div
+                    class="flex h-full rounded w-full border-dashed border-2 border-green-500 md:min-h-24 lg:h-96 flex-auto items-center flex-col justify-center">
+                    <div class="text-center text-lg">Unggah berkas disini </div>
+                    <button type="button" mat-button matTooltip="Browse" (click)="file.click()" [color]="'accent'">
+                        <i class="material-icons">folder_open</i>
+                        <span class="ml-2" class="ml-2">
+                            Cari FIle
+                        </span>
+                    </button>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="file.value">
+                <div
+                    class="flex h-full rounded w-full border border-gray-400 border-dotted md:min-h-24 flex-auto items-center flex-col justify-center">
+                    <div class="text-center text-hint">{{fileName}} ({{fileSize}})</div>
+                    <button type="button" mat-button matTooltip="Hapus" (click)="remove(file)" [disabled]="isLoading"
+                        [color]="'warn'">
+                        <i class="material-icons">delete</i>
+                        <span class="ml-2" class="ml-2">
+                            Hapus
+                        </span>
+                    </button>
+                    <mat-progress-bar *ngIf="isLoading" [value]="progress"></mat-progress-bar>
+                </div>
+            </ng-container>
+        </mat-dialog-content>
+
+        <div class="flex justify-between justify-items-end items-center flex-row w-full p-4">
+            <div class="flex flex-col md:flex-row md:ml-auto">
+                <button *ngIf="config?.templateUrl" type="button" mat-button class="md:w-full md:mr-2 my-2 md:my-0"
+                    matTooltip="Download Template" (click)="download()" [color]="'accent'">
+                    <i class="material-icons">download</i>
+                    <span class="ml-2" class="ml-2">
+                        Download Template
+                    </span>
+                </button>
+                <button type="button" mat-button [disabled]="!file.value || isLoading" class="md:w-full"
+                    matTooltip="Upload File" (click)="upload(file)" [color]="'primary'">
+                    <i class="material-icons">upload</i>
+                    <span class="ml-2" class="ml-2">
+                        Upload File
+                    </span>
+                </button>
+            </div>
+        </div>
+    </form>
+</ng-container>

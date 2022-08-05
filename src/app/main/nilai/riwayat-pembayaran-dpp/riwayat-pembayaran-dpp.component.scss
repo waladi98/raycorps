@@ -1,0 +1,24 @@
+// MEDIA QUERIES
+// Phone Screen
+@media (min-width: 320px) and (max-width: 640px) {
+  // .card -> .card-footer -> button
+  .card {
+    .card-footer {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .card-table {
+    .card-body {
+      .toolbar {
+        // justify-content: none;
+        flex-direction: column;
+
+        button {
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+}

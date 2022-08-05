@@ -1,0 +1,109 @@
+<div style="width: 800px">
+    <mat-dialog-content class="mat-typography">
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Jadwal Detail ID</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="jadwal_detail_id" value="36821" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Program Studi</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="program_studi" value="Teknologi Pangan" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Mata Kuliah</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="mata_kuliah" value="Literasi Digital" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Kelas</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="kelas" value="J" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Semester</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="semester" value="1" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Dosen</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="number" formControlName="dosen" value="MOCH ILHAM ANUGRAH, ST., M.ENG" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Tanggal</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="email" formControlName="tanggal" value="21-11-2021" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Mulai</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="number" formControlName="mulai" value="18:15:00" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Selesai</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="selesai" value="00:00:00" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="table-row w-full mt-4">
+            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Waktu Ubah</label>
+            <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+            <div class="table-cell w-4/6 pb-3">
+                <mat-form-field class="w-full">
+                    <input matInput type="text" formControlName="waktu_ubah" value="30-11-0001 00:00:00" />
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+        <button class="btn btn-info" mat-button [mat-dialog-close]="true" cdkFocusInitial>Export</button>
+        <button class="btn btn-info" mat-button [mat-dialog-close]="true" cdkFocusInitial>Print</button>
+    </mat-dialog-actions>
+</div>

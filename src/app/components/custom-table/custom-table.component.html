@@ -1,0 +1,872 @@
+<ng-template #blockTemplate>
+  <div class="block-ui-template w-2/3 text-right">
+    <span class="text-white loader-text">Data Dikirim</span>
+    <mat-progress-bar mode="determinate" [value]="progress.progress_kirim"></mat-progress-bar>
+    <span class="text-white loader-text">{{progress.number_kirim}}/{{total_data}}</span>
+    <br>
+    <br>
+    <span class="text-white loader-text">Data Sukses</span>
+    <mat-progress-bar mode="determinate" [value]="progress.progress_sukses" class="green-progress"></mat-progress-bar>
+    <span class="text-white loader-text">{{progress.number_sukses}}/{{total_data}}</span>
+    <br>
+    <br>
+    <span class="text-white loader-text">Data Gagal</span>
+    <mat-progress-bar mode="determinate" [value]="progress.progress_gagal" class="red-progress"></mat-progress-bar>
+    <span class="text-white loader-text">{{progress.number_gagal}}/{{total_data}}</span>
+    <br>
+    <br>
+  </div>
+</ng-template>
+
+
+
+<block-ui [template]="blockTemplate">
+  <!-- Your app markup here -->
+</block-ui>
+
+
+<div class="toolbar">
+  <div class="">
+    <div class="flex flex-wrap w-full " *ngIf="listData.filter_data.length > 0">
+      <mat-form-field *ngFor="let filter of listData.filter_data; let j = index" class="w-72 px-2">
+        <mat-label>{{ filter.label }}</mat-label>
+        <mat-select [placeholder]="filter.label" [name]="filter.id" [(ngModel)]="filter.value"
+          [ngModelOptions]="{ standalone: true }" (ngModelChange)="changeListData($event, filter)">
+          <mat-option *ngFor="let item of filter.data_list" [value]="item.id">
+            {{ item.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="px-2">
+        <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2 flex items-center"
+          (click)="loadTable('')" *ngIf="listData.is_action || listData.is_backMaster">
+          <span class="btn-label">
+            <i class="material-icons">search</i>
+          </span>
+          Filter
+        </button>
+      </span>
+    </div>
+
+
+  </div>
+  <div class="flex justify-end w-full">
+    <div class="btn-action">
+      <!-- tombol untuk tambah data -->
+      <button mat-raised-button class="btn btn-success" type="button" (click)="addData(listData.add_data)"
+        *ngIf="listData.add_data && !view_detail">
+        <i class="material-icons">add</i>
+        Tambah Data
+      </button>
+
+
+      <button mat-button mat-raised-button class="btn btn-info" type="button" *ngIf="itemSelected > 0"
+        [matMenuTriggerFor]="menuSelected">
+        <span class="text-black font-bold">({{itemSelected}})</span> item yang dipilih
+        <mat-icon aria-hidden="false">keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menuSelected="matMenu">
+        <button mat-menu-item *ngFor="let action_selected of listData.action_selected; let j = index"
+          (click)="submitActionProses(action_selected)">{{action_selected.label}}
+        </button>
+        <!-- <button mat-menu-item *ngFor="let action_selected of listData.action_selected; let j = index"
+          (click)="exeActionSelected(action_selected)">{{action_selected.label}}
+        </button> -->
+      </mat-menu>
+      <button mat-icon-button class="btn btn-info" type="button" (click)="filterBuilder()"
+        *ngIf="listData.filter_builder && !view_detail">
+        <mat-icon aria-hidden="false">filter_alt</mat-icon>
+      </button>
+      <button mat-button mat-raised-button class="btn btn-rose w-35" [matMenuTriggerFor]="menu"
+        *ngIf="listData.export && listData.export.length > 0"><i class="material-icons">print</i> Export Data</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let export of listData.export; let j = index"
+          (click)="exportData(export)">{{export.label}}</button>
+      </mat-menu>
+      <button mat-raised-button class="btn btn-warning" type="button" (click)="toHome()" *ngIf="listData.is_action">
+        <i class="material-icons">reply</i>
+        <span *ngIf="!view_detail">Kembali</span>
+        <span *ngIf="view_detail">Master data (Kembali ke list)</span>
+      </button>
+      <button mat-raised-button class="btn btn-info" type="button" (click)="clearFilter()"
+        *ngIf="listData.is_action && !view_detail">
+        <i class="material-icons">cached</i>
+        Tampilkan semua Data
+      </button>
+
+
+      <button mat-raised-button class="btn btn-warning" type="button" (click)="toMaster()"
+        *ngIf="listData.is_backMaster">
+        <i class="material-icons">reply</i>
+        <span *ngIf="!view_detail">Kembali</span>
+        <span *ngIf="view_detail">Master data (Kembali ke list)</span>
+      </button>
+      <button mat-raised-button class="btn btn-info" type="button" (click)="clearFilter()"
+        *ngIf="listData.is_backMaster && !view_detail">
+        <i class="material-icons">cached</i>
+        Tampilkan semua Data
+      </button>
+
+
+      <button mat-raised-button class="btn btn-info" type="button" (click)="clearFilter()"
+        *ngIf="listData.feeder && !view_detail">
+
+        Tampilkan semua Data
+      </button>
+      <ng-container *ngFor="let feeder of listData.feeder; let j = index">
+        <button mat-raised-button [ngClass]="feeder.class" type="button" (click)="synch(feeder)"
+          *ngIf="feeder.number_process > 0">
+          {{feeder.label}}
+        </button>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+<div class="material-datatables" #pnl>
+  <table class="simple with-toolbar bordered stripped" ms-responsive-table cellspacing="0" width="100%"
+    style="width: 100%" *ngIf="!isScreenSmall" id="table-custom">
+    <thead id="table-custom-header">
+      <tr>
+        <td *ngIf="listData.expand" class="text-center" style="width: 50px !important;">
+          <!-- <button mat-icon-button (click)="expandAll()">
+            <span>+</span>
+          </button> -->
+        </td>
+        <!-- Header -->
+        <td *ngFor="let kolom of listData.header; let j = index" [ngClass]="kolom.class" style="font-weight: 500"
+          [matTooltip]="kolom.tooltip" [matTooltipPosition]="'above'" matTooltipClass="tooltip-custom"
+          [attr.colspan]="kolom.colspan">
+          <span *ngIf="!kolom.translate">{{ kolom.label }}</span>
+          <span [transloco]="kolom.translate" *ngIf="kolom.translate"></span>
+          <div style="display: inline-flex; float: right">
+            <a href="javascript:void(0)" (click)="setSortBy(kolom.field, 'asc', kolom)"
+              *ngIf="kolom.sort && kolom.sort_type == ''">
+              <mat-icon fontSet="fa" fontIcon="fa-sort" class="text-sm text-white"></mat-icon>
+            </a>
+            <a href="javascript:void(0)" (click)="setSortBy(kolom.field, 'desc', kolom)"
+              *ngIf="kolom.sort && kolom.sort_type == 'asc'">
+              <mat-icon fontSet="fa" fontIcon="fa-sort-alpha-down" class="text-sm text-white">
+              </mat-icon>
+            </a>
+            <a href="javascript:void(0)" (click)="setSortBy(kolom.field, '', kolom)"
+              *ngIf="kolom.sort && kolom.sort_type == 'desc'">
+              <mat-icon fontSet="fa" fontIcon="fa-sort-alpha-up" class="text-sm text-white">
+              </mat-icon>
+            </a>
+          </div>
+          <mat-checkbox class="example-margin" [checked]="allComplete" [indeterminate]="checkComplete()"
+            (change)="checkAll($event.checked)" *ngIf="kolom.type == 'select'">
+          </mat-checkbox>
+        </td>
+      </tr>
+    </thead>
+    <tbody id="table-custom-data">
+      <tr *ngIf="listData.filter">
+        <td *ngFor="let kolom of listData.header; let j = index">
+          <input type="text" matInput [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+            *ngIf="kolom.filter && kolom.filter_type == 'text'" style="border-bottom: 1px dotted #54a57e"
+            (ngModelChange)="setFilterBy(kolom.field, $event, kolom)" />
+
+          <mat-select [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+            *ngIf="kolom.filter && kolom.filter_type == 'select'"
+            (ngModelChange)="setFilterBy(kolom.field, $event, kolom)">
+            <mat-option *ngFor="let item of kolom.data" [value]="item.id">
+              {{ item.label }}
+            </mat-option>
+          </mat-select>
+
+          <input type="date" matInput [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+            *ngIf="kolom.filter && kolom.filter_type == 'date'" style="border-bottom: 1px dotted #54a57e"
+            (ngModelChange)="setFilterBy(kolom.field, $event, kolom)" />
+        </td>
+      </tr>
+
+      <ng-container *ngIf="!isLoadingTable && listData.data.length > 0">
+        <ng-container *ngFor="let item of listData.data; let i = index">
+          <tr>
+            <td *ngIf="listData.expand" class="text-center">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let expandMenu of listData.expand_data.list; let j = index"
+                  (click)="expand(item,expandMenu)">
+                  <span>{{expandMenu.label}}</span>
+                </button>
+              </mat-menu>
+            </td>
+            <td [ngClass]="kolom.class" *ngFor="let kolom of listData.field; let j = index"
+              style="color: black !important; font-weight: 400 !important">
+
+              <mat-checkbox [(ngModel)]="item.check" (ngModelChange)="checkList()" *ngIf="kolom.type == 'select'">
+              </mat-checkbox>
+
+              <span *ngIf="kolom.field == 'no'">
+                {{ (pageSize*pageIndex) + i + 1 }}
+              </span>
+              <span *ngIf="
+                kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type != 'dynamic' &&
+                kolom.type != 'download'
+              " [innerHTML]="item[kolom.field]">
+              </span>
+              <a *ngIf="kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type == 'download' &&
+                !kolom.condition
+              " (click)="download(item[kolom.field], item)" class="badge badge-info font-bold cursor-pointer"
+                style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;">
+                Unduh
+              </a>
+              <ng-container *ngIf="
+                kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type == 'download' &&
+                kolom.condition
+              ">
+                <ng-container *ngIf="kolom.condition.is_show_value">
+                  <a *ngIf="item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                    class="badge badge-info font-bold cursor-pointer"
+                    style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;">
+                    Unduh
+                  </a>
+                  <span *ngIf="
+                    !item[kolom.condition.field] && kolom.condition.default 
+                  " style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;"
+                    class="badge badge-danger font-bold">{{ kolom.condition.default }}</span>
+                </ng-container>
+
+                <ng-container *ngIf="!kolom.condition.is_show_value">
+                  <a *ngIf="!item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                    style="color: black !important; font-weight: 400 !important">
+                    Unduh
+                  </a>
+                  <span *ngIf="item[kolom.condition.field] && kolom.condition.default"
+                    style="color: black !important; font-weight: 400 !important">{{ kolom.condition.default }}</span>
+                </ng-container>
+              </ng-container>
+
+              <!-- Status Bayar -->
+              <ng-container *ngIf="
+                kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type != 'download' &&
+                kolom.type == 'statusBayar' &&
+                kolom.condition
+              ">
+                <ng-container *ngIf="kolom.condition.params_1 == 'N' ">
+                  <a *ngIf="item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                    class="badge badge-info font-bold cursor-pointer"
+                    style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;">
+                    {{item[kolom.condition.field]}} - {{ kolom.condition.value_1 }}
+
+                  </a>
+
+                </ng-container>
+
+
+                <ng-container *ngIf="kolom.condition.params_2 == 'D'">
+
+                  <span *ngIf="item[kolom.condition.field] && kolom.condition.default"
+                    style="color: black !important; font-weight: 400 !important" class="badge badge-danger font-bold">{{
+                    kolom.condition.default }}</span>
+                </ng-container>
+              </ng-container>
+              <!-- END status bayar -->
+
+              <ng-container *ngIf="
+                kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type != 'download' &&
+                kolom.type == 'nilaiNull' &&
+                kolom.condition
+              ">
+                <ng-container *ngIf="kolom.condition.is_show_value">
+                  <!-- <span *ngIf="item[kolom.condition.field]" (click)="download(item[kolom.field], item)" class="badge badge-info font-bold cursor-pointer"
+                    style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;">
+                    {{item[kolom.condition.field]}}
+                  </span> -->
+                  <span *ngIf="
+                    !item[kolom.condition.field] && kolom.condition.default 
+                  " style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;"
+                    class="badge badge-danger font-bold">{{ kolom.condition.default }}</span>
+                </ng-container>
+
+                <!-- <ng-container *ngIf="!kolom.condition.is_show_value">
+                  <a *ngIf="!item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                    style="color: black !important; font-weight: 400 !important">
+                    No Rekx
+                  </a>
+                  <span *ngIf="item[kolom.condition.field] && kolom.condition.default"
+                    style="color: black !important; font-weight: 400 !important">{{ kolom.condition.default }}</span>
+                </ng-container> -->
+              </ng-container>
+              <span *ngIf="
+                kolom.type != 'action' &&
+                kolom.field != 'no' &&
+                kolom.field != 'aktif' &&
+                kolom.type == 'dynamic'
+              ">
+                <span *ngIf="item[kolom.field]">
+                  <span [innerHTML]="item[kolom.field].value"></span>
+                </span>
+              </span>
+              <span *ngIf="kolom.field == 'aktif'">
+                <div class="flex flex-col items-center justify-center">
+                  <i class="fa fa-check text-green-500" *ngIf="item[kolom.field] == 'Y'"></i>
+                  <i class="fa fa-minus text-red-500" *ngIf="item[kolom.field] == 'T'"></i>
+                </div>
+              </span>
+              <span *ngIf="kolom.type == 'action'">
+                <ng-container *ngFor="let action of listData.action; let k = index">
+                  <!-- <ng-container *ngIf="action.condition">
+                    <ng-container *ngIf="!action.condition.is_show_value">
+                      <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                        (click)="actions(j, item, action, action)" [hidden]="item[action.condition.field]"
+                        *ngIf="action.type != 'multi'" [matTooltip]="action.toolTip">
+                        <i [ngClass]="action.icon"></i>
+                      </button>
+
+                      <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'" [matTooltip]="action.toolTip">
+                        <b style="color: rgb(3, 3, 182);">Menu</b> <i [ngClass]="action.icon"></i>
+                      </button>
+                      <mat-menu #k="matMenu">
+                        <button mat-menu-item *ngFor="
+                          let menu_arr of action.action_array;
+                          let k = index
+                        " (click)="actions(j, item, menu_arr, menu_arr)" [matTooltip]="menu_arr.toolTip">
+                          {{ menu_arr.toolTip }}
+                        </button>
+                      </mat-menu>
+                    </ng-container>
+
+                    <ng-container *ngIf="action.condition.is_show_value">
+                      <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                        (click)="actions(j, item, action, action)" [hidden]="!item[action.condition.field]"
+                        *ngIf="action.type != 'multi'" [matTooltip]="action.toolTip">
+                        <i [ngClass]="action.icon"></i>
+                      </button>
+
+                      <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'" [matTooltip]="action.toolTip">
+                        <b style="color: rgb(3, 3, 182);">Menu</b> <i [ngClass]="action.icon"></i>
+                      </button>
+                      <mat-menu #k="matMenu">
+                        <button mat-menu-item *ngFor="
+                          let menu_arr of action.action_array;
+                          let k = index
+                        " (click)="actions(j, item, menu_arr, menu_arr)" [matTooltip]="menu_arr.toolTip">
+                          {{ menu_arr.toolTip }}
+                        </button>
+                      </mat-menu>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="!action.condition"> -->
+                  <ng-container>
+                    <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                      (click)="actions(j, item, action, action)"
+                      *ngIf="action.type != 'multi' && showActionTable(action,item)" [matTooltip]="action.toolTip">
+                      <i [ngClass]="action.icon"></i>
+                    </button>
+
+                    <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'"
+                      [matTooltip]="action.toolTip">
+                      <b>Menu </b> <i [ngClass]="action.icon"></i>
+                    </button>
+                    <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'"
+                      [matTooltip]="action.toolTip">
+                      <b>Menu </b> <i [ngClass]="action.icon"></i>
+                    </button>
+                    <mat-menu #k="matMenu">
+                      <button mat-menu-item *ngFor="
+                          let menu_arr of action.action_array;
+                          let k = index
+                        " (click)="actions(j, item, menu_arr, menu_arr)" [matTooltip]="menu_arr.toolTip">
+                        <i [ngClass]="action.icon"></i> - {{ menu_arr.toolTip }}
+                      </button>
+                    </mat-menu>
+                  </ng-container>
+                  <!-- </ng-container> -->
+                </ng-container>
+                <ng-container *ngFor="let action of listData.action; let k = index">
+
+                  <ng-container>
+                    <!-- <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                      (click)="actions(j, item, action, action)"
+                      *ngIf="action.type != 'multi' && showActionTable(action,item)" [matTooltip]="action.toolTip">
+                      <i [ngClass]="action.icon"></i>
+                    </button> -->
+
+                    <!-- <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'checkbox'"
+                      [matTooltip]="action.toolTip">
+                      <b>Menu </b> <i [ngClass]="action.icon"></i>
+                    </button> -->
+                    <input *ngIf="action.type == 'checkbox'" type="checkbox">
+                    <!-- <mat-checkbox [matMenuTriggerFor]="k" *ngIf="action.type == 'checkbox'"></mat-checkbox> -->
+                    <!-- <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'checkbox'"
+                      [matTooltip]="action.toolTip">
+                      <b>Menu </b> <i [ngClass]="action.icon"></i>
+                    </button> -->
+                    <!-- <mat-menu #k="matMenu">
+                      <button mat-menu-item *ngFor="
+                          let menu_arr of action.action_array;
+                          let k = index
+                        " (click)="actions(j, item, menu_arr, menu_arr)" [matTooltip]="menu_arr.toolTip">
+                        <i [ngClass]="action.icon"></i> - {{ menu_arr.toolTip }}
+                      </button>
+                    </mat-menu> -->
+                  </ng-container>
+
+                </ng-container>
+              </span>
+            </td>
+          </tr>
+          <!-- <tr>
+          <td [attr.colspan]="listData.header.length+1" *ngIf="listData.expand && item.expand">
+            1
+          </td>
+        </tr> -->
+        </ng-container>
+
+      </ng-container>
+
+      <ng-container>
+        <tr style="background-color: #66bb6a">
+          <td style="
+              color: rgb(255, 255, 255) !important;
+              font-weight: 400 !important;
+            " [ngClass]="summary.class" *ngFor="let summary of listData.sum; let i = index"
+            [attr.colspan]="summary.colspan">
+            {{ summary.label != "" ? summary.label : summary.value }}
+          </td>
+        </tr>
+      </ng-container>
+
+      <tr *ngIf="isLoadingTable">
+        <td class="text-center" [attr.colspan]="listData.header.length">
+          <div class="flex flex-col items-center justify-center">
+            <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+            <span>Sedang memuat data..</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr *ngIf="!isLoadingTable && listData.data.length == 0">
+        <td class="text-center" [attr.colspan]="listData.header.length">
+          <div class="flex flex-col items-center justify-center">
+            <span>Tidak ada data yang ditampilkan</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table
+    class="table table-striped table-no-bordered table-hover text-sm responsive-table border-collapse border border-gray-400 whitespace-normal"
+    cellspacing="0" width="100%" style="width: 100%" *ngIf="isScreenSmall">
+    <ng-container *ngIf="!isLoadingTable">
+      <ng-container *ngFor="let item of listData.data; let i = index">
+        <tr *ngFor="let header of listData.header; let j = index">
+          <td class="bg-gray-400">{{ header.label }}</td>
+          <td>
+            <span *ngIf="header.field == 'no'">
+              {{ (pageSize*pageIndex) + i + 1 }}
+            </span>
+            <span *ngIf="
+                header.field != 'action' &&
+                header.field != 'no' &&
+                header.field != 'aktif'
+              ">
+              {{ item[header.field] }}
+            </span>
+            <span *ngIf="header.field == 'aktif'">
+              <i class="fa fa-check text-green-500" *ngIf="item[header.field] == 'Y'"></i>
+              <i class="fa fa-minus text-red-500" *ngIf="item[header.field] == 'T'"></i>
+            </span>
+            <span *ngIf="header.field == 'action'">
+              <button *ngFor="let action of listData.action; let k = index" mat-icon-button
+                class="btn btn-just-icon btn-link btn-twitter" (click)="actions(j, item, action)">
+                <i [ngClass]="action.icon"></i>
+              </button>
+            </span>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="isLoadingTable">
+      <tr *ngFor="let header of listData.header; let j = index">
+        <td class="bg-gray-400">{{ header.label }}</td>
+        <td [attr.rowspan]="listData.header.length" *ngIf="j == 0" class="text-center align-middle">
+          <div class="flex flex-col items-center justify-center">
+            <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+            <span>Sedang memuat data..</span>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoadingTable && listData.data.length == 0">
+      <tr *ngFor="let header of listData.header; let j = index">
+        <td class="bg-gray-400">{{ header.label }}</td>
+        <td [attr.rowspan]="listData.header.length" *ngIf="j == 0" class="text-center align-middle">
+          <div class="flex flex-col items-center justify-center">
+            <span>Tidak ada data yang ditampilkan</span>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <br>
+  <table class="simple with-toolbar bordered stripped" *ngIf="!isLoadingTable && rekap_pengiriman.length > 0">
+
+    <tbody id="table-custom-data">
+      <tr *ngFor="let rekap of rekap_pengiriman; let j = index">
+        <td>{{rekap.label}}</td>
+        <td class="text-center">{{rekap.number}}%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <mat-paginator class="text-lg font-semibold" style="color: black;" (page)="onChangePaginator($event)"
+    [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    *ngIf="!listData.not_pagination && !view_detail">
+  </mat-paginator>
+
+  <!-- Tabel expand_data -->
+  <mat-tab-group *ngIf="view_detail" (selectedTabChange)="onTabChangedExpand($event)">
+    <mat-tab *ngFor="let expandMenu of listData.expand_data.list; let j = index" [label]="expandMenu.label">
+
+      <!-- Tombol Action start -->
+      <div class="flex justify-start w-full">
+        <div class="btn-action">
+          <button mat-raised-button class="btn btn-success" type="button"
+            (click)="addDataDetail(listData.data,expandMenu.data.add_data)" *ngIf="expandMenu.data.add_data">
+            <i class="material-icons">add</i>
+            Tambah Data Detail
+          </button>
+        </div>
+      </div>
+      <!-- Tombol Action end -->
+
+      <table class="simple with-toolbar bordered stripped" ms-responsive-table cellspacing="0" width="100%"
+        style="width: 100%" *ngIf="!isScreenSmall" id="table-custom">
+        <thead id="table-custom-header">
+          <tr>
+            <td *ngIf="expandMenu.data.expand" class="text-center" style="width: 50px !important;">
+              <!-- <button mat-icon-button (click)="expandAll()">
+              <span>+</span>
+            </button> -->
+            </td>
+            <td *ngFor="let kolom of expandMenu.data.header; let j = index" [ngClass]="kolom.class"
+              style="font-weight: 500" [matTooltip]="kolom.tooltip" [matTooltipPosition]="'above'"
+              matTooltipClass="tooltip-custom">
+              {{ kolom.label }}
+              <div style="display: inline-flex; float: right">
+                <a href="javascript:void(0)" (click)="setSortBy(kolom.field, 'asc', kolom)"
+                  *ngIf="kolom.sort && kolom.sort_type == ''">
+                  <mat-icon fontSet="fa" fontIcon="fa-sort" class="text-sm text-white"></mat-icon>
+                </a>
+                <a href="javascript:void(0)" (click)="setSortBy(kolom.field, 'desc', kolom)"
+                  *ngIf="kolom.sort && kolom.sort_type == 'asc'">
+                  <mat-icon fontSet="fa" fontIcon="fa-sort-alpha-down" class="text-sm text-white">
+                  </mat-icon>
+                </a>
+                <a href="javascript:void(0)" (click)="setSortBy(kolom.field, '', kolom)"
+                  *ngIf="kolom.sort && kolom.sort_type == 'desc'">
+                  <mat-icon fontSet="fa" fontIcon="fa-sort-alpha-up" class="text-sm text-white">
+                  </mat-icon>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody id="table-custom-data">
+          <tr *ngIf="expandMenu.data.filter">
+            <td *ngFor="let kolom of expandMenu.data.header; let j = index">
+              <input type="text" matInput [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+                *ngIf="kolom.filter && kolom.filter_type == 'text'" style="border-bottom: 1px dotted #54a57e"
+                (ngModelChange)="setFilterBy(kolom.field, $event, kolom)" />
+
+              <mat-select [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+                *ngIf="kolom.filter && kolom.filter_type == 'select'"
+                (ngModelChange)="setFilterBy(kolom.field, $event, kolom)">
+                <mat-option *ngFor="let item of kolom.data" [value]="item.id">
+                  {{ item.label }}
+                </mat-option>
+              </mat-select>
+
+              <input type="date" matInput [(ngModel)]="kolom.filter_value" [ngModelOptions]="{ standalone: true }"
+                *ngIf="kolom.filter && kolom.filter_type == 'date'" style="border-bottom: 1px dotted #54a57e"
+                (ngModelChange)="setFilterBy(kolom.field, $event, kolom)" />
+            </td>
+          </tr>
+
+          <ng-container *ngIf="!isLoadingTable && expandMenu.data.data.length > 0">
+            <ng-container *ngFor="let item of expandMenu.data.data; let i = index">
+              <tr>
+                <td *ngIf="expandMenu.data.expand" class="text-center">
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngFor="let expandMenu of expandMenu.data.expand_data.list; let j = index"
+                      (click)="expand(item,expandMenu)">
+                      <span>{{expandMenu.label}}</span>
+                    </button>
+                  </mat-menu>
+                </td>
+                <td [ngClass]="kolom.class" *ngFor="let kolom of expandMenu.data.field; let j = index"
+                  style="color: black !important; font-weight: 400 !important">
+                  <span *ngIf="kolom.field == 'no'">
+                    {{ (pageSize*pageIndex) + i + 1 }}
+                  </span>
+                  <span *ngIf="
+                  kolom.type != 'action' &&
+                  kolom.field != 'no' &&
+                  kolom.field != 'aktif' &&
+                  kolom.type != 'dynamic' &&
+                  kolom.type != 'download'
+                " [innerHTML]="item[kolom.field]">
+                  </span>
+                  <a *ngIf="kolom.type != 'action' &&
+                  kolom.field != 'no' &&
+                  kolom.field != 'aktif' &&
+                  kolom.type == 'download' &&
+                  !kolom.condition
+                " (click)="download(item[kolom.field], item)" class="badge badge-info font-bold"
+                    style="color: aliceblue !important; font-weight: 800 !important;text-decoration: none;">
+                    Unduh
+                  </a>
+                  <ng-container *ngIf="
+                  kolom.type != 'action' &&
+                  kolom.field != 'no' &&
+                  kolom.field != 'aktif' &&
+                  kolom.type == 'download' &&
+                  kolom.condition
+                ">
+                    <ng-container *ngIf="kolom.condition.is_show_value">
+                      <a *ngIf="item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                        style="color: black !important; font-weight: 400 !important">
+                        Unduh
+                      </a>
+                      <span *ngIf="
+                      !item[kolom.condition.field] && kolom.condition.default
+                    " style="color: black !important; font-weight: 400 !important">{{ kolom.condition.default }}</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!kolom.condition.is_show_value">
+                      <a *ngIf="!item[kolom.condition.field]" (click)="download(item[kolom.field], item)"
+                        style="color: black !important; font-weight: 400 !important">
+                        Unduh
+                      </a>
+                      <span *ngIf="item[kolom.condition.field] && kolom.condition.default"
+                        style="color: black !important; font-weight: 400 !important">{{ kolom.condition.default
+                        }}</span>
+                    </ng-container>
+                  </ng-container>
+                  <span *ngIf="
+                  kolom.type != 'action' &&
+                  kolom.field != 'no' &&
+                  kolom.field != 'aktif' &&
+                  kolom.type == 'dynamic'
+                ">
+                    <span *ngIf="item[kolom.field]">
+                      <span [innerHTML]="item[kolom.field].value"></span>
+                    </span>
+                  </span>
+                  <span *ngIf="kolom.field == 'aktif'">
+                    <div class="flex flex-col items-center justify-center">
+                      <i class="fa fa-check text-green-500" *ngIf="item[kolom.field] == 'Y'"></i>
+                      <i class="fa fa-minus text-red-500" *ngIf="item[kolom.field] == 'T'"></i>
+                    </div>
+                  </span>
+                  <span *ngIf="kolom.type == 'action'">
+                    <ng-container *ngFor="let action of expandMenu.data.action; let k = index">
+
+                      <ng-container *ngIf="action.condition">
+                        <ng-container *ngIf="!action.condition.is_show_value">
+                          <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                            (click)="actions(j, item, action, action)" [hidden]="item[action.condition.field]"
+                            *ngIf="action.type != 'multi'">
+                            <i [ngClass]="action.icon"></i>
+                          </button>
+
+                          <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'">
+                            <b style="color: rgb(3, 3, 182);">Menu</b> <i [ngClass]="action.icon"></i>
+                          </button>
+                          <mat-menu #k="matMenu">
+                            <button mat-menu-item *ngFor="
+                            let menu_arr of action.action_array;
+                            let k = index
+                          " (click)="actions(j, item, menu_arr, menu_arr)">
+                              {{ menu_arr.toolTip }}
+                            </button>
+                          </mat-menu>
+                        </ng-container>
+
+                        <ng-container *ngIf="action.condition.is_show_value">
+                          <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                            (click)="actions(j, item, action, action)" [hidden]="!item[action.condition.field]"
+                            *ngIf="action.type != 'multi'">
+                            <i [ngClass]="action.icon"></i>
+                          </button>
+
+                          <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'">
+                            <b style="color: rgb(3, 3, 182);">Menu</b> <i [ngClass]="action.icon"></i>
+                          </button>
+                          <mat-menu #k="matMenu">
+                            <button mat-menu-item *ngFor="
+                            let menu_arr of action.action_array;
+                            let k = index
+                          " (click)="actions(j, item, menu_arr, menu_arr)">
+                              {{ menu_arr.toolTip }}
+                            </button>
+                          </mat-menu>
+                        </ng-container>
+                      </ng-container>
+                      <ng-container *ngIf="!action.condition">
+                        <ng-container>
+                          <button mat-icon-button class="btn btn-just-icon btn-link btn-twitter"
+                            (click)="actions(j, item, action, action)" *ngIf="action.type != 'multi'">
+                            <i [ngClass]="action.icon"></i>
+                          </button>
+
+                          <button mat-button [matMenuTriggerFor]="k" *ngIf="action.type == 'multi'">
+                            <b>Menu </b> <i [ngClass]="action.icon"></i>
+                          </button>
+                          <mat-menu #k="matMenu">
+                            <button mat-menu-item *ngFor="
+                            let menu_arr of action.action_array;
+                            let k = index
+                          " (click)="actions(j, item, menu_arr, menu_arr)">
+                              <i [ngClass]="action.icon"></i> - {{ menu_arr.toolTip }}
+                            </button>
+                          </mat-menu>
+                        </ng-container>
+                      </ng-container>
+                    </ng-container>
+                  </span>
+                </td>
+              </tr>
+              <!-- <tr>
+            <td [attr.colspan]="expandMenu.data.header.length+1" *ngIf="expandMenu.data.expand && item.expand">
+              1
+            </td>
+          </tr> -->
+            </ng-container>
+
+          </ng-container>
+
+          <ng-container>
+            <tr style="background-color: #66bb6a">
+              <td style="
+                color: rgb(255, 255, 255) !important;
+                font-weight: 400 !important;
+              " [ngClass]="summary.class" *ngFor="let summary of expandMenu.data.sum; let i = index"
+                [attr.colspan]="summary.colspan">
+                {{ summary.label != "" ? summary.label : summary.value }}
+              </td>
+            </tr>
+          </ng-container>
+
+          <tr *ngIf="isLoadingTable">
+            <td class="text-center" [attr.colspan]="expandMenu.data.header.length">
+              <div class="flex flex-col items-center justify-center">
+                <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+                <span>Sedang memuat data..</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngIf="!isLoadingTable && expandMenu.data.data.length == 0">
+            <td class="text-center" [attr.colspan]="expandMenu.data.header.length">
+              <div class="flex flex-col items-center justify-center">
+                <span>Tidak ada data yang ditampilkan</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table
+        class="table table-striped table-no-bordered table-hover text-sm responsive-table border-collapse border border-gray-400 whitespace-normal"
+        cellspacing="0" width="100%" style="width: 100%" *ngIf="isScreenSmall">
+        <ng-container *ngIf="!isLoadingTable">
+          <ng-container *ngFor="let item of expandMenu.data.data; let i = index">
+            <tr *ngFor="let header of expandMenu.data.header; let j = index">
+              <td class="bg-gray-400">{{ header.label }}</td>
+              <td>
+                <span *ngIf="header.field == 'no'">
+                  {{ (pageSize*pageIndex) + i + 1 }}
+                </span>
+                <span *ngIf="
+                  header.field != 'action' &&
+                  header.field != 'no' &&
+                  header.field != 'aktif'
+                ">
+                  {{ item[header.field] }}
+                </span>
+                <span *ngIf="header.field == 'aktif'">
+                  <i class="fa fa-check text-green-500" *ngIf="item[header.field] == 'Y'"></i>
+                  <i class="fa fa-minus text-red-500" *ngIf="item[header.field] == 'T'"></i>
+                </span>
+                <span *ngIf="header.field == 'action'">
+                  <button *ngFor="let action of expandMenu.data.action; let k = index" mat-icon-button
+                    class="btn btn-just-icon btn-link btn-twitter" (click)="actions(j, item, action)">
+                    <i [ngClass]="action.icon"></i>
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="isLoadingTable">
+          <tr *ngFor="let header of expandMenu.data.header; let j = index">
+            <td class="bg-gray-400">{{ header.label }}</td>
+            <td [attr.rowspan]="expandMenu.data.header.length" *ngIf="j == 0" class="text-center align-middle">
+              <div class="flex flex-col items-center justify-center">
+                <mat-spinner class="my-2" [diameter]="30"></mat-spinner>
+                <span>Sedang memuat data..</span>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoadingTable && expandMenu.data.data.length == 0">
+          <tr *ngFor="let header of expandMenu.data.header; let j = index">
+            <td class="bg-gray-400">{{ header.label }}</td>
+            <td [attr.rowspan]="expandMenu.data.header.length" *ngIf="j == 0" class="text-center align-middle">
+              <div class="flex flex-col items-center justify-center">
+                <span>Tidak ada data yang ditampilkan</span>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+      <br>
+      <table class="simple with-toolbar bordered stripped" *ngIf="!isLoadingTable && rekap_pengiriman.length > 0">
+
+        <tbody id="table-custom-data">
+          <tr *ngFor="let rekap of rekap_pengiriman; let j = index">
+            <td>{{rekap.label}}</td>
+            <td class="text-center">{{rekap.number}}%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <mat-paginator class="text-lg font-semibold" style="color: black;" (page)="onChangePaginator($event)"
+        [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        *ngIf="!expandMenu.data.not_pagination && !view_detail">
+      </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
+</div>

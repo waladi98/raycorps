@@ -1,0 +1,141 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="">
+          <div class="card-body">
+            <div class="row">
+              <div
+                class="col-md-5 pt-5 pl-5 pb-5 rounded md:rounded-l-lg"
+                style="background: white"
+              >
+                <div class="card-title text-center">
+                  <span>
+                    <mat-card-title>
+                      <h1>Universitas Yarsi</h1>
+                    </mat-card-title>
+                  </span>
+                  <span>
+                    <mat-card-subtitle>
+                      <h1>PMB ONLINE</h1>
+                    </mat-card-subtitle>
+                  </span>
+                </div>
+                <div class="card-title mb-3">
+                  <div class="row ml-0">
+                    <img
+                      src="../../assets/icon/mainlogo.png"
+                      alt="Logo Yarsi"
+                      style="width: 25px; margin: auto 0"
+                    />
+                    <span class="ml-2">
+                      <mat-card-title>
+                        <h1>Login</h1>
+                      </mat-card-title>
+                    </span>
+                  </div>
+                </div>
+                <form
+                  class="form"
+                  [formGroup]="signInForm"
+                  #signInNgForm="ngForm"
+                  (ngSubmit)="signIn()"
+                >
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      type="text"
+                      class="form-control"
+                      placeholder="No.Pendaftaran"
+                      [formControlName]="'username'"
+                      pattern="[a-zA-Z\.\, _,0-9,-]*"
+                    />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      [formControlName]="'password'"
+                      #passwordField
+                    />
+                  </mat-form-field>
+
+                  <div class="flex justify-end">
+                    <span *ngIf="domain == 'smart.yarsi.ac.id' || domain == 'localhost:4300'  ">
+                      <a routerLink="/home" class="btn btn-default w-34">
+                        <span class="btn-label">
+                          <i class="material-icons">other_houses</i>
+                        </span>
+                        Beranda</a
+                      >
+                    </span>
+                    &nbsp;
+                    <ng-container
+                      *ngIf="
+                      maintenance == 0;
+                        else mainTrue
+                      "
+                    >
+                      <a routerLink="/pmb/formulir" class="btn btn-info w-34">
+                        <span class="btn-label">
+                          <i class="material-icons">person_pin</i>
+                        </span>
+                        Daftar Online</a
+                      >
+                    </ng-container>
+                    <ng-template #mainTrue>
+                      <a routerLink="/404" class="btn btn-warning w-34">
+                        <span class="btn-label">
+                          <i class="material-icons">person_pin</i>
+                        </span>
+                        Daftar Online</a
+                      >
+                    </ng-template>
+
+                    &nbsp;
+                    <button
+                      [disabled]="isLoading"
+                      class="btn btn-success flex justify-end px-5"
+                      (click)="toggleLoading()"
+                    >
+                      <ng-container *ngIf="isLoading == false; else loading">
+                        <span class="btn-label px-1">
+                          <i class="material-icons">send</i>
+                        </span> Login
+                      </ng-container>
+                      <ng-template #loading>
+                        <span class="normal-case"
+                          >Mohon tunggu..</span
+                        >
+                        <span>
+                          <img
+                            style="width: 20px; margin-left: 3px"
+                            src="../../assets/img/gif/load-button.gif"
+                            alt="load.gif"
+                          />
+                        </span>
+                      </ng-template>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <div
+                class="col-md-7 ml-auto hidden lg:flex items-center justify-center flex-1"
+                style="padding-right: 0px; padding-left: 0px"
+              >
+                <img
+                  class="rounded-r-lg"
+                  src="../../../assets/img/pmyar.jpg"
+                  style="height: 100%; width: 100%"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

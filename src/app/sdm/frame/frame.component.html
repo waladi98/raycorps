@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">{{title}}</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <!-- <p class="font-base font-medium italic text-success">Anda sudah terdaftar sebagai peserta Ujian Saringan
+                Masuk UNIVERSITAS YARSI!</p> -->
+
+              <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe id="frame_data" (load)="frameLoad()"></iframe>
+            </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

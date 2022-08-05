@@ -1,0 +1,123 @@
+<div class="main-content">
+    <div class="container">
+        <div class="col-md-10 ml-auto mr-auto">
+            <div class="card justify-content-center">
+                <div class="card-header card-header-success card-header-text">
+                    <div class="card-text">
+                        <h4 class="card-title">Upload Bukti Pembayaran</h4>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <!-- <thead>
+                                <tr>
+                                    <th colspan="3">Informasi Peserta PMB</th>
+                                </tr>
+                            </thead> -->
+                            <tbody class="text-black">
+                                
+                                <tr>
+                                    <td class="text-right"><strong>No. Pendaftaran</strong></td>
+                                    <td class="text-left font-medium"><span class="mr-3">:</span>{{formGroup.get("no_pendaftaran").value}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Nama</strong></td>
+                                    <td class="text-left font-medium"><span class="mr-3">:</span>{{formGroup.get("nama").value}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Program Studi Pil. 1</strong></td>
+
+                                    <td class="text-left font-medium"><span class="mr-3">:</span> {{formGroup.get("prodi_1").value}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Handphone</strong></td>
+                                    <td class="text-left font-medium"><span class="mr-3">:</span> {{formGroup.get("handphone").value}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Email</strong></td>
+                                    <td class="text-left font-medium"><span class="mr-3">:</span>{{formGroup.get("email").value}}</td>
+                                </tr>
+
+                                
+                                <tr>
+                                    <td class="text-right"><strong>Bukti Setoran</strong></td>
+                                    <td class="text-left">
+                                        <ng-container *ngIf="dataPendaftaranPmb.bukti_setoran == 'VA-Bank Mandiri' || dataPendaftaranPmb.bukti_setoran == 'VA-Bank BRI'; else manual ">
+                                            <span class="mr-3">:</span><span class="badge badge-primary text-sm">VALIDATED BY SYSTEM</span>
+                                        </ng-container>
+                                        <ng-template #manual>
+                                            <ng-container *ngIf="!dataPendaftaranPmb.bukti_setoran; else fileBuktiBayar">
+                                                <span class="flex" *ngIf="file_name">{{file_name}}
+                                                    <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </span>
+                                                <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2"
+                                                    (click)="openFileUploader()" *ngIf="!file_name">
+                                                    <i class="material-icons">folder_open</i>
+                                                    Browse File
+                                                </button>
+                                            </ng-container>
+                                            <ng-template #fileBuktiBayar>
+                                                <td>
+                                                    <span class="mr-3">:</span>
+                                                    <a href="https://api.yarsi.ac.id/core/{{dataPendaftaranPmb.bukti_setoran}}" target="_blank" class="text-header-table text-base">Unduh</a>
+                                                    <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()" [color]="'warn'">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </ng-template>
+                                        </ng-template>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right"><strong>Status Pembayaran</strong></td>
+                                    <td class="text-left font-medium"> <span class="mr-3">:</span> {{formGroup.get("status_pembayaran").value}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <!-- <span class="btn btn-success btn-round btn-file">
+                                            <span class="fileinput-new">Simpan</span>
+                                        </span>
+                                        <span class="btn btn-warning btn-round btn-file">
+                                            <span class="fileinput-new">Kembali</span>
+                                        </span> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <div class="flex justify-center w-full">
+                            <div class="btn-action mx-28">
+                                <ng-container *ngIf="dataPendaftaranPmb.bukti_setoran == 'VA-Bank Mandiri' || dataPendaftaranPmb.bukti_setoran == 'VA-Bank BRI'; else manualBayar ">
+                                    <button mat-raised-button routerLink="/pmb/dashboard" type="button"
+                                    class="btn btn-fill btn-yarsi bg-danger">
+                                    Kembali
+                                    </button>
+                                </ng-container>
+                                <ng-template #manualBayar>
+                                    <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2"
+                                    [disabled]="!formGroup.valid" (click)="onSubmit()">
+                                    Simpan
+                                    </button>
+                                    <button mat-raised-button routerLink="/pmb/dashboard" type="button"
+                                    class="btn btn-fill btn-yarsi bg-danger">
+                                    Kembali
+                                    </button>
+                                </ng-template>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>

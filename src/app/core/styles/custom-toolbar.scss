@@ -1,0 +1,10 @@
+.custom-toolbar {
+    @apply flex flex-row w-full max-w-full justify-between min-h-12 items-center bg-gray-200 py-1 flex-auto px-1 overflow-hidden;
+}
+
+.custom-filter {
+    @apply flex flex-col flex-auto py-2 px-2 w-full space-y-1 md:justify-end md:justify-items-end md:items-end md:flex-row md:flex-wrap;
+    > mat-form-field {
+        @apply md:p-1;
+    }
+}

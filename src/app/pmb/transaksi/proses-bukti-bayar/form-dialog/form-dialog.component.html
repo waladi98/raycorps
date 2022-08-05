@@ -1,0 +1,24 @@
+<div style="width: 500px">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Prodi Pilihan</span>
+    <span *ngIf="dataParam.type == 'update'">Verifikasi Status Pembayaran</span>
+    <span *ngIf="dataParam.type == 'info'">Info Data</span>
+  </h2>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">Status Pembayaran</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-4/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" formControlName="status_pembayaran" />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-danger">Kembali</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-success">Simpan</button>
+  </mat-dialog-actions>
+</div>

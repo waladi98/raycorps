@@ -1,0 +1,160 @@
+<div style="width: 700px;">
+  <h2 mat-dialog-title>
+    <span *ngIf="dataParam.type == 'create'">Tambah Jabatan</span>
+  </h2>
+
+  <div class="card-text">
+    <h4 class="card-title">Jabatan</h4>
+  </div>
+
+  <mat-dialog-content class="mat-typography">
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jabatan Akademik</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Pilih Jabatan Akademik" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Jabatan Dikti</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Pilih Jabatan Dikti" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Golongan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Pilih Golongan" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tunjangan Ikatan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Pilih Tunjangan Ikatan" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="card-text">
+      <h4 class="card-title">Bank</h4>
+    </div>
+
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Bank</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Nama Bank" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama Akun</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="text" placeholder="Nama Akun" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor Akun</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" placeholder="Nomor Akun" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+        >Tanggal Mulai</label
+      >
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor SK Jabatan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" placeholder="Nomor SK Jabatan" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">File SK Jabatan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Choose File" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nomor SK Golongan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field class="w-full">
+          <input matInput type="number" placeholder="Nomor SK Golongan" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-2">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">File SK Golongan</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Choose File" name="formulir">
+            <mat-option>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="table-row w-full mt-4">
+      <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Aktif</label>
+      <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+      <div class="table-cell w-5/6 pb-3">
+        <mat-slide-toggle color="primary"></mat-slide-toggle>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-success">Simpan</button>
+    <button mat-button mat-dialog-close class="btn btn-danger">Batal</button>
+  </mat-dialog-actions>
+</div>

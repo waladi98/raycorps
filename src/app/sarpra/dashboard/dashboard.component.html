@@ -1,0 +1,100 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <!-- <ngx-spinner
+        [name]="spinnerName"
+        [fullScreen]="false"
+        type="line-scale-pulse-out"
+        size="small"
+      >
+        <span class="text-white text-xl">{{ spinnerStatus }}</span>
+      </ngx-spinner> -->
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <img src="../../../assets/img/logo public/6.png" alt="spmi" style="width: 250px" />
+          </div>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="grid grid-cols-3 gap-4 col-md-12">
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">shopping_bag</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Kebutuhan ATK</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Sesuai Evaluasi : 800 Unit</h3>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">request_quote</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Dana Perawatan</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Sesuai Kalkulasi : Rp. 98.000.0000</h3>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-secondary card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">airport_shuttle</i>
+                    </div>
+                    <p class="card-title text-left font-bold">Kendaraan Sedang Dipinjam</p>
+                  </div>
+                  <div class="card-footer">
+                    <h3 class="card-title">Jenis R4 : APV</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-success">
+                <h4 class="card-title">Statistik Keterisian Ruangan</h4>
+              </div>
+              <div class="card-body">
+                <google-chart [type]="chartData1.type" [data]="chartData1.data" [columns]="chartData1.columnNames"
+                  [options]="chartData1.options" [width]="chartData1.width" [height]="chartData1.height">
+                </google-chart>
+                <google-chart [type]="chartData2.type" [data]="chartData2.data" [columns]="chartData2.columnNames"
+                  [options]="chartData2.options" [width]="chartData2.width" [height]="chartData2.height">
+                </google-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Presentase Pemeliharaan</h4>
+          </div>
+          <div class="card-body">
+            <div id="simpleBarChart" class="ct-chart"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Stok ATK</h4>
+          </div>
+          <div class="card-body text-center">
+            <google-chart [type]="chartData3.type" [data]="chartData3.data" [columns]="chartData3.columnNames"
+                  [options]="chartData3.options" [width]="chartData3.width" [height]="chartData3.height">
+                </google-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,715 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header card-header-success card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Pengisian Form Registrasi Ulang</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="warning-text py-2">
+              <p class="font-base font-medium italic text-success">
+                Cek kembali kebenaran data dan informasi yang anda isikan pada
+                menu isi formulir
+              </p>
+
+              <!-- <iframe [src]="srcdoc" class="w-full" style="height: 90vh;" #iframe></iframe> -->
+            </div>
+            <ngx-spinner [name]="spinnerName" [fullScreen]="false" type="line-scale-pulse-out" size="small">
+              <span class="text-white text-xl">{{ spinnerStatus }}</span>
+            </ngx-spinner>
+            <mat-tab-group class="mt-4" (selectedTabChange)="onTabChanged($event)">
+              <!-- <mat-tab label="Unggah Dokumen">
+                <div class="row">
+                  <form
+                    [formGroup]="formGroup"
+                    (ngSubmit)="onSubmit()"
+                    #formNgForm="ngForm"
+                    class="w-full"
+                  >
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">Dokumen Kelengkapan</h3>
+                      </div>
+                      <div class="table mb-0">
+                        <div class="table-row w-full mt-4">
+                          <label
+                            class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            >Dok 1</label
+                          >
+                          <div
+                            class="table-cell px-3 text-sm font-base text-gray-600"
+                          >
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <div
+                              class="fileinput fileinput-new text-center"
+                              data-provides="fileinput"
+                            >
+                              <div
+                                class="fileinput-preview fileinput-exists"
+                              ></div>
+                              <span class="btn btn-info btn-file">
+                                <span class="fileinput-new"
+                                  >Upload Dokumen</span
+                                >
+                                <span class="fileinput-exists">Ubah</span>
+                                <input type="file" name="..." />
+                              </span>
+                              <a
+                                href="#"
+                                class="btn btn-danger fileinput-exists"
+                                data-dismiss="fileinput"
+                                ><i class="fa fa-times"></i> Hapus</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="table-row w-full mt-4">
+                          <label
+                            class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                            >Dok 2</label
+                          >
+                          <div
+                            class="table-cell px-3 text-sm font-base text-gray-600"
+                          >
+                            :
+                          </div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <div
+                              class="fileinput fileinput-new text-center"
+                              data-provides="fileinput"
+                            >
+                              <div
+                                class="fileinput-preview fileinput-exists"
+                              ></div>
+                              <span class="btn btn-info btn-file">
+                                <span class="fileinput-new"
+                                  >Upload Dokumen</span
+                                >
+                                <span class="fileinput-exists">Ubah</span>
+                                <input type="file" name="..." />
+                              </span>
+                              <a
+                                href="#"
+                                class="btn btn-danger fileinput-exists"
+                                data-dismiss="fileinput"
+                                ><i class="fa fa-times"></i> Hapus</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="table-row w-full mt-4">
+                          <label
+                            class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"
+                          ></label>
+                          <div
+                            class="table-cell text-sm font-base text-gray-600 px-3"
+                          ></div>
+                          <div class="table-cell w-5/6 pb-3">
+                            <div class="btn-action">
+                              <button
+                                mat-raised-button
+                                type="submit"
+                                class="btn btn-fill btn-yarsi mr-2"
+                                [disabled]="!formGroup.valid"
+                              >
+                                Simpan
+                              </button>
+                              <button
+                                mat-raised-button
+                                routerLink="/pmb/dashboard"
+                                type="submit"
+                                class="btn btn-fill btn-yarsi bg-danger"
+                              >
+                                Batal
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab> -->
+
+              <mat-tab label="Kelengkapan Data">
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmitDataPribadi()" #formNgForm="ngForm" class="w-full">
+                  <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <div class="title mb-2">
+                        <span class="text-success">Silahkan Lengkapi Data Registrasi Ulang Anda</span>
+
+                      </div>
+                      <span><b>( <span style="color: red;padding-top: 2px;">*</span> Isian wajib! )</b></span>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-2/6 mb-2 text-sm font-base text-gray-600">No. PMB / No.
+                              Peserta</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="no_test" style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="nama" style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Lulus pada
+                              Prodi</label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="prodi" style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Program</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <mat-select name="program" formControlName="kode_program">
+                                  <mat-option *ngFor="let item of listDataProgram" [value]="item.kode">
+                                    {{ item.program }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Ukuran Almamater<span
+                                style="color: red">*</span></label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full">
+                                <mat-select name="program" formControlName="id_jas_almamater">
+                                  <mat-option *ngFor="let item of listDataJasAlmamater" [value]="item.id">
+                                    {{ item.jas_almamater }} - {{ item.ukuran }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3"></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">
+                                  Simpan
+                                </button>
+                                <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                                  Kembali
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="col-md-4 ml-auto mr-auto">
+                      <div class="card">
+                        <div class="card-header card-header-text card-header-info">
+                          <div class="card-text">
+                            <h4 class="card-title">
+                              Ukuran Jas Almamater Universitas Yarsi
+                            </h4>
+                            <p class="card-category">
+                              Berikut keterangan detail dari ukuran Jas
+                              Almamater
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card-body table-responsive">
+                          <table class="table table-hover">
+                            <thead class="font-semibold" style="color: rgb(63, 63, 63)">
+                              <tr>
+                                <th>No</th>
+                                <th>Singkatan</th>
+                                <th>keterangan</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>PB</td>
+                                <td>PANJANG BADAN</td>
+                              </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>PT</td>
+                                <td>PANJANG TANGAN</td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>LB</td>
+                                <td>LEBAR BADAN</td>
+                              </tr>
+                              <tr>
+                                <td>4</td>
+                                <td>LP</td>
+                                <td>LEBAR PUNDAK</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </mat-tab>
+
+              <mat-tab label="Member Get Member" [disabled]="menu == false">
+                <div class="row">
+                  <form [formGroup]="formDataMgm" #formNgForm="ngForm" class="w-full">
+                    <div class="col-md-10 mx-auto">
+                      <div class="title mb-2">
+                        <h3 class="font-medium text-lg">
+                          Informasi member get member
+                        </h3>
+                        <span class="font-semibold text-slate-800">Mohon diisi bila anda mendapat referensi terkait PMB
+                          Yarsi.</span> <br>
+
+                      </div>
+                      <span><b>( <span style="color: red;padding-top: 2px;">*</span> Isian wajib! )</b></span>
+                      <section class="table w-full">
+                        <div class="mt-6">
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Kode<span
+                                style="color: red;padding-top: 2px;">*</span></label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field appearance="fill" style="color: rgb(66, 66, 66)">
+                                <input type="text" placeholder="Cari berdasarkan NIK/Nama civitas universitas yarsi"
+                                  name="kode_referral" aria-label="kode_referral" matInput
+                                  [matAutocomplete]="autoAsalSekolah" [formControlName]="'kode_referral'" (input)="
+                                    doFilterAsalSekolah($event.target.value)
+                                  " />
+                                <div class="w-full flex flex-auto justify-end" *ngIf="isAsalSekolahSearch">
+                                  <mat-progress-spinner class="justify-end" color="warn" [diameter]="18"
+                                    [mode]="'indeterminate'">
+                                  </mat-progress-spinner>
+                                </div>
+                                <button *ngIf="
+                                  formDataMgm.controls['kode_referral']
+                                      .value
+                                  " matSuffix mat-icon-button aria-label="Clear" (click)="
+                                  formDataMgm.controls[
+                                      'nama_referral'
+                                    ].value = null;
+                                    formDataMgm.controls[
+                                      'kode_referral'
+                                    ].value = null;
+                                    
+                                  ">
+                                  <mat-icon>close</mat-icon>
+                                </button>
+                                <mat-autocomplete #autoAsalSekolah="matAutocomplete" class="divide-y" (optionSelected)="
+                                    selectAsalSekolah($event.option.value)
+                                  ">
+                                  <mat-option *ngFor="
+                                      let option of asalSekolahList | async
+                                    " [value]="option " style="color:black">
+                                    {{ option.nama }}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <!-- <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">NIK Civitas</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input matInput type="text" formControlName="nik_pegawai" style="color:black" />
+                              </mat-form-field>
+                            </div>
+                          </div> -->
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Nama</label>
+                            <div class="table-cell px-3 text-sm font-base text-gray-600">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input matInput type="text" formControlName="nama_referral" style="color:black" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <!-- <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">No. Handphone</label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3">
+                              :
+                            </div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <input matInput type="text" formControlName="handphone" style="color:black" />
+                              </mat-form-field>
+                            </div>
+                          </div> -->
+
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></label>
+                            <div class="table-cell text-sm font-base text-gray-600 px-3"></div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <div class="btn-action">
+                                <button mat-raised-button (click)="onSubmitDataMgm()"
+                                  class="btn btn-fill btn-yarsi mr-2" [disabled]="!formDataMgm.valid">
+                                  Simpan
+                                </button>
+                                <button mat-raised-button routerLink="/pmb/dashboard" type="submit"
+                                  class="btn btn-fill btn-yarsi bg-danger">
+                                  Batal
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+
+              <!-- <mat-tab label="Pengunduran Diri" [disabled]="!register"> [disabled]="sudah_bayar == true"-->
+              <mat-tab label="Pengunduran Diri">
+                <div class="row">
+                  <form [formGroup]="formUndurDiri" (ngSubmit)="onSubmitDataUndurDiri()" #formNgForm="ngForm"
+                    class="w-full">
+                    <div class="row">
+                      <div class="col-md-6 mx-auto mr-auto">
+                        <div class="title mb-2">
+                          <!-- <h3 class="font-medium text-lg">
+                            Informasi Pengunduran Diri
+                          </h3> -->
+                          <span class="font-semibold text-slate-800">Mohon diisi bila anda tidak akan melanjutkan proses
+                            PMB
+                            Universitas Yarsi.</span>
+
+                          <br />
+
+                        </div>
+                        <span><b>( <span style="color: red;padding-top: 2px;">*</span> Isian wajib! )</b></span>
+                        <div class="table mb-0">
+                          <div class="table-row">
+                            <div class="table-cell w-1/6 pb-3">No. PMB / No. Peserta<span style="color: red">*</span>
+                            </div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="no_test" style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-cell w-1/6 pb-3">Nama Bank <span style="color: red">*</span></div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="nama_bank"
+                                  style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-cell w-1/6 pb-3">No. Rekening <span style="color: red">*</span></div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="nomor_rekening"
+                                  style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-cell w-1/6 pb-3">Alasan<span style="color: red">*</span></div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <mat-select name="id_alasan_pengunduran_diri"
+                                  formControlName="id_alasan_pengunduran_diri">
+                                  <mat-option *ngFor="let item of listDataAlasanUndurDiri" [value]="item.id">
+                                    {{ item.alasan_pengunduran_diri }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="table-row w-full mt-4">
+                            <label class="table-cell w-1/5 mb-2 text-sm font-base text-gray-600">Keterangan<span
+                                style="color: red">*</span></label>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell w-5/6 pb-3">
+                              <mat-form-field class="w-full" appearance="fill">
+                                <textarea matInput type="text" formControlName="keterangan_undur_diri"></textarea>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+
+                          <div class="table-row">
+
+                            <div class="table-cell w-1/5 pb-3">
+                              Unggah dokumen pengunduran diri<span style="color: red">*</span>
+                            </div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <ng-container *ngIf="dataPesertaUndurDiri.id_status_dokumen == '4';else Verifikasi ">
+                                <div class="table-cell w-4/6 pb-3">
+                                  <td>
+                                    <span class="flex" *ngIf="dataPesertaUndurDiri.path_to_dokumen">
+                                      <a href="{{dataPesertaUndurDiri.path_to_dokumen}}" target="_blank"
+                                        class="btn btn-success">Unduh</a>
+
+                                    </span>
+
+                                  </td>
+                                </div>
+
+                              </ng-container>
+                              <ng-template #Verifikasi>
+                                <div class="table-cell w-4/6 pb-3">
+                                  <ng-container *ngIf="!dataPesertaUndurDiri.path_to_dokumen; else fileIsNull">
+                                    <span class="flex" *ngIf="file_name">{{file_name}}
+                                      <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()"
+                                        [color]="'warn'">
+                                        <i class="material-icons">close</i>
+                                      </button>
+                                    </span>
+                                    <button mat-raised-button type="button" class="btn btn-fill btn-yarsi mr-2"
+                                      (click)="openFileUploader()" *ngIf="!file_name">
+                                      <i class="material-icons">folder_open</i>
+                                      Browse File
+                                    </button>
+                                  </ng-container>
+                                  <ng-template #fileIsNull>
+
+                                    <td>
+                                      <span class="flex" *ngIf="dataPesertaUndurDiri.path_to_dokumen">
+                                        <a href="{{dataPesertaUndurDiri.path_to_dokumen}}" target="_blank"
+                                          class="text-header-table">Unduh</a>
+                                        <button type="button" mat-button matTooltip="Hapus" (click)="cancelUpload()"
+                                          [color]="'warn'">
+                                          <i class="material-icons">close</i>
+                                        </button>
+                                      </span>
+
+                                    </td>
+                                  </ng-template>
+                                </div>
+                              </ng-template>
+                            </div>
+                          </div>
+                          <div class="table-row" *ngIf="dataPesertaUndurDiri.id_status_dokumen == '1'; ">
+                            <div class="table-cell w-1/6 pb-3">Status</div>
+                            <div class="table-cell w-10 px-3 font-bold text-black">:</div>
+                            <div class="table-cell pb-3">
+                              <mat-form-field class="w-full">
+                                <input matInput type="text" formControlName="status_dokumen"
+                                  style="color: rgb(56, 56, 56)" />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div *ngIf="dataPesertaUndurDiri.path_to_bukti_transfer;">
+                          <hr>
+                          <span class="font-semibold text-slate-800 pt-5">Pengajuan undur diri anda sudah diproses,
+                            silahkan
+                            cek bukti transfer pengembalian dana daftar registrasi ulang anda.</span>
+                          <div class="row">
+                            <div class="col-md-12 py-2">
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/5 mb-2 text-sm font-base text-black">Status</label>
+                                <div class="table-cell px-3 text-sm font-bold text-black">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6">
+                                  <mat-form-field class="w-full font-normal">
+                                    <input matInput type="text" formControlName="status_dokumen"
+                                      style="color: rgb(37, 37, 37);font-weight: bold;" />
+                                  </mat-form-field>
+                                </div>
+
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/5 mb-2 text-sm font-base text-black">Bukti Transfer</label>
+                                <div class="table-cell px-3 text-sm font-bold text-black">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6">
+                                  <td *ngIf="dataPesertaUndurDiri.path_to_bukti_transfer; else fileIsNull">
+                                    <span class="flex">
+                                      <a href="{{dataPesertaUndurDiri.path_to_bukti_transfer}}" target="_blank"
+                                        class="btn btn-success">Unduh</a>
+                                    </span>
+
+                                  </td>
+                                  <ng-template #fileIsNull>
+                                    <td>
+                                      <span class="flex">
+                                        <p class="text-red-500">Tidak ada file</p>
+                                      </span>
+                                    </td>
+                                  </ng-template>
+                                </div>
+                              </div>
+                              <div class="table-row w-full mt-4">
+                                <label class="table-cell w-1/5 mb-2 text-sm font-base text-black">Jumlah
+                                  Pengembalian</label>
+                                <div class="table-cell px-3 text-sm font-bold text-black">
+                                  :
+                                </div>
+                                <div class="table-cell w-5/6">
+                                  <mat-form-field class="w-full font-normal">
+                                    <input matInput type="text" formControlName="jumlah_pengembalian"
+                                      style="color: rgb(37, 37, 37);font-weight: bold;" />
+                                  </mat-form-field>
+                                </div>
+
+                              </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <!-- <span>
+                          Template dokumen pengunduruan diri : 
+                          <b
+                            ><a
+                              href="https://drive.google.com/file/d/1cqg9RoKyw5Rb95s34aKqNLBSoo82oFta/view?usp=sharing"
+                              target="_blank"
+                              class="text-blue-500"
+                              >Unduh Template</a
+                            ></b
+                          >
+                        </span> -->
+                      </div>
+                      <div class="col-md-4 ml-auto mr-auto">
+                        <div class="card">
+                          <div class="card-header card-header-text card-header-info">
+                            <div class="card-text">
+                              <h4 class="card-title">
+                                Ketentuan Unggah Dokumen Pengunduran Diri
+                              </h4>
+                              <p class="card-category">
+                                Berikut beberapa hal yang perlu diperhatikan sebelum mengunggah dokumen undur
+                                pengunduran diri.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                              <thead class="font-semibold" style="color: rgb(63, 63, 63)">
+                                <tr>
+                                  <th>No</th>
+
+                                  <th>Dokumen Yang perlu diunggah</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+
+                                  <td>Template pengunduran diri</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+
+                                  <td>Bukti bayar registrasi ulang</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+
+                                  <td>Cover buku tabungan</td>
+                                </tr>
+                                <tr>
+                                  <td>-</td>
+
+                                  <td>
+                                    Semua Dokumen diunggah dalam satu file pdf.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>-</td>
+
+                                  <td>
+                                    Template dokumen pengunduruan diri :
+                                    <b><a
+                                        href="https://drive.google.com/file/d/1cqg9RoKyw5Rb95s34aKqNLBSoo82oFta/view?usp=sharing"
+                                        target="_blank" class="text-blue-500">Unduh Template</a></b>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <div class="btn-action mx-28">
+                        <ng-container *ngIf="dataPesertaUndurDiri.id_status_dokumen != '4'">
+                          <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2"
+                            [disabled]="!formUndurDiri.valid">
+                            Simpan
+                          </button>
+                        </ng-container>
+                        <button mat-raised-button class="btn btn-info" type="button" (click)="toHome()">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <!-- <div class="flex justify-center w-full">
+            <div class="btn-action mx-28">
+              <button mat-raised-button type="submit" class="btn btn-fill btn-yarsi mr-2">
+                Simpan
+              </button>
+              <button mat-raised-button routerLink="/pmb/dashboard" type="submit"
+                class="btn btn-fill btn-yarsi bg-danger">
+                Batal
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+  </div>
+</div>

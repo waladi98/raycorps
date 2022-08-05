@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-4">
+        <form [formGroup]="formGroup" #formNgForm="ngForm" class="w-full">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tanggal Ditutup</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="Tanggal Ditutup" formControlName="tanggal_ditutup"/>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Tindak Lanjut</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <textarea style="width: 100%" matInput placeholder="Tindak Lanjut" formControlName="tindak_lanjut"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600">Status Akhir NCR</label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600">:</div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <mat-form-field class="w-full" appearance="fill">
+                      <input matInput type="text" placeholder="Status Akhir NCR" formControlName="status_akhir_ncr" />
+                    </mat-form-field>
+                  </div>
+                </div>
+        
+                <span><b>( <span style="color: red">*</span>Isian Wajib )</b></span>
+                <div class="table-row w-full mt-4">
+                  <label class="table-cell w-1/6 mb-2 text-sm font-base text-gray-600"></label>
+                  <div class="table-cell px-3 text-sm font-base text-gray-600"></div>
+                  <div class="table-cell w-5/6 pb-3">
+                    <div class="w-full">
+                      <button mat-button [mat-dialog-close]="true" (click)="{}" class="btn btn-fill btn-yarsi">
+                        Simpan
+                      </button>
+                      <button class="btn btn-danger" mat-button mat-dialog-close>Batal</button>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+          </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>

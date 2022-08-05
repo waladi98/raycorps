@@ -1,0 +1,426 @@
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-text card-header-warning">
+            <div class="card-profile">
+              <div class="card-avatar absolute w-28 h-28">
+                <img class="img" src="./assets/img/faces/ava.png" />
+              </div>
+            </div>
+
+            <div class="card-text ml-20 pl-4 h-16">
+              <h4 class="card-title text-xl flex items-center px-6">Halo! <span class="font-medium pl-2">Dosen x</span></h4>
+            </div>
+          </div>
+
+          <div class="card-body mt-8">
+            <div class="row">
+              <div class="grid grid-cols-4 gap-4 col-md-12">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon h-16">
+                    <div class="card-icon w-16 h-16 p-1 mr-0.5">
+                      <i class="material-icons">upload</i>
+                    </div>
+                    <p class="card-category">Nilai Ter Unggah</p>
+                    <h3 class="card-title">20 / 24 SKS</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-danger">warning</i>
+                      <a href="#pablo">Get More Space...</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon h-16">
+                    <div class="card-icon w-16 h-16 p-1 mr-0.5">
+                      <i class="material-icons">biotech</i>
+                    </div>
+                    <p class="card-category">Penelitian Terakhir</p>
+                    <h3 class="card-title">75%</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-danger">warning</i>
+                      <a href="#pablo">Get More Space...</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-secondary card-header-icon h-16">
+                    <div class="card-icon w-16 h-16 p-1 mr-0.5">
+                      <i class="material-icons">groups</i>
+                    </div>
+                    <p class="card-category truncate">Presentase Kehadiran</p>
+                    <h3 class="card-title">80%</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-danger">warning</i>
+                      <a href="#pablo">Get More Space...</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon h-16">
+                    <div class="card-icon w-16 h-16 p-1 mr-0.5">
+                      <i class="material-icons">article</i>
+                    </div>
+                    <p class="card-category">Total SKS Mengajar</p>
+                    <h3 class="card-title">20 / 24 SKS</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons text-danger">warning</i>
+                      <a href="#pablo">Get More Space...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <a routerLink="../../akd/dosen/profil/ubah-profil-dosen" mat-raised-button class="btn btn-primary btn-round"><i class="material-icons">favorite</i> Ubah Profil</a>
+            <a routerLink="../../akd/dosen/profil/lihat-profil-dosen" mat-raised-button class="btn btn-rose btn-round"><i class="material-icons">favorite</i> Lihat Profil</a>
+            <a routerLink="../../akd/dosen/perkuliahan/jadwal-mengajar" mat-raised-button class="btn btn-info btn-round"><i class="material-icons">favorite</i> Jadwal Mengajar</a>
+            <a routerLink="../../akd/dosen/perkuliahan/nilai-perkuliahan" mat-raised-button class="btn btn-success btn-round"><i class="material-icons">favorite</i> Nilai Perkuliahan</a>
+            <a routerLink="../../akd/dosen/perwalian/status-perwalian" mat-raised-button class="btn btn-warning btn-round"><i class="material-icons">favorite</i> Status Perwalian</a>
+            <a routerLink="../../akd/dosen/perwalian/perwalian" mat-raised-button class="btn btn-danger btn-round"><i class="material-icons">favorite</i> Perwalian</a>
+            <a routerLink="../../akd/mhs/profil/lihat-profil-mhs" mat-raised-button class="btn btn-primary btn-round"><i class="material-icons">favorite</i> Profil MHS Wali</a>
+            <a routerLink="../../akd/mhs/jadwal/jadwal-perkuliahan" mat-raised-button class="btn btn-info btn-round"><i class="material-icons">favorite</i> Jadwal MHS Wali</a>
+            <a routerLink="../../akd/dosen/perkuliahan/jadwal-ujian" mat-raised-button class="btn btn-info btn-round"><i class="material-icons">favorite</i> Jadwal Ujian</a>
+            <a routerLink="../../akd/dosen/perkuliahan/ujian-daring" mat-raised-button class="btn btn-info btn-round"><i class="material-icons">favorite</i> Jadwal Ujian Daring</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <carousel [objectFit]="'cover'" [cellWidth]="'100%'" [height]="630" [autoplay]="true" [autoplayInterval]="3000" [transitionDuration]="1500" [dots]="true" [loop]="true">
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-1.jpeg" />
+              </div>
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-2.jpeg" />
+              </div>
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-3.jpeg" />
+              </div>
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-1.jpeg" />
+              </div>
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-2.jpeg" />
+              </div>
+              <div class="carousel-cell">
+                <img src="../../../../assets/img/card-3.jpeg" />
+              </div>
+            </carousel>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">calendar_month</i>
+            </div>
+            <h4 class="card-title">Jadwal Mengajar</h4>
+            <p class="card-category">Semester 2</p>
+          </div>
+          <div class="card-body">
+            <div id="accordion" role="tablist">
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+                      Senin
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="grid gap-4">
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">PENDIDIKAN PANCASILA & KEWARGANEGARAAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">08:50</span> -
+                                <span class="selesai">10:30</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">2</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">DASAR PEMROGRAMAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">13:00</span> -
+                                <span class="selesai">14:40</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">4</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Selasa
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="warning-text px-4 py-8 text-center">
+                      <p class="font-base font-medium italic text-warning">Tidak ada jadwal.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingThree">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Rabu
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="grid gap-4">
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">MATEMATIKA LOGIKA</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">08:50</span> -
+                                <span class="selesai">10:30</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">2</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">DASAR PEMROGRAMAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">13:00</span> -
+                                <span class="selesai">14:40</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">4</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingFour">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Kamis
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="grid gap-4">
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">REKAYASA PERANGKAT LUNAK</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">08:50</span> -
+                                <span class="selesai">10:30</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">2</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">DASAR PEMROGRAMAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">13:00</span> -
+                                <span class="selesai">14:40</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">4</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingFive">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Jumat
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="grid gap-4">
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">MATEMATIKA LOGIKA</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">08:50</span> -
+                                <span class="selesai">10:30</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">2</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">DASAR PEMROGRAMAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">13:00</span> -
+                                <span class="selesai">14:40</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">4</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-collapse">
+                <div class="card-header" role="tab" id="headingSix">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      Sabtu
+                      <i class="material-icons">keyboard_arrow_down</i>
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="grid gap-4">
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">MATEMATIKA LOGIKA</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">08:50</span> -
+                                <span class="selesai">10:30</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">2</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid w-full shadow-md">
+                        <div class="flex items-center p-4 bg-white rounded">
+                          <div class="flex-grow flex flex-col">
+                            <span class="badge bg-purple-500 font-lg py-2 px-4">DASAR PEMROGRAMAN</span>
+
+                            <div class="flex items-center justify-between mt-2">
+                              <div class="text-gray-500">
+                                <span class="mulai">13:00</span> -
+                                <span class="selesai">14:40</span>
+                              </div>
+                              <div class="text-green-500 text-sm font-semibold ml-2"><span class="jumlah-sks">4</span> SKS</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-16">
+          <div class="card-header card-header-primary card-header-danger">
+            <div class="card-icon">
+              <i class="material-icons">pie_chart</i>
+            </div>
+            <h4 class="card-title">Ikhtisar Mahasiswa</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="title mb-2">
+              <h3 class="font-medium text-lg">IPK Rerata</h3>
+            </div>
+            <div id="chartPreferences" class="ct-chart"></div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <h6 class="card-category mt-2">Legend</h6>
+              </div>
+              <div class="col-md-12"><i class="fa fa-circle text-info"></i> Apple <i class="fa fa-circle text-warning"></i> Samsung <i class="fa fa-circle text-danger"></i> Windows Phone</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

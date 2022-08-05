@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-yarsi card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Daftar Peserta Tugas Akhir</h4>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <button type="button" matTooltip="Filter Data" mat-raised-button class="btn btn-yarsi"
+                (click)="manageData(null)">
+                Filter Data
+              </button>
+              <button type="button" matTooltip="Import" mat-raised-button class="btn btn-yarsi"
+                (click)="null">
+                Import
+              </button>
+            </div>
+            <div class="material-datatables">
+              <table id="datatables" class="table table-striped table-no-bordered table-hover text-sm" cellspacing="0"
+                width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="text-sm text-center w-5">No.</th>
+                    <th class="text-sm text-center w-20">NPM</th>
+                    <th class="text-sm text-center">Nama</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Mulai</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Sidang</th>
+                    <th class="text-sm disabled-sorting text-center">Judul</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Pembimbing</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Penguji</th>
+                    <th class="text-sm disabled-sorting text-center w-20">Lulus?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listData; let i = index">
+                    <td class="text-center">{{item.no}}</td>
+                    <td class="text-center">{{item.npm}}</td>
+                    <td class="text-center">{{item.nama}}</td>
+                    <td class="text-center">{{item.mulai}}</td>
+                    <td class="text-center">{{item.sidang}}</td>
+                    <td class="text-center">{{item.judul}}</td>
+                    <td class="text-center">{{item.pembimbing}}</td>
+                    <td class="text-center">{{item.penguji}}</td>
+                    <td class="text-center">{{item.lulus}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>

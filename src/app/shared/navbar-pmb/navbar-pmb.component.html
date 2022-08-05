@@ -1,0 +1,241 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container max-w-full">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand cursor-pointer"><img src="../../../assets/icon/yarsi-logo.png" alt="Yarsi Logo"
+          class="w-20 m-auto" (click)="toHome();isOpenShortcut=false" /></a>
+
+      <div class="navbar-minimize" *ngIf="isScreenSmall">
+        <button mat-raised-button (click)="minimizeSidebar();isOpenShortcut=false"
+          class="btn btn-just-icon btn-white btn-fab btn-round">
+          <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+          <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+        </button>
+      </div>
+    </div>
+    <button mat-button class="navbar-toggler btn-no-ripple" type="button" (click)="sidebarToggle();isOpenShortcut=false"
+      *ngIf="isScreenSmall && loggedIn">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+
+    <ngx-navbar-collapse #collapse="ngxNavbarCollapse">
+      <ul class="p-1" routerLinkActive="active" *ngFor="let menuitem of menuItems">
+        <div class="dropdown" *ngIf="loggedIn">
+          <button href="#" class="btn btn-success dropdown-toggle  px-3" data-toggle="dropdown" aria-expanded="true">
+            <a [routerLink]="menuitem.path" *ngIf="menuitem.type === 'link'">
+              <i class="material-icons"> {{ menuitem.icontype }}</i>
+              {{ menuitem.title }}
+            </a>
+            <a data-toggle="menuitem.collapse" *ngIf="menuitem.type === 'sub'"
+              (click)="clickMenuActive(menuitem.collapse);isOpenShortcut=false">
+              <i class="material-icons"> {{ menuitem.icontype }}</i>
+              <span> {{ menuitem.title }}<b class="caret"></b></span>
+            </a>
+          </button>
+          <!--  <ul id="{{ menuitem.collapse }}" class="dropdown-menu w-max h-96 overflow-y-scroll"
+            *ngIf="menuitem.type === 'sub'"> -->
+          <ul id="{{ menuitem.collapse }}" class="dropdown-menu w-max" *ngIf="menuitem.type === 'sub'">
+            <li routerLinkActive="active" *ngFor="let childitem of menuitem.children" class="w-full  "
+              style="background-color: rgba(128, 255, 132, 0.1);">
+              <a (click)="clickMenu(menuitem.collapse, childitem);isOpenShortcut=false" *ngIf="childitem.is_frame"
+                routerLink="">
+                <span class="sidebar-mini">
+                  <i class="material-icons">{{ childitem.icontype }}</i>
+                </span>
+                <span class="sidebar-normal">{{ childitem.title }}</span>
+              </a>
+              <a (click)="toRoute(menuitem.collapse, childitem);isOpenShortcut=false" *ngIf="!childitem.is_frame"
+                routerLink="">
+                <span class="sidebar-mini">
+                  <i class="material-icons">{{ childitem.icontype }}</i>
+                </span>
+                <span class="sidebar-normal">{{ childitem.title }}</span>
+              </a>
+              <hr *ngIf="childitem.line_break == 'Y'" style="border-top-width: 2px" />
+
+            </li>
+          </ul>
+        </div>
+      </ul>
+
+      <!-- {{loggedIn}} -->
+      <!-- <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item" *ngIf="loggedIn">
+            <button mat-raised-button class="btn btn-primary" [matMenuTriggerFor]="menu">Ubah Peran <i
+                class="material-icons">switch_account</i></button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngFor="let ls of listDataKelompok"
+                (click)="changeUserKelompok(ls)">{{ls.kelompok}}</button>
+            </mat-menu>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn">
+            <button mat-raised-button class="btn btn-danger" (click)="logout()">Logout
+              <i class="material-icons">logout</i>
+            </button>
+          </li>
+          <li class="nav-item" *ngIf="!loggedIn">
+            <button mat-raised-button class="btn btn-success" (click)="toLogin()">Login
+              <i class="material-icons">login</i>
+            </button>
+          </li>
+        </ul>
+      </div> -->
+
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <button mat-raised-button class="btn btn-success w-35" *ngIf="!loggedIn"
+          (click)="toLogin();isOpenShortcut=false">
+          Login
+          <i class="material-icons">login</i>
+        </button>
+        <!-- <form class="navbar-form mr-3">
+          <div class="input-group no-border">
+            <input type="text" value="" class="form-control" placeholder="Search..." />
+            <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+              <i class="material-icons">search</i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </form>
+        
+
+
+
+
+        <!-- <div mdbDropdown class="dropdown">
+          <form mdbDropdownMenu class="dropdown-menu dropdown-primary dropdown-menu-right w-80">
+            <div class="card card-profile">
+              <div class="card-avatar" *ngIf="listDataPengguna">
+                <img class="img" src="{{ listDataPengguna.path_to_foto }}" alt="avatar" />
+              </div>
+              <div class="card-body" *ngIf="listDataSalam">
+                <h4 class="card-title">{{ listDataSalam.salam }}</h4>
+              </div>
+            </div>
+          </form>
+        </div> -->
+        <ng-container *ngIf="!isPreparingForm">
+          <div *ngIf="this.dataDelegasi.id_kelompok == 920 || this.dataDelegasi.id_kelompok == 100;">
+            <button class="btn btn-success  px-2" (click)="isOpenShortcut = !isOpenShortcut" type="button"
+              cdkOverlayOrigin #triggerShortcut="cdkOverlayOrigin" [style.visibility]="!loggedIn? 'hidden': 'visible'">
+              <i class="material-icons">apps</i>
+              <b class="caret"></b>
+            </button>
+
+            <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="triggerShortcut"
+              [cdkConnectedOverlayOpen]="isOpenShortcut" [style.visibility]="!loggedIn? 'hidden': 'visible'">
+              <ul>
+                <li class="card" style="margin-top: 20px;">
+                  <div class="card-body grid grid-cols-3 gap-4 text-2xl">
+                    <ng-tamplate *ngFor="let menu of portal_menu; let i = index">
+                      <a class="btn  bg-gradient-to-b from-green-100 to-green-200 p-3" data-toggle="tooltip"
+                        data-placement="top" [ngClass]="menu.class.icon" title="{{menu.subtitle}}" target="_blank"
+                        *ngIf="menu.type_menu == 'dropdown'">
+                        <i class="material-icons" style="font-size:1.5rem !important;">{{ menu.icon }}</i>
+                      </a>
+                      <a class="btn  bg-gradient-to-b from-green-100 to-green-200 p-3" data-toggle="tooltip"
+                        data-placement="top" [ngClass]="menu.class.icon" title="{{menu.subtitle}}" target="_blank"
+                        *ngIf="menu.link_icon && menu.internal" (click)="toRouteMenuPortal(menu)">
+                        <i class="material-icons" style="font-size:1.5rem !important;">{{ menu.icon }}</i>
+                      </a>
+                      <a class="btn  bg-gradient-to-b from-green-100 to-green-200 p-3" data-toggle="tooltip"
+                        data-placement="top" [ngClass]="menu.class.icon" title="{{menu.subtitle}}" target="_blank"
+                        [href]="menu.link" *ngIf="!menu.internal && menu.type_menu == 'general'"
+                        (click)="toRouteMenuPortal(menu)">
+                        <i class="material-icons" style="font-size:1.5rem !important;">{{ menu.icon }}</i>
+                      </a>
+                      <a class="btn  bg-gradient-to-b from-green-100 to-green-200 p-3" data-toggle="tooltip"
+                        data-placement="top" [ngClass]="menu.class.icon" title="{{menu.subtitle}}" target="_blank"
+                        *ngIf="menu.internal && menu.type_menu == 'general'" (click)="toRouteMenuPortal(menu)">
+                        <i class="material-icons" style="font-size:1.5rem !important;">{{ menu.icon }}</i>
+                      </a>
+                    </ng-tamplate>
+
+                  </div>
+                </li>
+              </ul>
+
+            </ng-template>
+          </div>
+        </ng-container>
+
+
+        <a class="btn btn-info  px-2" aria-expanded="false" (click)="toHome();isOpenShortcut=false" *ngIf="loggedIn">
+          <i class="material-icons">home</i> Beranda - {{keterangan_aplikasi}}
+          <b class="caret"></b>
+        </a>
+
+        <button class="btn btn-default dropdown-toggle px-2" data-toggle="dropdown" aria-expanded="false"
+          *ngIf="loggedIn" (click)="isOpenShortcut=false">
+          <i class="material-icons">account_circle</i> Profil
+          <b class="caret"></b>
+        </button>
+        <div mdbDropdown class="dropdown top-9">
+          <form class="dropdown-menu dropdown-primary dropdown-menu-right w-80" *ngIf="loggedIn">
+            <ul>
+              <li class="card card-profile">
+                <div class="card-avatar" *ngIf="listDataPengguna">
+                  <img class="img" src="{{ listDataPengguna.path_to_foto }}" alt="avatar" />
+                </div>
+                <div class="card-body" *ngIf="listDataSalam && (listDataDelegasi.length == 0 || !dataDelegasi)">
+                  <h4 class="card-title">{{ listDataSalam.salam }}</h4>
+                </div>
+                <div class="card-body" *ngIf="listDataSalam && (listDataDelegasi.length > 0 || dataDelegasi)">
+                  <h4 class="card-title" [innerHTML]="dataDelegasi.delegasi_dari" [matMenuTriggerFor]="delegasi"></h4>
+                  <mat-menu #delegasi="matMenu">
+                    <div mat-menu-item *ngFor="let ls of listDataDelegasi" (click)="changeDelegasi(ls)"
+                      [innerHTML]="ls.delegasi_dari"></div>
+                  </mat-menu>
+                </div>
+              </li>
+              <div class="card-footer">
+                <li class="nav-item">
+                  <div class="row justify-content-center">
+                    <div mat-raised-button class="btn btn-primary w-52" *ngIf="loggedIn" [matMenuTriggerFor]="menu">
+                      Ubah Peran <i class="material-icons">switch_account</i>
+                    </div>
+                    <mat-menu #menu="matMenu">
+                      <div mat-menu-item *ngFor="let ls of listDataKelompok" (click)="changeUserKelompok(ls)">
+                        {{ ls.kelompok }}
+                      </div>
+                    </mat-menu>
+
+                  </div>
+                  <div class="row justify-content-center">
+                    <div mat-raised-button class="btn btn-info w-52" *ngIf="loggedIn" [matMenuTriggerFor]="menuBahasa">
+                      Ubah Bahasa <i class="material-icons">g_translate</i>
+                    </div>
+                    <mat-menu #menuBahasa="matMenu">
+                      <!-- <div mat-menu-item *ngFor="let ls of listDataBahasa" [value]="item.value" >
+                        {{ item.viewValue }}
+                      </div> -->
+                    </mat-menu>
+
+                  </div>
+                  <div class="row justify-content-center">
+                    <div mat-raised-button class="btn btn-warning w-52" routerLink="/pmb/ubah-password">
+                      Ganti Password
+                      <i class="material-icons">password</i>
+                    </div>
+                    <div mat-raised-button class="btn btn-danger w-52" *ngIf="loggedIn" (click)="logout()">
+                      Logout
+                      <i class="material-icons">logout</i>
+                    </div>
+                    <div mat-raised-button class="btn btn-success w-52" *ngIf="!loggedIn" (click)="toLogin()">
+                      Login
+                      <i class="material-icons">login</i>
+                    </div>
+
+                  </div>
+                </li>
+              </div>
+            </ul>
+
+          </form>
+        </div>
+      </div>
+    </ngx-navbar-collapse>
+  </div>
+</nav>
